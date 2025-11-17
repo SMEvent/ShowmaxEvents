@@ -19,9 +19,23 @@ const AuthContext = createContext<AuthContextType>({
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const supabase = createClient();
 
   useEffect(() => {
+    // Only initialize Supabase on the client side
+    if (typeof window === "undefined") {
+      setLoading(false);
+      return;
+    }
+
+    let supabase;
+    try {
+      supabase = createClient();
+    } catch (error) {
+      console.error("Failed to initialize Supabase client:", error);
+      setLoading(false);
+      return;
+    }
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
@@ -37,11 +51,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     });
 
     return () => subscription.unsubscribe();
-  }, [supabase]);
+  }, []);
 
   const signOut = async () => {
-    await supabase.auth.signOut();
-    window.location.href = "/login";
+    try {
+      const supabase = createClient();
+      await supabase.auth.signOut();
+      window.location.href = "/login";
+    } catch (error) {
+      console.error("Failed to sign out:", error);
+    }
   };
 
   return (
