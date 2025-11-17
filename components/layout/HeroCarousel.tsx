@@ -107,7 +107,7 @@ export function HeroCarousel() {
 
   return (
     <section
-      className="relative bg-black pt-20 pb-[135px] md:pt-32 md:pb-[300px] overflow-hidden"
+      className="relative bg-black pb-[270px] md:pb-[600px] overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onFocus={handleMouseEnter}

@@ -7,7 +7,7 @@ export default async function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 bg-black pt-16">
+      <main className="flex-1 bg-black">
         {/* Hero Section */}
         <HeroCarousel />
 
