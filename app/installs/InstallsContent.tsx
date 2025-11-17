@@ -1,0 +1,382 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+
+export default function InstallsContent() {
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
+
+  const toggleSection = (id: string) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  const installationSpecialties = [
+    {
+      id: "led-walls",
+      title: "LED Wall Installations",
+      summary: (
+        <>
+          Impress audiences with stunning visuals that turn your space into a destination. We design and install large-format LED screens, curved displays, stage backdrops, digital signage & lobby displays, and LED ceilings, strips & immersive environments.
+        </>
+      ),
+      details: {
+        closing: "From 2.6mm fine pitch to high-brightness outdoor walls, we tailor the screen to your space, your budget, and your goals.",
+        equipment: [
+          "ROE Visual LED panels (BP2.8mm, Graphite 2.6mm)",
+          "Brompton SX40 / XD processing",
+          "Large-format LED screens",
+          "Curved displays & stage backdrops",
+          "Digital signage & lobby displays",
+          "LED ceilings, strips & immersive environments"
+        ]
+      }
+    },
+    {
+      id: "audio",
+      title: "Professional Audio Systems",
+      summary: (
+        <>
+          Transform your room with crystal-clear sound designed for speech, music, worship, concerts, and everything in between. We specialize in full venue audio upgrades, concert-grade line arrays, subwoofer integration, distributed audio for lobbies, lounges, meeting rooms, system tuning, calibration & operator training.
+        </>
+      ),
+      details: {
+        closing: "The result: every seat is the best seat in the house.",
+        equipment: [
+          "d&b audiotechnik line arrays (J, Y, Q series)",
+          "Subwoofer integration",
+          "Distributed audio systems",
+          "System tuning & calibration",
+          "Operator training included",
+          "QSC, Shure, Sennheiser"
+        ]
+      }
+    },
+    {
+      id: "lighting",
+      title: "Lighting Systems That Elevate Every Moment",
+      summary: (
+        <>
+          Lighting shapes the entire experience—and we install systems that bring emotion, impact and flexibility. Our installations include moving fixtures, LED washes, strobes, blinders, house lighting & ambient fixtures, architectural accent lighting, and MA Lighting console programming.
+        </>
+      ),
+      details: {
+        closing: "From concerts to conferences to Sunday services, we build lighting systems that define the room.",
+        equipment: [
+          "Moving fixtures (Robe, Martin, Elation)",
+          "LED washes, strobes, blinders",
+          "House lighting & ambient fixtures",
+          "Architectural accent lighting",
+          "MA Lighting console programming",
+          "Chauvet Professional"
+        ]
+      }
+    },
+    {
+      id: "video",
+      title: "Video, Projection & Camera Systems",
+      summary: (
+        <>
+          Your visuals need to be sharp, reliable and easy to operate. Our integrations include laser projection systems, multi-camera setups, PTZ cameras for streaming, Barco E2 / S3 switching, Blackmagic ATEM control rooms, and 12G/SDI and fiber distribution.
+        </>
+      ),
+      details: {
+        closing: "Perfect for hybrid events, livestreams, conferences and broadcast environments.",
+        equipment: [
+          "Laser projection systems (Epson / Barco)",
+          "Multi-camera setups",
+          "PTZ cameras for streaming",
+          "Barco E2 / S3 switching",
+          "Blackmagic ATEM control rooms",
+          "12G/SDI and fiber distribution"
+        ]
+      }
+    },
+    {
+      id: "rigging",
+      title: "Rigging, Power & Infrastructure",
+      summary: (
+        <>
+          Every great AV system starts with a safe, reliable foundation. We provide CM motors & Eurotruss installations, permanent rigging points & load calculations, ground support structures, Theatrixx, LEX & TMB power systems, and cable management designed for long-term use.
+        </>
+      ),
+      details: {
+        closing: "Safety, compliance and engineering are built into every upgrade.",
+        equipment: [
+          "CM motors & Eurotruss installations",
+          "Permanent rigging points & load calculations",
+          "Ground support structures",
+          "Theatrixx, LEX & TMB power systems",
+          "Cable management & infrastructure",
+          "Tyler Truss systems"
+        ]
+      }
+    }
+  ];
+
+  const markets = [
+    {
+      title: "Event Venues & Convention Centres",
+      description: "Turn your venue into a turnkey destination with installed LED, audio, lighting, and rigging systems that reduce rental dependencies and increase bookings."
+    },
+    {
+      title: "Houses of Worship",
+      description: "We specialize in clear speech, powerful worship environments, and volunteer-friendly systems."
+    },
+    {
+      title: "Nightclubs & Entertainment Spaces",
+      description: "High-impact sound, immersive lighting, and LED walls that define your brand."
+    },
+    {
+      title: "Corporate Spaces & Boardrooms",
+      description: "LED displays, conferencing systems, hybrid video setups, distributed audio and more."
+    },
+    {
+      title: "Film, Broadcast & Virtual Production Studios",
+      description: "Complete LED volume integration, camera tracking, rendering servers, and UE pipelines—installed by the team behind Vancouver's leading VP projects."
+    }
+  ];
+
+  const installations = [
+    "Stanley Theatre – Audio",
+    "Coastal Church (Downtown & Commercial Dr.) – Audio, LED, Lighting",
+    "Aurum Event Centre – Audio, Lighting, Rigging, Power",
+    "Midtown Church – Audio, Lighting, Video",
+    "Rocky Mountaineer Station – Full Venue AV Integration",
+    "Harbour Event Centre & Harbour Convention Centre – Full Venue AV Systems"
+  ];
+
+  return (
+    <main className="flex-1 bg-black pt-24 pb-24">
+      <div className="relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute -top-48 left-1/2 h-[540px] w-[540px] -translate-x-1/2 rounded-full blur-3xl"
+          style={{
+            background: "radial-gradient(circle, rgba(250, 204, 21, 0.3) 0%, transparent 70%)",
+          }}
+        />
+        <div className="container mx-auto px-4">
+          <article>
+            <section id="installations" className="mx-auto max-w-3xl scroll-mt-24 text-center">
+              <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
+                AV Installation & Integration That <span className="text-[#FACC15]">Transforms Your Space</span>
+              </h1>
+            </section>
+
+            <div className="mt-20 space-y-16 md:space-y-20">
+              {/* World-Class AV Systems */}
+              <section className="scroll-mt-24">
+                <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">World-Class AV Systems, Built to <span className="text-[#FACC15]">Perform Every Day</span></h2>
+                  <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                    Your venue deserves technology that elevates every event, every service, every moment. At Showmax, we design and install complete, high-performance AV systems that look incredible, sound exceptional, and operate reliably—day after day, show after show.
+                  </p>
+                  <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                    From LED walls and audio systems to lighting, video, rigging and power, our integration team delivers turnkey solutions that instantly upgrade your space and set you apart.
+                  </p>
+                  <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                    This is permanent AV done right—engineered by a team that produces <span className="text-[#FACC15]">10,000+ events</span> and knows exactly what your venue needs to succeed.
+                  </p>
+                </div>
+              </section>
+
+              {/* Why Venues Choose Showmax */}
+              <section className="scroll-mt-24">
+                <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Why Venues Choose <span className="text-[#FACC15]">Showmax</span> for AV Installations</h2>
+                  
+                  <div className="mt-8 space-y-8">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-white md:text-3xl">We Don't Just Install Equipment—We Build Experiences</h3>
+                      <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                        Your AV system becomes part of your business. It must be powerful, intuitive, and built for long-term performance. Showmax delivers installations that make your venue look better, sound better, and attract higher-value clients.
+                      </p>
+                    </div>
+
+                    <div className="border-t border-white/10 pt-8">
+                      <h3 className="text-2xl font-semibold text-white md:text-3xl">Designed by Production Experts</h3>
+                      <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                        With decades of experience producing concerts, festivals, conferences, churches and virtual productions, we know what works in the real world—not just on paper.
+                      </p>
+                      <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                        You get the same technology trusted by: <span className="text-[#FACC15]">TED, Amazon, Lululemon, MGM, NFL, Netflix, Coastal Church, BMW, Porter Airlines</span>, and more.
+                      </p>
+                    </div>
+
+                    <div className="border-t border-white/10 pt-8">
+                      <h3 className="text-2xl font-semibold text-white md:text-3xl">Powered by Industry-Leading Brands</h3>
+                      <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                        We install only proven, rider-approved, globally recognized equipment:
+                      </p>
+                      <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-base text-gray-100 md:text-lg">
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>ROE Visual LED walls</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>Brompton Processing</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>d&b audiotechnik sound systems</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>Shure Axient wireless</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>Digico, Avid, Allen & Heath</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>Robe, Martin, Elation, Chauvet</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>Barco, Blackmagic, Epson</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>Eurotruss, Tyler Truss</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                          <span>Theatrixx & LEX power</span>
+                        </li>
+                      </ul>
+                      <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                        Your installation is built with the same tools used on the world's biggest stages.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Installation Specialties */}
+              <section id="specialties" className="scroll-mt-24">
+                <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Our Installation <span className="text-[#FACC15]">Specialties</span></h2>
+                  
+                  <div className="mt-12 space-y-12">
+                    {installationSpecialties.map(({ id, title, summary, details }) => {
+                      const isOpen = Boolean(openSections[id]);
+                      const sectionId = `installs-${id}`;
+                      return (
+                        <div key={id} id={sectionId} className="border-t border-white/20 pt-10 first:border-t-0 first:pt-0 scroll-mt-24">
+                          <button
+                            type="button"
+                            onClick={() => toggleSection(id)}
+                            className="flex w-full items-center justify-between text-left group"
+                            aria-expanded={isOpen}
+                            aria-controls={`${id}-details`}
+                          >
+                            <span className="text-2xl font-semibold text-white md:text-3xl group-hover:text-[#FACC15] transition-colors">{title}</span>
+                            <span className="ml-4 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/30 text-xl text-white transition-all group-hover:border-[#FACC15] group-hover:text-[#FACC15]">
+                              {isOpen ? "−" : "+"}
+                            </span>
+                          </button>
+                          <div className="mt-5 text-base leading-relaxed text-gray-300 md:text-lg">{summary}</div>
+                          {isOpen && (
+                            <div id={`${id}-details`} className="mt-6 space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6 text-base leading-relaxed text-gray-100 md:text-lg">
+                              <p className="text-sm font-semibold uppercase tracking-wide text-[#FACC15] md:text-base">Equipment & Integration:</p>
+                              <ul className="space-y-3">
+                                {details.equipment.map((item) => (
+                                  <li key={item} className="flex items-start gap-3">
+                                    <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                              <p className="text-gray-300 pt-2">{details.closing}</p>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </section>
+
+              {/* Markets We Install For */}
+              <section id="markets" className="scroll-mt-24">
+                <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Markets We <span className="text-[#FACC15]">Install For</span></h2>
+                  
+                  <div className="mt-8 space-y-6">
+                    {markets.map((market, index) => (
+                      <div key={index} className={index > 0 ? "border-t border-white/10 pt-6" : ""}>
+                        <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">{market.title}</h3>
+                        <p className="mt-2 text-base leading-relaxed text-gray-300 md:text-lg">
+                          {market.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* Proven Installation Work */}
+              <section id="portfolio" className="scroll-mt-24">
+                <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Our Proven <span className="text-[#FACC15]">Installation Work</span></h2>
+                  <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                    A selection of recent installations:
+                  </p>
+                  
+                  <ul className="mt-6 space-y-3 text-base text-gray-100 md:text-lg">
+                    {installations.map((installation) => (
+                      <li key={installation} className="flex items-start gap-3">
+                        <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
+                        <span>{installation}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <p className="mt-6 text-base leading-relaxed text-gray-300 md:text-lg">
+                    Each project completed with full design, integration, programming and support.
+                  </p>
+                </div>
+              </section>
+
+              {/* CTA */}
+              <section id="contact-cta" className="scroll-mt-24">
+                <div className="rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 via-white/3 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl text-center">Ready to <span className="text-[#FACC15]">Upgrade Your Venue?</span> Let's Build It.</h2>
+                  <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg text-center max-w-3xl mx-auto">
+                    A permanent AV installation is an investment in your guest experience, your revenue, and your future. Showmax delivers systems that look better, sound better, and last longer—installed by a team that supports you long after opening night.
+                  </p>
+                  
+                  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
+                    >
+                      ✔ Book a Consultation
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
+                    >
+                      ✔ Request an AV Installation Quote
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
+                    >
+                      ✔ Schedule a Site Visit
+                    </Link>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+  );
+}
+
