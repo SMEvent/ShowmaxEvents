@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { Toaster } from "@/components/ui/sonner";
-import { FontLoader } from "@/components/common/FontLoader";
 
 export const metadata: Metadata = {
   title: "ShowMax Events - Professional AV Rental Vancouver",
@@ -18,7 +17,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased bg-black text-white">
-        <FontLoader />
         <AuthProvider>
           {children}
           <Toaster />

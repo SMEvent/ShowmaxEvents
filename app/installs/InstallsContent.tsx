@@ -160,7 +160,7 @@ export default function InstallsContent() {
         <div className="container mx-auto px-4">
           <article>
             <section id="installations" className="mx-auto max-w-3xl scroll-mt-24 text-center">
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
+              <h1 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
                 AV Installation & Integration That <span className="text-[#FACC15]">Transforms Your Space</span>
               </h1>
             </section>

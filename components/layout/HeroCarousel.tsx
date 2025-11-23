@@ -18,45 +18,45 @@ const slides: Slide[] = [
   {
     image: "/showmax-vancouver-Dan-Lok-event.jpg",
     alt: "ShowMax Events Vancouver - Dan Lok Event",
-    title: "Professional AV Rental for Vancouver Events",
-    titleHighlight: "Vancouver Events",
-    description: "Enterprise-grade audio/visual equipment for corporate events, conferences, and live productions. Get a quote in minutes.",
+    title: "Professional Event Production for Vancouver",
+    titleHighlight: "Event Production",
+    description: "Full-service event production including audio, video, lighting, staging, rigging, and drape. Enterprise solutions for corporate events, conferences, and live shows.",
     eventName: "Dan Lok Event",
     location: "Vancouver, BC",
   },
   {
     image: "/Cabriolet2018-2 - Gala.jpg",
-    alt: "Professional Audio Visual Equipment Setup",
-    title: "Premium Audio Systems for Every Event",
+    alt: "Professional Event Production Equipment Setup",
+    title: "Complete Production Services for Every Event",
     titleHighlight: "Every Event",
-    description: "State-of-the-art PA systems, mixers, and microphones that deliver crystal-clear sound for audiences of any size.",
+    description: "Premium audio systems, LED video walls, intelligent lighting, staging, drape, and certified rigging for events of any scale.",
     eventName: "Corporate Conference",
     location: "Vancouver Convention Centre",
   },
   {
     image: "/hero-slide-3.jpg",
-    alt: "Video Production Equipment and Screens",
-    title: "Cutting-Edge Video Solutions",
-    titleHighlight: "Video Solutions",
-    description: "High-definition projectors, LED screens, and professional cameras to capture and display your event in stunning detail.",
+    alt: "Event Video Production and LED Displays",
+    title: "High-Impact Visual Production",
+    titleHighlight: "Visual Production",
+    description: "LED video walls, projection mapping, live video production, and broadcast-quality cameras to elevate your event experience.",
     eventName: "Tech Summit 2024",
     location: "Downtown Vancouver",
   },
   {
     image: "/hero-slide-4.jpg",
-    alt: "Stage Lighting and Effects",
-    title: "Dynamic Lighting & Stage Effects",
-    titleHighlight: "Stage Effects",
-    description: "Transform your venue with professional stage lighting, effects, and control systems that create the perfect atmosphere.",
+    alt: "Event Stage Lighting and Rigging",
+    title: "Dynamic Lighting, Staging & Rigging",
+    titleHighlight: "Staging & Rigging",
+    description: "Professional stage construction, certified rigging, atmospheric lighting, drape systems, and scenic elements that transform venues.",
     eventName: "Music Festival",
     location: "Stanley Park, Vancouver",
   },
   {
     image: "/hero-slide-5.jpg",
     alt: "Complete Event Production Services",
-    title: "Full-Service Event Production",
+    title: "Full-Service Event Production Company",
     titleHighlight: "Event Production",
-    description: "From equipment rental to technical support, we provide complete AV solutions for events across Vancouver and the Lower Mainland.",
+    description: "Comprehensive event production services across Canada. Audio, video, lighting, staging, rigging, drape, and technical crew for flawless execution.",
     eventName: "Gala Dinner",
     location: "Vancouver, BC",
   },
@@ -123,6 +123,11 @@ export function HeroCarousel() {
               index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
             aria-hidden={index !== currentIndex}
+            style={{
+              willChange: index === currentIndex || index === (currentIndex + 1) % slides.length || index === (currentIndex - 1 + slides.length) % slides.length ? 'opacity' : 'auto',
+              transform: 'translateZ(0)',
+              WebkitTransform: 'translateZ(0)'
+            }}
           >
             <Image
               src={slide.image}
@@ -131,6 +136,10 @@ export function HeroCarousel() {
               priority={index === 0}
               className="object-cover"
               sizes="100vw"
+              style={{
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)'
+              }}
             />
             {/* Dark Gradient Overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60" />
@@ -143,6 +152,12 @@ export function HeroCarousel() {
         <div
           key={currentIndex}
           className="animate-fade-in bg-black/70 backdrop-blur-md rounded-lg p-2 md:p-4 shadow-2xl border border-white/10"
+          style={{
+            WebkitBackdropFilter: 'blur(12px)',
+            willChange: 'transform, opacity',
+            transform: 'translateZ(0)',
+            WebkitTransform: 'translateZ(0)'
+          }}
         >
           <h2 className="mb-0.5 text-base md:text-xl font-bold text-white leading-tight">
             {slides[currentIndex].eventName}

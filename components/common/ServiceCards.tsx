@@ -37,13 +37,13 @@ export function ServiceCards() {
       title: "Our Services",
       gif: "/icons/stage.gif",
       delay: "0ms",
-      href: "/production"
+      href: "/events"
     },
     {
       title: "Where we work",
       gif: "/icons/location.gif",
       delay: "100ms",
-      href: "/production#service-areas"
+      href: "/events#service-areas"
     },
     {
       title: "Rental booking",
@@ -97,17 +97,25 @@ export function ServiceCards() {
                 }`}
                 style={{ 
                   backdropFilter: 'blur(20px)', 
+                  WebkitBackdropFilter: 'blur(20px)',
                   backgroundColor: 'rgba(0, 0, 0, 0.4)',
                   transitionDelay: isVisible ? card.delay : '0ms',
-                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
+                  willChange: 'transform, opacity',
+                  transform: 'translateZ(0)',
+                  WebkitTransform: 'translateZ(0)'
                 }}
               >
                 <div 
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 active:opacity-100 transition-opacity duration-300"
                   style={{ 
-                    backdropFilter: 'blur(20px)', 
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)', 
                     backgroundColor: 'rgba(250, 204, 21, 0.3)',
-                    background: 'radial-gradient(circle at center, rgba(250, 204, 21, 0.4) 0%, rgba(250, 204, 21, 0.2) 50%, rgba(250, 204, 21, 0.1) 100%)'
+                    background: 'radial-gradient(circle at center, rgba(250, 204, 21, 0.4) 0%, rgba(250, 204, 21, 0.2) 50%, rgba(250, 204, 21, 0.1) 100%)',
+                    willChange: 'opacity',
+                    transform: 'translateZ(0)',
+                    WebkitTransform: 'translateZ(0)'
                   }}
                 />
                 <CardHeader className="relative z-10 p-6 md:p-8">

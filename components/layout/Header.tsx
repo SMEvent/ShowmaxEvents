@@ -2,62 +2,66 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { useAuth } from "@/components/auth/AuthProvider";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
-import { Menu, X, User, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Header() {
-  const { user, signOut } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [activeSectionId, setActiveSectionId] = useState<string>("");
+  const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   // Define navigation structure (moved before useEffect to be accessible)
   const leftNavigation = [
     {
-      name: "Our Services",
-      href: "/production#production",
+      name: "Events",
+      href: "/events#events",
       hasDropdown: true,
       items: [
         { 
           name: "Live Event Production", 
-          href: "/production#live-events",
+          href: "/events#live-events",
           hasSubmenu: true,
           subItems: [
-            { name: "Professional Audio Systems", href: "/production#live-events-audio" },
-            { name: "Event Lighting", href: "/production#live-events-lighting" },
-            { name: "LED Wall Rental", href: "/production#live-events-video" },
-            { name: "Rigging Services", href: "/production#live-events-rigging" },
+            { name: "Professional Audio Systems", href: "/events#live-events-audio" },
+            { name: "Event Lighting", href: "/events#live-events-lighting" },
+            { name: "LED Wall Rental", href: "/events#live-events-video" },
+            { name: "Rigging Services", href: "/events#live-events-rigging" },
+            { name: "Staging & Drape", href: "/events#live-events-staging-drape" },
           ]
         },
         { 
           name: "Hybrid & Virtual Events", 
-          href: "/production#hybrid-events",
+          href: "/events#hybrid-events",
           hasSubmenu: true,
           subItems: [
-            { name: "Live Streaming", href: "/production#hybrid-events-streaming" },
-            { name: "Multi-Camera Production", href: "/production#hybrid-events-multicam" },
-            { name: "Virtual Platforms", href: "/production#hybrid-events-platforms" },
-            { name: "Remote Speaker Management", href: "/production#hybrid-events-remote" },
+            { name: "Live Streaming", href: "/events#hybrid-events-streaming" },
+            { name: "Multi-Camera Production", href: "/events#hybrid-events-multicam" },
+            { name: "Virtual Platforms", href: "/events#hybrid-events-platforms" },
+            { name: "Remote Speaker Management", href: "/events#hybrid-events-remote" },
           ]
         },
-        { name: "Venues", href: "/production#venues" },
       ],
     },
     {
-      name: "Installs",
+      name: "Film & Television",
+      href: "/film-tv",
+      hasDropdown: false,
+    },
+    {
+      name: "Installations",
       href: "/installs",
       hasDropdown: true,
       items: [
@@ -68,19 +72,14 @@ export function Header() {
         { name: "Rigging & Power", href: "/installs#installs-rigging" },
       ],
     },
-    {
-      name: "Rentals",
-      href: "/rentals",
-      hasDropdown: true,
-      items: [
-        { name: "Booking System", href: "/rentals/booking-system" },
-      ],
-    },
   ];
 
   const rightNavigation = [
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Rentals", href: "/rentals", hasDropdown: false },
+    { name: "Sales", href: "/sales", hasDropdown: false },
+    { name: "Venues", href: "/venues", hasDropdown: false },
+    { name: "About", href: "/about", hasDropdown: false },
+    { name: "Contact", href: "/contact", hasDropdown: false },
   ];
 
   // Track active section using Intersection Observer
@@ -122,34 +121,45 @@ export function Header() {
       return () => window.removeEventListener("hashchange", updateHash);
     }
 
-    // Create Intersection Observer with optimized settings for mobile
+    // Create Intersection Observer with optimized settings
     const observerOptions = {
       root: null,
-      rootMargin: "-25% 0px -65% 0px", // Trigger when section is in upper portion of viewport
-      threshold: [0, 0.1, 0.3, 0.5, 0.7, 1] // More granular thresholds for better detection
+      rootMargin: "-25% 0px -65% 0px",
+      threshold: [0, 0.5]
     };
 
+    let isUserScrolling = false;
+    let scrollTimeout: NodeJS.Timeout | null = null;
+    let hashUpdateTimeout: NodeJS.Timeout | null = null;
+
     const observer = new IntersectionObserver((entries) => {
-      // Find the section that's most visible and closest to the top
       const visibleEntries = entries.filter(entry => entry.isIntersecting);
       
       if (visibleEntries.length > 0) {
-        // Sort by intersection ratio and position, prefer higher ratio and higher position
-        visibleEntries.sort((a, b) => {
-          const ratioDiff = (b.intersectionRatio || 0) - (a.intersectionRatio || 0);
-          if (Math.abs(ratioDiff) > 0.1) return ratioDiff;
-          return a.boundingClientRect.top - b.boundingClientRect.top;
-        });
+        visibleEntries.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         
         const topSection = visibleEntries[0];
-        if (topSection) {
+        if (topSection && topSection.target.id) {
           const id = topSection.target.id;
-          if (id) {
-            setActiveSectionId(id);
-            // Update URL hash without scrolling
-            if (window.location.hash !== `#${id}`) {
-              window.history.replaceState(null, "", `#${id}`);
-            }
+          setActiveSectionId(id);
+          
+          // Only update hash after scrolling has stopped to prevent jumps
+          if (hashUpdateTimeout) {
+            clearTimeout(hashUpdateTimeout);
+          }
+          
+          if (!isUserScrolling) {
+            hashUpdateTimeout = setTimeout(() => {
+              if (window.location.hash !== `#${id}`) {
+                // Use replaceState to avoid triggering scroll
+                const currentScroll = window.scrollY;
+                window.history.replaceState(null, "", `#${id}`);
+                // Restore scroll position if it changed
+                if (window.scrollY !== currentScroll) {
+                  window.scrollTo(0, currentScroll);
+                }
+              }
+            }, 500);
           }
         }
       }
@@ -164,138 +174,40 @@ export function Header() {
         observedElements.push(element);
       }
     });
-
-    // Cache DOM elements to avoid repeated queries
-    const sectionElements = new Map<string, HTMLElement>();
-    sectionIds.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) {
-        sectionElements.set(id, element);
-      }
-    });
-
-    // Minimal scroll handler - only updates when scrolling slows or stops
-    // Intersection Observer handles active updates during scrolling
-    let scrollTimeout: NodeJS.Timeout | null = null;
-    let rafId: number | null = null;
-    let lastScrollTime = 0;
-    let lastScrollPosition = 0;
-    let isScrolling = false;
-    const SCROLL_THROTTLE_MS = 250; // Increased throttle for fast scrolling
     
+    // Track when user is actively scrolling
     const handleScroll = () => {
-      const now = Date.now();
-      const currentScroll = window.scrollY;
-      const scrollDelta = Math.abs(currentScroll - lastScrollPosition);
-      lastScrollPosition = currentScroll;
-      isScrolling = true;
+      isUserScrolling = true;
       
-      // Skip updates during fast scrolling - let Intersection Observer handle it
-      // Only process if scroll has slowed down significantly
-      if (now - lastScrollTime < SCROLL_THROTTLE_MS || scrollDelta > 50) {
-        return;
-      }
-      lastScrollTime = now;
-      
-      // Cancel any pending requestAnimationFrame
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
       }
       
-      // Use requestAnimationFrame for smooth updates
-      rafId = requestAnimationFrame(() => {
-        const scrollPosition = window.scrollY + 200;
-        let activeId = "";
-        
-        // Use cached elements for better performance
-        for (let i = sectionIds.length - 1; i >= 0; i--) {
-          const id = sectionIds[i];
-          const element = sectionElements.get(id);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            const elementTop = rect.top + window.scrollY;
-            
-            // Check if section is in viewport
-            if (elementTop <= scrollPosition && elementTop + rect.height >= scrollPosition - 300) {
-              activeId = id;
-              break;
-            }
-          }
-        }
-        
-        // If no section in view, find the last one we scrolled past
-        if (!activeId) {
-          for (let i = sectionIds.length - 1; i >= 0; i--) {
-            const id = sectionIds[i];
-            const element = sectionElements.get(id);
-            if (element) {
-              const rect = element.getBoundingClientRect();
-              const elementTop = rect.top + window.scrollY;
-              
-              if (elementTop <= scrollPosition) {
-                activeId = id;
-                break;
-              }
-            }
-          }
-        }
-
-        if (activeId && activeId !== activeSectionId) {
-          setActiveSectionId(activeId);
-        }
-        
-        rafId = null;
-      });
+      scrollTimeout = setTimeout(() => {
+        isUserScrolling = false;
+      }, 150);
     };
-
-    // Update URL hash only after scrolling stops
-    let scrollEndTimeout: NodeJS.Timeout | null = null;
-    const handleScrollEnd = () => {
-      if (scrollEndTimeout) {
-        clearTimeout(scrollEndTimeout);
-      }
-      scrollEndTimeout = setTimeout(() => {
-        isScrolling = false;
-        // Update hash only when scrolling has completely stopped
-        if (activeSectionId && window.location.hash !== `#${activeSectionId}`) {
-          window.history.replaceState(null, "", `#${activeSectionId}`);
-        }
-      }, 400);
-    };
-
-    // Initial check
-    const initialTimeout = setTimeout(handleScroll, 100);
-    // Use passive listener for better scroll performance
-    // Only attach scroll handler as fallback - Intersection Observer is primary
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("scroll", handleScrollEnd, { passive: true });
     
-    // Also listen for hash changes (when clicking nav links)
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    // Listen for hash changes (when clicking nav links)
     const handleHashChange = () => {
       const hash = window.location.hash.replace("#", "");
       if (hash && sectionIds.includes(hash)) {
         setActiveSectionId(hash);
-      } else {
-        // If hash doesn't match, update based on scroll
-        setTimeout(handleScroll, 50);
       }
     };
     window.addEventListener("hashchange", handleHashChange);
 
     return () => {
-      clearTimeout(initialTimeout);
       if (scrollTimeout) {
         clearTimeout(scrollTimeout);
       }
-      if (scrollEndTimeout) {
-        clearTimeout(scrollEndTimeout);
-      }
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
+      if (hashUpdateTimeout) {
+        clearTimeout(hashUpdateTimeout);
       }
       observedElements.forEach(el => observer.unobserve(el));
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("scroll", handleScrollEnd);
       window.removeEventListener("hashchange", handleHashChange);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -348,15 +260,131 @@ export function Header() {
         className="container mx-auto relative flex h-16 items-center justify-between px-4 rounded-xl glass-panel overflow-visible"
       >
         {/* Left Navigation */}
-        <div className="hidden lg:flex items-center gap-2 xl:gap-4 flex-1 min-w-0 max-w-[calc(50%-110px)] pr-14 xl:pr-28 justify-end">
+        <div className="hidden lg:flex items-center gap-1.5 xl:gap-2 flex-1 justify-end max-w-[40%] pr-8 xl:pr-16">
           {leftNavigation.map((item) => {
             const active = isActive(item.href);
             if (item.hasDropdown && item.items) {
+              // Special handling for Events - hover dropdown with click navigation
+              if (item.name === "Events") {
+                return (
+                  <div 
+                    key={item.name} 
+                    className="relative"
+                    onMouseEnter={() => setEventsDropdownOpen(true)}
+                    onMouseLeave={() => setEventsDropdownOpen(false)}
+                  >
+                    <DropdownMenu 
+                      open={eventsDropdownOpen} 
+                      onOpenChange={(open) => {
+                        setEventsDropdownOpen(open);
+                        if (!open) {
+                          setOpenSubmenu(null);
+                        }
+                      }} 
+                      modal={false}
+                    >
+                      <DropdownMenuTrigger asChild>
+                        <Link
+                          href={item.href}
+                          onClick={(e) => {
+                            // Ensure navigation happens on click
+                            setEventsDropdownOpen(false);
+                          }}
+                          className={`relative font-semibold text-xs xl:text-sm whitespace-nowrap px-1.5 xl:px-2.5 py-2 rounded-full transition-all ${
+                            active
+                              ? "bg-primary text-primary-foreground shadow-[0_0_30px_rgba(250,204,21,0.55)]"
+                              : "text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_22px_rgba(250,204,21,0.35)]"
+                          }`}
+                        >
+                          {item.name}
+                        </Link>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent
+                        align="start"
+                        className="rounded-xl border border-primary/20 p-2 min-w-[220px] !overflow-visible bg-black/95 backdrop-blur-sm"
+                        onMouseEnter={() => setEventsDropdownOpen(true)}
+                        onMouseLeave={() => setEventsDropdownOpen(false)}
+                      >
+                        {item.items.map((subItem) => {
+                          if (subItem.hasSubmenu && subItem.subItems) {
+                            const isSubmenuOpen = openSubmenu === subItem.name;
+                            return (
+                              <DropdownMenuSub 
+                                key={subItem.name}
+                                open={isSubmenuOpen}
+                                onOpenChange={(open) => {
+                                  if (open) {
+                                    setOpenSubmenu(subItem.name);
+                                  } else if (openSubmenu === subItem.name) {
+                                    setOpenSubmenu(null);
+                                  }
+                                }}
+                              >
+                                <DropdownMenuSubTrigger 
+                                  className="text-white hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground rounded-lg transition-colors cursor-pointer"
+                                  onMouseEnter={() => {
+                                    // Immediately close other submenus and open this one
+                                    setOpenSubmenu(subItem.name);
+                                  }}
+                                >
+                                  {subItem.name}
+                                </DropdownMenuSubTrigger>
+                                <DropdownMenuSubContent 
+                                  className="rounded-xl border border-primary/20 min-w-[240px] !overflow-visible bg-black/95 backdrop-blur-sm"
+                                  sideOffset={8}
+                                  alignOffset={-8}
+                                  onMouseEnter={() => {
+                                    setOpenSubmenu(subItem.name);
+                                  }}
+                                  onMouseLeave={() => {
+                                    setOpenSubmenu(null);
+                                  }}
+                                >
+                                  <div className="flex flex-col p-2" style={{ gap: '4px' }}>
+                                    <Link 
+                                      href="/events#events"
+                                      className="block w-full px-3 py-2 text-sm text-white rounded-lg hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground transition-colors no-underline"
+                                      style={{ display: 'block' }}
+                                    >
+                                      Overview
+                                    </Link>
+                                    <div className="h-px bg-gray-700 my-1" style={{ display: 'block' }} />
+                                    {subItem.subItems.map((subSubItem) => (
+                                      <Link
+                                        key={subSubItem.name}
+                                        href={subSubItem.href}
+                                        className="block w-full px-3 py-2 text-sm text-white rounded-lg hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground transition-colors no-underline whitespace-nowrap"
+                                        style={{ display: 'block' }}
+                                      >
+                                        {subSubItem.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </DropdownMenuSubContent>
+                              </DropdownMenuSub>
+                            );
+                          }
+                          return (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="flex items-center w-full px-3 py-2 text-sm text-white rounded-lg hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground transition-colors no-underline mb-1"
+                            >
+                              {subItem.name}
+                            </Link>
+                          );
+                        })}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                );
+              }
+              // Other dropdown items keep the original behavior
               return (
                 <div key={item.name} className="flex items-center gap-1">
                 <Link
                   href={item.href}
-                  className={`relative font-semibold text-xs xl:text-sm whitespace-nowrap px-2 xl:px-3 py-2 rounded-full transition-all ${
+                  className={`relative font-semibold text-xs xl:text-sm whitespace-nowrap px-1.5 xl:px-2.5 py-2 rounded-full transition-all ${
                     active
                       ? "bg-primary text-primary-foreground shadow-[0_0_30px_rgba(250,204,21,0.55)]"
                       : "text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_22px_rgba(250,204,21,0.35)]"
@@ -395,7 +423,7 @@ export function Header() {
                               >
                                 <div className="flex flex-col p-2" style={{ gap: '4px' }}>
                                   <Link 
-                                    href="/production#production"
+                                    href="/events#events"
                                     className="block w-full px-3 py-2 text-sm text-white rounded-lg hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground transition-colors no-underline"
                                     style={{ display: 'block' }}
                                   >
@@ -436,7 +464,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative font-semibold text-xs xl:text-sm whitespace-nowrap px-2 xl:px-3 py-2 rounded-full transition-all ${
+                className={`relative font-semibold text-xs xl:text-sm whitespace-nowrap px-1.5 xl:px-2.5 py-2 rounded-full transition-all ${
                   active
                     ? "bg-primary text-primary-foreground shadow-[0_0_30px_rgba(250,204,21,0.55)]"
                     : "text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_22px_rgba(250,204,21,0.35)]"
@@ -449,7 +477,7 @@ export function Header() {
         </div>
 
         {/* Centered Logo - Absolutely positioned for true centering */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
           <Link href="/" className="flex items-center pointer-events-auto">
             <Image
               src="/showmax_logo.png"
@@ -463,15 +491,15 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Right Navigation & Auth */}
-        <div className="hidden lg:flex items-center gap-2 xl:gap-4 flex-1 justify-start min-w-0 max-w-[calc(50%-110px)] pl-14 xl:pl-28">
+        {/* Right Navigation */}
+        <div className="hidden lg:flex items-center gap-1.5 xl:gap-2 flex-1 justify-start max-w-[40%] pl-8 xl:pl-16">
           {rightNavigation.map((item) => {
             const active = isActive(item.href);
             return (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative font-semibold text-xs xl:text-sm whitespace-nowrap px-2 xl:px-3 py-2 rounded-full transition-all ${
+                className={`relative font-semibold text-xs xl:text-sm whitespace-nowrap px-1.5 xl:px-2.5 py-2 rounded-full transition-all ${
                   active 
                     ? "bg-primary text-primary-foreground shadow-[0_0_30px_rgba(250,204,21,0.55)]" 
                     : "text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_22px_rgba(250,204,21,0.35)]"
@@ -481,46 +509,6 @@ export function Header() {
               </Link>
             );
           })}
-          
-          {/* Auth Buttons */}
-          <div className="flex items-center gap-2 xl:gap-3 ml-2 xl:ml-4 flex-shrink-0">
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="hidden md:flex text-white hover:text-primary hover:bg-[rgba(250,204,21,0.12)] flex-shrink-0"
-                  >
-                    <User className="h-5 w-5" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent 
-                  align="end"
-                  className="rounded-xl border border-primary/20 px-2 py-2 bg-black/95 backdrop-blur-sm"
-                >
-                  <DropdownMenuItem asChild className="text-white/85 hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground rounded-lg transition-colors">
-                    <Link href="/dashboard">Dashboard</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="text-white/85 hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground rounded-lg transition-colors">
-                    <Link href="/dashboard/profile">Profile</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator className="bg-gray-700" />
-                  <DropdownMenuItem onClick={signOut} className="text-white/85 hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground rounded-lg transition-colors">
-                    Sign Out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <Button
-                variant="ghost"
-                asChild
-                className="hidden md:flex text-white hover:bg-gray-800 flex-shrink-0 whitespace-nowrap text-xs xl:text-sm px-2 xl:px-3"
-              >
-                <Link href="/login">Sign In</Link>
-              </Button>
-            )}
-          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -559,7 +547,14 @@ export function Header() {
           className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] z-50 lg:hidden transform transition-transform duration-300 ease-in-out overflow-hidden ${
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
-          style={{ backdropFilter: 'blur(20px)', backgroundColor: 'rgba(0, 0, 0, 0.95)' }}
+          style={{ 
+            backdropFilter: 'blur(20px)', 
+            WebkitBackdropFilter: 'blur(20px)',
+            backgroundColor: 'rgba(0, 0, 0, 0.95)',
+            willChange: mobileMenuOpen ? 'transform' : 'auto',
+            transform: 'translateZ(0)',
+            WebkitTransform: 'translateZ(0)'
+          }}
         >
           {/* Animated Moving Circular Lights */}
           <div className="absolute inset-0 pointer-events-none">
@@ -574,6 +569,9 @@ export function Header() {
                 filter: 'blur(20px)',
                 top: '10%',
                 left: '10%',
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)'
               }}
             />
             
@@ -588,6 +586,9 @@ export function Header() {
                 filter: 'blur(15px)',
                 top: '30%',
                 left: '5%',
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)'
               }}
             />
             
@@ -602,6 +603,9 @@ export function Header() {
                 filter: 'blur(12px)',
                 top: '50%',
                 left: '20%',
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)'
               }}
             />
             
@@ -616,6 +620,9 @@ export function Header() {
                 filter: 'blur(18px)',
                 top: '65%',
                 left: '15%',
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)'
               }}
             />
             
@@ -630,6 +637,9 @@ export function Header() {
                 filter: 'blur(10px)',
                 top: '20%',
                 left: '50%',
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)'
               }}
             />
             
@@ -645,6 +655,9 @@ export function Header() {
                 top: '45%',
                 left: '60%',
                 animationDelay: '2s',
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)'
               } as React.CSSProperties}
             />
             
@@ -660,6 +673,9 @@ export function Header() {
                 top: '75%',
                 left: '40%',
                 animationDelay: '1s',
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)'
               } as React.CSSProperties}
             />
           </div>
@@ -784,46 +800,6 @@ export function Header() {
                 );
               })}
 
-              {/* Auth Section */}
-              <div className="pt-4 space-y-2 border-t border-white/10 mt-4">
-                {user ? (
-                  <>
-                    <Link
-                      href="/dashboard"
-                      className="block py-2 px-3 rounded-full font-semibold text-sm text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_20px_rgba(250,204,21,0.3)] transition-all"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Dashboard
-                    </Link>
-                    <Link
-                      href="/dashboard/profile"
-                      className="block py-2 px-3 rounded-full font-semibold text-sm text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_20px_rgba(250,204,21,0.3)] transition-all"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Profile
-                    </Link>
-                    <Button
-                      variant="outline"
-                      className="w-full border border-primary/25 text-white hover:text-primary hover:bg-[rgba(250,204,21,0.12)] mt-2"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        signOut();
-                      }}
-                    >
-                      Sign Out
-                    </Button>
-                  </>
-                ) : (
-                  <Button
-                    variant="outline"
-                    className="w-full border border-primary/25 text-white hover:text-primary hover:bg-[rgba(250,204,21,0.12)]"
-                    asChild
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Link href="/login">Sign In</Link>
-                  </Button>
-                )}
-              </div>
             </div>
           </div>
         </div>

@@ -26,7 +26,7 @@ export default function ContactPage() {
           <div className="container relative mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center space-y-6">
               <p className="text-sm uppercase tracking-[0.35em] text-white/60">Let&apos;s Connect</p>
-              <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
                 Contact <span className="seo-highlight">ShowMax Events</span>
               </h1>
               <p className="text-lg text-white/70 md:text-xl">

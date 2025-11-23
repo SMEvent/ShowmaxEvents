@@ -38,6 +38,11 @@ export function ProjectCard({
             alt={image.alt}
             fill
             className="object-cover transition-transform group-hover:scale-105"
+            style={{
+              willChange: 'transform',
+              transform: 'translateZ(0)',
+              WebkitTransform: 'translateZ(0)'
+            }}
           />
           {featured && (
             <Badge className="absolute top-2 right-2">Featured</Badge>

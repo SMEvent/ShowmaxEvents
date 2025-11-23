@@ -46,7 +46,7 @@ export default function AboutContent() {
         <div className="container mx-auto px-4">
           <article>
             <section id="about" className="mx-auto max-w-3xl scroll-mt-24 text-center">
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
+              <h1 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
                 Production Experts. <span className="text-[#FACC15]">Technical Partners.</span> Event Innovators.
               </h1>
               <p className="mt-6 text-lg text-gray-200 md:text-xl">
