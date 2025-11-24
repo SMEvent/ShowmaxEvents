@@ -306,7 +306,7 @@ export function Header() {
                         onMouseLeave={() => setEventsDropdownOpen(false)}
                       >
                         {item.items.map((subItem) => {
-                          if (subItem.hasSubmenu && subItem.subItems) {
+                          if ('hasSubmenu' in subItem && subItem.hasSubmenu && subItem.subItems) {
                             const isSubmenuOpen = openSubmenu === subItem.name;
                             return (
                               <DropdownMenuSub 
@@ -410,7 +410,7 @@ export function Header() {
                       className="rounded-xl border border-primary/20 p-2 min-w-[220px] !overflow-visible bg-black/95 backdrop-blur-sm"
                     >
                       {item.items.map((subItem) => {
-                        if (subItem.hasSubmenu && subItem.subItems) {
+                        if ('hasSubmenu' in subItem && subItem.hasSubmenu && subItem.subItems) {
                           return (
                             <DropdownMenuSub key={subItem.name}>
                               <DropdownMenuSubTrigger className="text-white hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground rounded-lg transition-colors cursor-pointer">
@@ -737,7 +737,7 @@ export function Header() {
                               >
                                 {subItem.name}
                               </Link>
-                              {subItem.hasSubmenu && subItem.subItems && (
+                              {'hasSubmenu' in subItem && subItem.hasSubmenu && subItem.subItems && (
                                 <div className="pl-4 space-y-1 mt-1">
                                   {subItem.subItems.map((subSubItem) => {
                                     const subSubActive = isActive(subSubItem.href);
