@@ -6,16 +6,28 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Convention AV Services Las Vegas | Trade Show Production",
-  description: "Professional convention AV services in Las Vegas, NV. Complete trade show production, audio visual equipment, and event services for conventions, conferences, and corporate events on the Strip.",
+  title: "Event Production Las Vegas | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental in Las Vegas, NV. Complete audio visual services with d&b audio, LED walls, lighting for corporate events, trade shows & Las Vegas Convention Center.",
+  keywords: [
+    "event production las vegas",
+    "av rental las vegas",
+    "audio visual las vegas",
+    "las vegas convention center av",
+    "trade show production las vegas",
+    "corporate events las vegas",
+    "ces av services"
+  ],
   openGraph: {
-    title: "Audio Visual Services Las Vegas | AV Equipment & Production",
-    description: "Professional audio visual services in Las Vegas, NV. Event production and AV equipment rental.",
+    title: "Event Production Las Vegas | AV Rental & Audio Visual",
+    description: "Professional event production in Las Vegas. d&b audio, LED walls, lighting. Trade show and convention specialists.",
     url: `${siteUrl}/locations/las-vegas`,
     siteName: "Showmax Events",
     locale: "en_US",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/las-vegas`
+  }
 };
 
 export default function LasVegasPage() {
@@ -26,26 +38,28 @@ export default function LasVegasPage() {
         city="Las Vegas"
         region="Nevada"
         province="NV"
-        heroTitle="Convention AV Services Las Vegas | Trade Show Production"
-        description="Showmax Events provides premium audio visual production services for Las Vegas events. From major conventions and corporate conferences to entertainment productions and product launches, we deliver comprehensive AV solutions with premium equipment and experienced crew serving the world's premier convention destination."
+        heroTitle="Event Production Las Vegas – AV Rental & Audio Visual Services"
+        description="Showmax Events provides professional event production and AV services in Las Vegas. From major trade shows at the Las Vegas Convention Center to corporate galas on the Strip, we deliver d&b audiotechnik sound systems, ROE Visual LED walls, and professional lighting for the entertainment capital's most demanding productions."
         nearbyVenues={[
           "Las Vegas Convention Center",
           "Mandalay Bay Convention Center",
-          "MGM Grand Conference Center",
-          "The Venetian Congress Center",
-          "Caesars Forum",
+          "Wynn Las Vegas",
+          "Venetian Expo",
           "T-Mobile Arena",
+          "Allegiant Stadium",
+          "MGM Grand Conference Center",
+          "Caesars Palace",
+          "ARIA Resort & Casino"
         ]}
         servicesHighlight={[
-          "Major convention and trade show experience",
-          "Premium equipment for high-profile events",
-          "Experienced with Las Vegas venue requirements",
-          "Complete production management",
-          "Trusted for corporate shows on the Strip",
+          "Trade show and convention production specialists",
+          "CES and major Las Vegas event experience",
+          "Premium touring equipment for high-profile events",
+          "d&b audiotechnik and ROE Visual inventory",
+          "Cross-border coordination from Vancouver"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

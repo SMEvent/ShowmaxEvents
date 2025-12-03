@@ -1,7 +1,25 @@
+import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroCarousel } from "@/components/layout/HeroCarousel";
-import { ServiceCards } from "@/components/common/ServiceCards";
+import { HomePageContent } from "@/components/common/HomePageContent";
+
+export const metadata: Metadata = {
+  title: "Showmax Events | Full-Service Event Production & AV Rentals Across Canada",
+  description: "Showmax Events is a leading event production company based in Vancouver, delivering full-service audio, lighting, video, LED, staging, rigging, virtual production, and venue installations across Canada and the USA. Trusted for corporate events, conferences, concerts, festivals, and large-scale productions.",
+  keywords: [
+    "event production Vancouver",
+    "event production Calgary",
+    "event production Toronto",
+    "corporate event AV",
+    "concert production Canada",
+    "AV rentals Vancouver",
+    "LED wall rental Canada",
+    "hybrid event production",
+    "conference AV services",
+    "production company Canada"
+  ],
+};
 
 export default async function HomePage() {
   return (
@@ -11,8 +29,8 @@ export default async function HomePage() {
         {/* Hero Section */}
         <HeroCarousel />
 
-        {/* Hero Content Section */}
-        <ServiceCards />
+        {/* Homepage Content Sections */}
+        <HomePageContent />
       </main>
       <Footer />
     </div>

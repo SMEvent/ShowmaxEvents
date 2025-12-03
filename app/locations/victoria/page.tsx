@@ -6,56 +6,61 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Sound System Rental Victoria | Audio Equipment & Event Production",
-  description: "Professional sound system rental in Victoria, BC. Premium audio equipment, d&b audiotechnik, event production for corporate events, conferences, and venues on Vancouver Island.",
+  title: "Event Production Victoria BC | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental in Victoria, BC. Complete audio visual services with d&b audio, LED walls, lighting for conferences at Victoria Conference Centre, Fairmont Empress & Vancouver Island venues.",
   keywords: [
-    "sound system rental victoria",
-    "audio equipment rental victoria",
-    "av company victoria",
     "event production victoria",
-    "victoria convention centre av",
-    "vancouver island av services",
+    "av rental victoria bc",
+    "audio visual victoria",
+    "sound system rental victoria",
+    "led wall rental victoria",
+    "victoria conference centre av",
+    "fairmont empress av",
+    "corporate events victoria"
   ],
   openGraph: {
-    title: "Audio Visual Services Victoria BC | AV Equipment & Event Production",
-    description: "Professional audio visual services in Victoria, BC. Event production and AV equipment rental for Vancouver Island.",
+    title: "Event Production Victoria BC | AV Rental & Audio Visual",
+    description: "Professional event production in Victoria. d&b audio, LED walls, lighting. Victoria Conference Centre & Fairmont Empress.",
     url: `${siteUrl}/locations/victoria`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/victoria`
+  }
 };
 
 export default function VictoriaPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-        <LocationTemplate
-          city="Victoria"
-          region="Vancouver Island"
-          province="BC"
-          heroTitle="Sound System Rental Victoria | Premium Audio Equipment & Event Services"
-          description="Showmax Events provides comprehensive audio visual production services in Victoria and throughout Vancouver Island. From the Victoria Conference Centre to the Royal Theatre and hotel venues, we deliver professional AV solutions with premium equipment and experienced technical crew serving BC's capital city."
+      <LocationTemplate
+        city="Victoria"
+        region="Vancouver Island"
+        province="BC"
+        heroTitle="Event Production Victoria – AV Rental & Audio Visual Services"
+        description="Showmax Events provides complete event production and audio visual services in Victoria and across Vancouver Island. From conferences at the Victoria Conference Centre to galas at the Fairmont Empress, we deliver professional sound systems, LED walls, lighting, and staging with experienced crews deployed from our Vancouver headquarters."
         nearbyVenues={[
           "Victoria Conference Centre",
-          "The Royal Theatre",
-          "McPherson Playhouse",
-          "Fairmont Empress Hotel",
+          "Fairmont Empress",
           "Hotel Grand Pacific",
-          "Delta Victoria Ocean Pointe Resort",
-          "Coast Victoria Hotel",
+          "Royal BC Museum",
+          "Royal Theatre",
+          "McPherson Playhouse",
+          "Save-On-Foods Memorial Centre",
           "University of Victoria",
+          "Delta Ocean Pointe Resort"
         ]}
         servicesHighlight={[
-          "Full-service AV for Vancouver Island events",
-          "Premier equipment for Victoria's historic venues",
-          "Experienced crew with island logistics expertise",
-          "Comprehensive production management",
-          "Ferry coordination and equipment logistics",
+          "Full-service event production for Vancouver Island",
+          "Victoria Conference Centre and Fairmont Empress specialists",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Experienced crews deployed from Vancouver",
+          "Complete production management including ferry logistics"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

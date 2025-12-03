@@ -259,21 +259,36 @@ export default function EventsContent() {
         />
         <div className="container mx-auto px-4">
           <article>
-            <section id="events" className="mx-auto max-w-3xl scroll-mt-24 text-center">
+            <section id="events" className="mx-auto scroll-mt-24 text-center">
               <h1 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
-                Professional Event Production Services in <span className="text-[#FACC15]">Vancouver, Calgary & Toronto</span>
+                Event Production Services for
+                <br />
+                <span className="text-[#FACC15]">Live, Hybrid & Virtual Events</span>
+                <br />
+                Across North America
               </h1>
               <p className="mt-6 text-lg text-gray-200 md:text-xl">
-                From intimate corporate gatherings to stadium-scale <span className="text-[#FACC15]">concerts</span>, we deliver complete event production across <span className="text-[#FACC15]">Vancouver, Calgary, Toronto</span>, and throughout Canada. Our comprehensive inventory features <span className="text-[#FACC15]">d&b audiotechnik</span> sound systems, <span className="text-[#FACC15]">ROE Visual LED walls</span>, intelligent lighting, certified rigging, staging systems, and custom drape packages trusted by major brands and production companies. Full-service <span className="text-[#FACC15]">event production support</span> for venues including the Vancouver Convention Centre, with complete technical crews and project management.
+              Showmax Events is a Vancouver-based live event production company providing audio, lighting, LED walls, staging, rigging and crew 
+              <br />
+              for concerts, conferences, galas and festivals across Canada and the US.
+              <br />
+              </p>
+              <p className="mt-4 text-lg text-gray-200 md:text-xl">
+                Our inventory features d&b audiotechnik line arrays, ROE Visual LED walls, Robe intelligent lighting, and broadcast-grade streaming infrastructure. 
+                <br />
+                Trusted by Fortune 500 companies, major festivals, and leading production partners, we handle every technical aspect so you can focus on your audience.
+                <br />
+                Headquartered in Vancouver with crews in Calgary, Edmonton, and Toronto, we provide complete event production services across North America.
+                <br />
               </p>
             </section>
 
           <div className="mt-20 space-y-16 md:space-y-20">
             <section id="live-events" className="scroll-mt-24">
               <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12 text-center">
-                <h2 className="text-3xl font-semibold text-white md:text-4xl">Complete Live Event Production in <span className="text-[#FACC15]">Canada</span></h2>
+                <h2 className="text-3xl font-semibold text-white md:text-4xl">Live Event Production Services</h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                  Full-service production company delivering audio, video, lighting, staging, rigging, drape, and technical support for corporate events, concerts, conferences, and festivals across Canada.
+                  Complete technical production for concerts, conferences, galas, and brand activations. We provide <span className="text-[#FACC15]">audio, video, lighting, staging, rigging</span>, and scenic elements with full crew support across <span className="text-[#FACC15]">Vancouver, Calgary, Edmonton, Toronto</span>, and throughout North America.
                 </p>
                 <div className="mt-6 rounded-lg overflow-hidden">
                   <Image
@@ -325,14 +340,28 @@ export default function EventsContent() {
                 </div>
 
                 <div className="mt-10 border-t border-white/10 pt-8">
-                  <h3 className="text-2xl font-semibold text-white md:text-3xl">Why Event Producers Choose Showmax</h3>
-                  <ul className="mt-4 space-y-2 text-base text-gray-100 md:text-lg">
-                    <li>Complete event production management from concept to load-out</li>
-                    <li>Extensive inventory: audio, video, lighting, staging, rigging, and drape</li>
-                    <li>Largest ROE Visual LED &amp; d&amp;b audio inventory in Western Canada</li>
-                    <li>Experienced production crews, technicians, and show operators</li>
-                    <li>Scalable solutions for any venue size or event type</li>
-                    <li>Trusted by Lululemon, TED, Netflix, and the NFL</li>
+                  <h3 className="text-2xl font-semibold text-white md:text-3xl">Why Production Companies Choose Showmax</h3>
+                  <ul className="mt-4 space-y-3 text-base text-gray-100 md:text-lg text-left">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">Premium Equipment Inventory</strong> – d&b audiotechnik, ROE Visual, Robe, and DiGiCo—the same brands used on world tours and in broadcast studios</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">Experienced Technical Crews</strong> – A1 audio engineers, lighting designers, LED technicians, and certified riggers with decades of combined experience</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">North American Coverage</strong> – Headquarters in Vancouver with crews in Calgary, Edmonton, and Toronto, plus US markets</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">Trusted by Major Brands</strong> – Lululemon, TED Conferences, Netflix, Google, and leading production companies</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">End-to-End Production</strong> – From initial consultation through load-out, we manage equipment, crew, logistics, and technical direction</span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -340,12 +369,12 @@ export default function EventsContent() {
 
             <section id="hybrid-events" className="scroll-mt-24">
               <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
-                <h2 className="text-3xl font-semibold text-white md:text-4xl">Hybrid & <span className="text-[#FACC15]">Virtual Event Production</span></h2>
+                <h2 className="text-3xl font-semibold text-white md:text-4xl">Hybrid & Virtual Event Production</h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                  <span className="text-[#FACC15]">Hybrid conferences</span> and <span className="text-[#FACC15]">virtual events</span> with professional <span className="text-[#FACC15]">live streaming</span>, multi-camera production, and platform integration across Canada.
+                  Professional <span className="text-[#FACC15]">hybrid event production</span> that seamlessly connects in-person and remote audiences. Broadcast-quality <span className="text-[#FACC15]">live streaming</span> with redundant infrastructure for reliable delivery.
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                  Broadcast-quality production with redundant infrastructure, professional switching, and interactive engagement tools. Reliable execution for audiences of any size.
+                  From corporate <span className="text-[#FACC15]">webcasts</span> to multi-day <span className="text-[#FACC15]">virtual conferences</span>, our team provides complete technical management including encoding, switching, platform integration, and audience engagement tools.
                 </p>
                 <div className="mt-8 rounded-lg overflow-hidden">
                   <Image
@@ -398,108 +427,117 @@ export default function EventsContent() {
 
                 <div className="mt-10 border-t border-white/10 pt-8">
                   <h3 className="text-2xl font-semibold text-white md:text-3xl">Why Choose Showmax for Hybrid Events</h3>
-                  <ul className="mt-4 space-y-2 text-base text-gray-100 md:text-lg">
-                    <li>End-to-end hybrid event production management</li>
-                    <li>Broadcast-quality streaming infrastructure across Canada</li>
-                    <li>Experienced virtual event producers and technical directors</li>
-                    <li>Redundant systems and backup connectivity for reliability</li>
-                    <li>Trusted by Fortune 500 companies for hybrid conferences</li>
+                  <ul className="mt-4 space-y-3 text-base text-gray-100 md:text-lg text-left">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">Broadcast-Quality Infrastructure</strong> – Professional encoding, redundant connectivity, and CDN distribution for global audiences</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">Experienced Virtual Producers</strong> – Technical directors and operators who specialize in hybrid event execution</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">Platform Expertise</strong> – Full integration with Zoom, Teams, Hopin, and custom virtual venues</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                      <span><strong className="text-white">Redundant Systems</strong> – Backup connectivity, failover switching, and 24/7 monitoring for reliability</span>
+                    </li>
                   </ul>
                 </div>
               </div>
             </section>
 
-            <section
-              id="service-areas"
-              className="scroll-mt-24 rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 via-white/3 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12"
-            >
-              <h2 className="text-3xl font-semibold text-white md:text-4xl">Event Production Service Areas Across <span className="text-[#FACC15]">Canada</span></h2>
-              <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                From <span className="text-[#FACC15]">Calgary event production</span> to large-scale shows in Vancouver and Toronto. We provide consistent, high-quality <span className="text-[#FACC15]">production services</span> and equipment across all major Canadian markets including audio visual, lighting, staging, rigging, and drape.
-              </p>
-              
-              <div className="mt-8 space-y-8">
-                {/* British Columbia - Vancouver Region */}
-                <div>
-                  <h3 className="text-xl font-semibold text-[#FACC15] mb-3">British Columbia - Vancouver Region</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
-                    <Link href="/locations/vancouver" className="hover:text-[#FACC15] transition-colors">Vancouver (HQ)</Link>
-                    <Link href="/locations/richmond" className="hover:text-[#FACC15] transition-colors">Richmond</Link>
-                    <Link href="/locations/burnaby" className="hover:text-[#FACC15] transition-colors">Burnaby</Link>
-                    <Link href="/locations/surrey" className="hover:text-[#FACC15] transition-colors">Surrey</Link>
-                    <Link href="/locations/north-vancouver" className="hover:text-[#FACC15] transition-colors">North Vancouver</Link>
-                    <Link href="/locations/west-vancouver" className="hover:text-[#FACC15] transition-colors">West Vancouver</Link>
-                    <Link href="/locations/coquitlam" className="hover:text-[#FACC15] transition-colors">Coquitlam</Link>
-                    <Link href="/locations/port-coquitlam" className="hover:text-[#FACC15] transition-colors">Port Coquitlam</Link>
-                    <Link href="/locations/port-moody" className="hover:text-[#FACC15] transition-colors">Port Moody</Link>
-                    <Link href="/locations/new-westminster" className="hover:text-[#FACC15] transition-colors">New Westminster</Link>
-                    <Link href="/locations/langley" className="hover:text-[#FACC15] transition-colors">Langley</Link>
-                    <Link href="/locations/abbotsford" className="hover:text-[#FACC15] transition-colors">Abbotsford</Link>
-                    <Link href="/locations/vancouver" className="hover:text-[#FACC15] transition-colors">East Vancouver</Link>
-                    <Link href="/locations/vancouver" className="hover:text-[#FACC15] transition-colors">UBC</Link>
+            {/* FAQ Section */}
+            <section id="faq" className="scroll-mt-24">
+              <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                <h2 className="text-3xl font-semibold text-white md:text-4xl">Frequently Asked Questions</h2>
+                <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                  Common questions about our event production services, equipment, and capabilities.
+                </p>
+                
+                <div className="mt-10 space-y-8 text-left">
+                  <div className="border-b border-white/10 pb-6">
+                    <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What does an event production company do?</h3>
+                    <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                      An event production company manages all technical aspects of live, hybrid, and virtual events. This includes audio systems, LED video walls, lighting design, staging, rigging, and crew coordination. We handle everything from initial planning and equipment selection through on-site operation and load-out.
+                    </p>
                   </div>
-                </div>
 
-                {/* British Columbia - Regional */}
-                <div>
-                  <h3 className="text-xl font-semibold text-[#FACC15] mb-3">British Columbia - Regional Cities</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
-                    <Link href="/locations/victoria" className="hover:text-[#FACC15] transition-colors">Victoria</Link>
-                    <Link href="/locations/kelowna" className="hover:text-[#FACC15] transition-colors">Kelowna</Link>
-                    <div>Penticton</div>
-                    <div>Vernon</div>
+                  <div className="border-b border-white/10 pb-6">
+                    <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What audio equipment do you use for concerts and corporate events?</h3>
+                    <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                      We use d&b audiotechnik line array systems—the same brand used on major world tours. Our inventory includes J-Series, Y-Series, and V-Series arrays with DiGiCo digital mixing consoles. For corporate events, we also provide QSC powered speakers and Shure wireless microphone systems.
+                    </p>
                   </div>
-                </div>
 
-                {/* Alberta */}
-                <div>
-                  <h3 className="text-xl font-semibold text-[#FACC15] mb-3">Alberta</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
-                    <Link href="/locations/calgary" className="hover:text-[#FACC15] transition-colors">Calgary</Link>
-                    <Link href="/locations/edmonton" className="hover:text-[#FACC15] transition-colors">Edmonton</Link>
+                  <div className="border-b border-white/10 pb-6">
+                    <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">Do you provide LED walls for events in Vancouver and Calgary?</h3>
+                    <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                      Yes. We have one of the largest ROE Visual LED wall inventories in Western Canada. We provide indoor and outdoor panels in pixel pitches from 1.5mm to 5mm, with Brompton processing and Barco switching. Available for events in Vancouver, Calgary, Edmonton, Toronto, and across North America.
+                    </p>
                   </div>
-                </div>
 
-                {/* Resort Destinations */}
-                <div>
-                  <h3 className="text-xl font-semibold text-[#FACC15] mb-3">Resort Destinations</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
-                    <Link href="/locations/banff" className="hover:text-[#FACC15] transition-colors">Banff</Link>
-                    <Link href="/locations/lake-louise" className="hover:text-[#FACC15] transition-colors">Lake Louise</Link>
-                    <Link href="/locations/whistler" className="hover:text-[#FACC15] transition-colors">Whistler</Link>
-                    <Link href="/locations/jasper" className="hover:text-[#FACC15] transition-colors">Jasper</Link>
+                  <div className="border-b border-white/10 pb-6">
+                    <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What&apos;s the difference between hybrid and virtual events?</h3>
+                    <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                      Hybrid events combine an in-person audience with remote viewers through live streaming. Virtual events are fully online with no physical audience. Both require professional multi-camera production, encoding, and platform management. We provide complete production for both formats.
+                    </p>
                   </div>
-                </div>
 
-                {/* Ontario */}
-                <div>
-                  <h3 className="text-xl font-semibold text-[#FACC15] mb-3">Ontario</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
-                    <Link href="/locations/toronto" className="hover:text-[#FACC15] transition-colors">Toronto</Link>
-                    <Link href="/locations/toronto" className="hover:text-[#FACC15] transition-colors">Greater Toronto Area</Link>
+                  <div className="border-b border-white/10 pb-6">
+                    <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">How far in advance should I book event production services?</h3>
+                    <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                      For large events (500+ attendees), we recommend booking 3-6 months in advance to ensure equipment availability. Smaller corporate events can often be accommodated with 2-4 weeks notice. Last-minute requests are possible depending on inventory and crew availability.
+                    </p>
                   </div>
-                </div>
 
-                {/* USA Markets */}
-                <div>
-                  <h3 className="text-xl font-semibold text-[#FACC15] mb-3">United States Markets</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
-                    <Link href="/locations/seattle" className="hover:text-[#FACC15] transition-colors">Seattle</Link>
-                    <Link href="/locations/san-francisco" className="hover:text-[#FACC15] transition-colors">San Francisco</Link>
-                    <Link href="/locations/los-angeles" className="hover:text-[#FACC15] transition-colors">Los Angeles</Link>
-                    <Link href="/locations/san-diego" className="hover:text-[#FACC15] transition-colors">San Diego</Link>
-                    <Link href="/locations/palm-springs" className="hover:text-[#FACC15] transition-colors">Palm Springs</Link>
-                    <Link href="/locations/las-vegas" className="hover:text-[#FACC15] transition-colors">Las Vegas</Link>
-                    <Link href="/locations/phoenix" className="hover:text-[#FACC15] transition-colors">Phoenix</Link>
+                  <div className="border-b border-white/10 pb-6">
+                    <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What areas do you serve outside Vancouver?</h3>
+                    <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                      We provide event production services across North America. Our primary markets include Vancouver (headquarters), Calgary, Edmonton, Toronto, and the Greater Toronto Area. We also serve US markets including Seattle, Los Angeles, San Francisco, Las Vegas, and Phoenix.
+                    </p>
+                  </div>
+
+                  <div className="border-b border-white/10 pb-6">
+                    <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">Do you provide crew with equipment rentals?</h3>
+                    <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                      Yes. All our production packages include experienced technicians—A1 audio engineers, lighting designers, LED technicians, and certified riggers. We recommend full-service packages to ensure optimal equipment performance and safety compliance.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">Can you handle large-scale concerts and festivals?</h3>
+                    <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                      Absolutely. Our inventory scales from 50-person corporate meetings to 50,000+ concert audiences. We&apos;ve provided production for major festivals, arena concerts, and stadium events across Canada using d&b audiotechnik, ROE Visual, and Robe systems.
+                    </p>
                   </div>
                 </div>
               </div>
-
-              <p className="mt-8 text-base leading-relaxed text-gray-300 md:text-lg">
-                Consistent, professional results with premium equipment and experienced crew. Select US markets also available.
-              </p>
             </section>
 
+            {/* CTA Section */}
+            <section id="contact-cta" className="scroll-mt-24">
+              <div className="rounded-3xl border border-white/5 bg-gradient-to-br from-[#FACC15]/10 via-white/5 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12 text-center">
+                <h2 className="text-3xl font-semibold text-white md:text-4xl">Get a Quote for Your Event</h2>
+                <p className="mt-4 text-lg text-gray-200 md:text-xl max-w-2xl mx-auto">
+                  Ready to discuss your production requirements? Our team provides detailed quotes and technical consultations for events of any scale.
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/contact">
+                    <button className="w-full sm:w-auto px-8 py-4 bg-[#FACC15] text-black font-semibold rounded-lg hover:bg-[#FACC15]/90 transition-colors">
+                      Request a Quote
+                    </button>
+                  </Link>
+                  <Link href="/rentals">
+                    <button className="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                      View Equipment Rentals
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </section>
 
           </div>
           </article>

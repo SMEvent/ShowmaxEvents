@@ -6,16 +6,27 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Trade Show AV Abbotsford | Exhibition Production & Equipment",
-  description: "Professional trade show AV in Abbotsford, BC. Exhibition production, audio visual equipment, and event services for Tradex, Abbotsford Centre, and Fraser Valley venues.",
+  title: "AV Rental Abbotsford | Audio Visual & Event Production Services",
+  description: "Professional AV rental in Abbotsford, BC. Complete audio visual services with d&b audio, LED walls, lighting for corporate events, concerts & venues at Abbotsford Centre and Fraser Valley.",
+  keywords: [
+    "av rental abbotsford",
+    "audio visual abbotsford",
+    "event production abbotsford",
+    "abbotsford centre av",
+    "sound system rental abbotsford",
+    "fraser valley av services"
+  ],
   openGraph: {
-    title: "Audio Visual Services Abbotsford BC | AV Equipment & Production",
-    description: "Professional audio visual services in Abbotsford, BC. Event production and AV equipment rental.",
+    title: "AV Rental Abbotsford BC | Audio Visual & Event Production",
+    description: "Professional AV rental in Abbotsford. d&b audio, LED walls, lighting. Abbotsford Centre specialists.",
     url: `${siteUrl}/locations/abbotsford`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/abbotsford`
+  }
 };
 
 export default function AbbotsfordPage() {
@@ -26,24 +37,25 @@ export default function AbbotsfordPage() {
         city="Abbotsford"
         region="Fraser Valley"
         province="BC"
-        heroTitle="Trade Show AV Abbotsford | Exhibition Production & Equipment"
-        description="Showmax Events delivers comprehensive audio visual production services in Abbotsford and throughout the Fraser Valley. From the Abbotsford Centre to agricultural exhibitions and corporate venues, we provide professional AV solutions with premium equipment and experienced technical crew."
+        heroTitle="AV Rental Abbotsford – Audio Visual & Event Production Services"
+        description="Showmax Events provides complete audio visual services in Abbotsford and the Eastern Fraser Valley. From concerts at the Abbotsford Centre to corporate events and agricultural shows, we deliver professional sound systems, LED walls, lighting, and staging with experienced crews."
         nearbyVenues={[
           "Abbotsford Centre",
           "Tradex",
-          "Abbotsford Entertainment & Sports Centre",
-          "University of the Fraser Valley",
-          "Abbotsford Airport",
+          "UFV Abbotsford Campus",
+          "Quality Hotel & Conference Centre",
+          "Kariton Art Gallery",
+          "Abbotsford Air Show"
         ]}
         servicesHighlight={[
-          "Extensive experience with Fraser Valley agricultural shows",
-          "Full production support for large-scale exhibitions",
-          "Premium touring equipment for any event scale",
-          "Professional crew with local venue expertise"
+          "Abbotsford Centre and Tradex specialists",
+          "Concert and festival-scale capabilities",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Complete production for agricultural and trade shows",
+          "Fraser Valley coverage from Vancouver"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

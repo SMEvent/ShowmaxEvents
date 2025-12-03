@@ -6,16 +6,26 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Premium AV Services West Vancouver | Luxury Event Production",
-  description: "Premium audio visual services in West Vancouver, BC. Upscale event production, AV equipment rental, and technical services for corporate events, galas, and exclusive waterfront venues.",
+  title: "AV Rental West Vancouver | Audio Visual & Event Production",
+  description: "Professional AV rental in West Vancouver, BC. Complete audio visual services for corporate events, galas, and private functions at West Vancouver venues and private estates.",
+  keywords: [
+    "av rental west vancouver",
+    "audio visual west vancouver",
+    "event production west vancouver",
+    "corporate events west vancouver",
+    "private event av west vancouver"
+  ],
   openGraph: {
-    title: "Audio Visual Services West Vancouver | AV Equipment & Production",
-    description: "Professional audio visual services in West Vancouver, BC. Event production and AV equipment rental.",
+    title: "AV Rental West Vancouver | Audio Visual & Event Production",
+    description: "Professional AV rental in West Vancouver. d&b audio, LED walls, lighting for corporate and private events.",
     url: `${siteUrl}/locations/west-vancouver`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/west-vancouver`
+  }
 };
 
 export default function WestVancouverPage() {
@@ -26,24 +36,25 @@ export default function WestVancouverPage() {
         city="West Vancouver"
         region="North Shore"
         province="BC"
-        heroTitle="Premium AV Services West Vancouver | Luxury Event Production"
-        description="Showmax Events delivers premium audio visual production services in West Vancouver. Specializing in high-end corporate events, private functions, and waterfront venues with comprehensive AV solutions, professional lighting, sound systems, and experienced technical crew."
+        heroTitle="AV Rental West Vancouver – Audio Visual & Event Production"
+        description="Showmax Events provides premium audio visual services in West Vancouver. From elegant galas at private estates to corporate functions at local venues, we deliver sophisticated AV solutions with white-glove service and premium equipment from our Vancouver headquarters."
         nearbyVenues={[
-          "Gleneagles Golf Course",
-          "West Vancouver Community Centre",
+          "West Vancouver Yacht Club",
           "Hollyburn Country Club",
           "Kay Meek Arts Centre",
-          "Lighthouse Park",
+          "Gleneagles Golf Course",
+          "Private Estates",
+          "West Vancouver Community Centre"
         ]}
         servicesHighlight={[
-          "Premium AV services for upscale West Vancouver venues",
-          "Discreet, professional technical crew",
-          "High-end equipment for exclusive events",
-          "Complete production management for waterfront locations"
+          "Premium AV for West Vancouver events",
+          "White-glove service for private functions",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Experienced crews for high-end productions",
+          "Discreet, professional delivery and setup"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

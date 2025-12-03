@@ -73,7 +73,7 @@ export default defineType({
           ],
         },
       ],
-      validation: (Rule) => Rule.required().min(1),
+      validation: (Rule) => Rule.optional() // TEMPORARY: Made optional for import,
     }),
     defineField({
       name: "specifications",
@@ -102,6 +102,13 @@ export default defineType({
       title: "Day Rate (CAD)",
       type: "number",
       description: "Daily rental rate in Canadian Dollars",
+    }),
+    defineField({
+      name: "quantity",
+      title: "Quantity Available",
+      type: "number",
+      description: "Number of units available for rental",
+      validation: (Rule) => Rule.min(0),
     }),
     defineField({
       name: "featured",

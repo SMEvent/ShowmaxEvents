@@ -6,57 +6,59 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "AV Company Whistler | Resort Event Production & Equipment Rental",
-  description: "Premier AV company serving Whistler resort events. Complete audio visual production, equipment rental for conferences, corporate retreats, and mountain venues at Whistler Blackcomb and luxury resorts.",
+  title: "Event Production Whistler | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental in Whistler, BC. Complete audio visual services for corporate retreats, conferences & events at Fairmont Chateau Whistler, Four Seasons & Whistler Conference Centre.",
   keywords: [
-    "av company whistler",
+    "event production whistler",
+    "av rental whistler",
     "audio visual whistler",
-    "whistler av services",
-    "whistler conference av",
-    "resort event production whistler",
-    "whistler corporate events",
+    "whistler conference centre av",
+    "fairmont chateau whistler av",
+    "corporate events whistler",
+    "whistler incentive events"
   ],
   openGraph: {
-    title: "Audio Visual Services Whistler BC | Resort Event Production",
-    description: "Professional audio visual services in Whistler, BC. Resort event production and AV equipment rental.",
+    title: "Event Production Whistler | AV Rental & Audio Visual",
+    description: "Professional event production in Whistler. d&b audio, LED walls, lighting. Fairmont Chateau Whistler & Four Seasons.",
     url: `${siteUrl}/locations/whistler`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/whistler`
+  }
 };
 
 export default function WhistlerPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-        <LocationTemplate
-          city="Whistler"
-          region="Sea to Sky Corridor"
-          province="BC"
-          heroTitle="Premier AV Company in Whistler | Resort Event Production Services"
-          description="Showmax Events specializes in premium audio visual production for Whistler resort events. From corporate conferences and incentive programs to mountain celebrations, we deliver comprehensive AV solutions perfectly suited for Whistler's unique alpine venues with premium equipment and experienced mountain logistics."
+      <LocationTemplate
+        city="Whistler"
+        region="Sea-to-Sky"
+        province="BC"
+        heroTitle="Event Production Whistler – AV Rental & Audio Visual Services"
+        description="Showmax Events provides premium event production and audio visual services in Whistler. From corporate retreats at the Fairmont Chateau Whistler to conferences at the Whistler Conference Centre, we deliver world-class sound systems, LED walls, lighting, and staging for Canada's premier resort destination."
         nearbyVenues={[
           "Fairmont Chateau Whistler",
           "Four Seasons Resort Whistler",
-          "Westin Resort & Spa Whistler",
           "Whistler Conference Centre",
           "Nita Lake Lodge",
-          "Audain Art Museum",
+          "Westin Resort & Spa Whistler",
+          "Pan Pacific Whistler",
           "Squamish Lil'wat Cultural Centre",
-          "Whistler Olympic Plaza",
+          "Whistler Olympic Plaza"
         ]}
         servicesHighlight={[
-          "Specialized mountain resort event experience",
-          "Premium equipment suited for unique venues",
-          "Expert logistics and Sea to Sky transportation",
-          "Complete production for corporate retreats",
-          "Weather-resistant solutions for outdoor events",
-          "Trusted by luxury brands for Whistler incentive programs",
+          "Premium AV for world-class resort events",
+          "Fairmont Chateau Whistler and Four Seasons specialists",
+          "Complete corporate retreat and incentive event production",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Experienced crews for mountain venue logistics"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

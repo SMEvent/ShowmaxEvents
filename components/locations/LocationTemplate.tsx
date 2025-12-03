@@ -1,8 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
 
 interface LocationTemplateProps {
   city: string;
@@ -12,6 +16,7 @@ interface LocationTemplateProps {
   description: string;
   nearbyVenues?: string[];
   servicesHighlight?: string[];
+  faqs?: FAQItem[];
 }
 
 export function LocationTemplate({
@@ -21,9 +26,10 @@ export function LocationTemplate({
   heroTitle,
   description,
   nearbyVenues = [],
-  servicesHighlight = []
+  servicesHighlight = [],
+  faqs = []
 }: LocationTemplateProps) {
-  const defaultHeroTitle = `Professional Audio Visual Services in ${city}, ${province}`;
+  const defaultHeroTitle = `Audio Visual Company ${city} | Event Production & AV Rental`;
   const title = heroTitle || defaultHeroTitle;
 
   return (
@@ -64,7 +70,7 @@ export function LocationTemplate({
               <section className="scroll-mt-24">
                 <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
                   <h2 className="text-3xl font-semibold text-white md:text-4xl">
-                    Complete AV Production Services in <span className="text-[#FACC15]">{city}</span>
+                    Event Production Services in <span className="text-[#FACC15]">{city}</span>
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
                     Showmax Events provides comprehensive audio visual production services for events of all sizes in {city} and the surrounding {region} area. Our experienced team delivers professional results for corporate events, conferences, concerts, galas, and more.
@@ -201,14 +207,39 @@ export function LocationTemplate({
                 </section>
               )}
 
+              {/* FAQ Section */}
+              {faqs.length > 0 && (
+                <section className="scroll-mt-24">
+                  <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                    <h2 className="text-3xl font-semibold text-white md:text-4xl">
+                      Frequently Asked Questions
+                    </h2>
+                    <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                      Common questions about our event production and AV services in {city}.
+                    </p>
+                    
+                    <div className="mt-10 space-y-8 text-left">
+                      {faqs.map((faq, index) => (
+                        <div key={index} className={index < faqs.length - 1 ? "border-b border-white/10 pb-6" : ""}>
+                          <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">{faq.question}</h3>
+                          <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              )}
+
               {/* Call to Action */}
               <section className="scroll-mt-24">
                 <div className="rounded-3xl border border-white/5 bg-gradient-to-br from-[#FACC15]/10 via-white/5 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12 text-center">
                   <h2 className="text-3xl font-semibold text-white md:text-4xl">
-                    Ready to Elevate Your Event in {city}?
+                    Get a Quote for Your {city} Event
                   </h2>
                   <p className="mt-4 text-lg text-gray-200 md:text-xl max-w-2xl mx-auto">
-                    Contact our team today to discuss your audio visual production needs. We'll provide a detailed quote and technical consultation for your upcoming event.
+                    Contact our team today to discuss your audio visual production needs. We provide detailed quotes and technical consultations for events of any scale.
                   </p>
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href="/contact">
@@ -216,9 +247,9 @@ export function LocationTemplate({
                         Request a Quote
                       </Button>
                     </Link>
-                    <Link href="/events">
+                    <Link href="/rentals">
                       <Button size="lg" variant="outline" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10">
-                        Learn More About Our Services
+                        View Equipment Rentals
                       </Button>
                     </Link>
                   </div>
@@ -231,4 +262,5 @@ export function LocationTemplate({
     </main>
   );
 }
+
 

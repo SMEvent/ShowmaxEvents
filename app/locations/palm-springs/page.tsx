@@ -6,16 +6,27 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Wireless Microphone Rental Palm Springs | Audio Equipment & AV",
-  description: "Professional wireless microphone rental in Palm Springs, CA. Complete audio equipment, sound systems, and AV services for resort conferences, corporate retreats, and Coachella Valley events.",
+  title: "Event Production Palm Springs | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental in Palm Springs, CA. Complete audio visual services with d&b audio, LED walls, lighting for corporate retreats, conferences & Coachella Valley venues.",
+  keywords: [
+    "event production palm springs",
+    "av rental palm springs",
+    "audio visual palm springs",
+    "palm springs convention center av",
+    "corporate retreats palm springs",
+    "coachella valley av services"
+  ],
   openGraph: {
-    title: "Audio Visual Services Palm Springs | AV Equipment & Production",
-    description: "Professional audio visual services in Palm Springs, CA. Resort event production and AV equipment rental.",
+    title: "Event Production Palm Springs | AV Rental & Audio Visual",
+    description: "Professional event production in Palm Springs. d&b audio, LED walls, lighting. Desert resort event specialists.",
     url: `${siteUrl}/locations/palm-springs`,
     siteName: "Showmax Events",
     locale: "en_US",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/palm-springs`
+  }
 };
 
 export default function PalmSpringsPage() {
@@ -26,26 +37,26 @@ export default function PalmSpringsPage() {
         city="Palm Springs"
         region="Coachella Valley"
         province="CA"
-        heroTitle="Wireless Microphone Rental Palm Springs | Professional Audio Equipment"
-        description="Showmax Events delivers premium audio visual production services for Palm Springs resort events. From corporate conferences and incentive programs to desert celebrations, we provide comprehensive AV solutions perfectly suited for Palm Springs' unique venues with premium equipment and experienced crew."
+        heroTitle="Event Production Palm Springs – AV Rental & Audio Visual Services"
+        description="Showmax Events provides professional event production and AV services in Palm Springs and the Coachella Valley. From corporate retreats at luxury desert resorts to conferences at the Palm Springs Convention Center, we deliver d&b audiotechnik sound systems, ROE Visual LED walls, and professional lighting for California's premier desert destination."
         nearbyVenues={[
           "Palm Springs Convention Center",
-          "JW Marriott Desert Springs",
-          "Renaissance Indian Wells",
-          "Omni Rancho Las Palmas",
           "La Quinta Resort & Club",
-          "The Parker Palm Springs",
+          "The Ritz-Carlton, Rancho Mirage",
+          "JW Marriott Desert Springs",
+          "Renaissance Esmeralda Resort & Spa",
+          "Hyatt Regency Indian Wells",
+          "Parker Palm Springs"
         ]}
         servicesHighlight={[
           "Desert resort event specialists",
-          "Premium equipment for outdoor and indoor venues",
-          "Experienced with corporate incentive programs",
-          "Complete production for Coachella Valley events",
-          "Weather-resistant solutions for desert conditions",
+          "Coachella Valley production experience",
+          "Premium touring equipment for Southern California",
+          "d&b audiotechnik and ROE Visual inventory",
+          "Cross-border coordination from Vancouver"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

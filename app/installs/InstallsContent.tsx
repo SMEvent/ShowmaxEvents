@@ -161,15 +161,21 @@ export default function InstallsContent() {
           <article>
             <section id="installations" className="mx-auto max-w-3xl scroll-mt-24 text-center">
               <h1 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
-                AV Installation & Integration That <span className="text-[#FACC15]">Transforms Your Space</span>
+                AV Installation Company – <span className="text-[#FACC15]">Permanent LED, Audio & Lighting Systems</span>
               </h1>
+              <p className="mt-6 text-lg text-gray-200 md:text-xl">
+                Showmax designs and installs permanent <span className="text-[#FACC15]">AV systems</span> for venues, churches, nightclubs, corporate spaces, and entertainment facilities across Canada. From <span className="text-[#FACC15]">LED video walls</span> and <span className="text-[#FACC15]">d&b audiotechnik sound systems</span> to professional lighting and rigging infrastructure—engineered by a team that produces 10,000+ events annually.
+              </p>
+              <p className="mt-4 text-lg text-gray-200 md:text-xl">
+                Complete <span className="text-[#FACC15]">AV integration</span> with design, installation, programming, training, and ongoing support. Built to perform every day, for every event.
+              </p>
             </section>
 
             <div className="mt-20 space-y-16 md:space-y-20">
               {/* World-Class AV Systems */}
               <section className="scroll-mt-24">
                 <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
-                  <h2 className="text-3xl font-semibold text-white md:text-4xl">World-Class AV Systems, Built to <span className="text-[#FACC15]">Perform Every Day</span></h2>
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Permanent AV Systems Built to <span className="text-[#FACC15]">Perform Every Day</span></h2>
                   <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
                     Your venue deserves technology that elevates every event, every service, every moment. At Showmax, we design and install complete, high-performance AV systems that look incredible, sound exceptional, and operate reliably—day after day, show after show.
                   </p>
@@ -259,7 +265,7 @@ export default function InstallsContent() {
               {/* Installation Specialties */}
               <section id="specialties" className="scroll-mt-24">
                 <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
-                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Our Installation <span className="text-[#FACC15]">Specialties</span></h2>
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">AV Installation <span className="text-[#FACC15]">Services</span></h2>
                   
                   <div className="mt-12 space-y-12">
                     {installationSpecialties.map(({ id, title, summary, details }) => {
@@ -304,7 +310,7 @@ export default function InstallsContent() {
               {/* Markets We Install For */}
               <section id="markets" className="scroll-mt-24">
                 <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
-                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Markets We <span className="text-[#FACC15]">Install For</span></h2>
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Venues & Industries We <span className="text-[#FACC15]">Install For</span></h2>
                   
                   <div className="mt-8 space-y-6">
                     {markets.map((market, index) => (
@@ -342,32 +348,97 @@ export default function InstallsContent() {
                 </div>
               </section>
 
+              {/* FAQ Section */}
+              <section id="faq" className="scroll-mt-24">
+                <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Frequently Asked Questions</h2>
+                  <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                    Common questions about our AV installation services, process, and capabilities.
+                  </p>
+                  
+                  <div className="mt-10 space-y-8 text-left">
+                    <div className="border-b border-white/10 pb-6">
+                      <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What does an AV installation company do?</h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                        An AV installation company designs, installs, and integrates permanent audio, video, and lighting systems for venues, churches, corporate spaces, and entertainment facilities. This includes system design, equipment procurement, physical installation, programming, calibration, training, and ongoing support.
+                      </p>
+                    </div>
+
+                    <div className="border-b border-white/10 pb-6">
+                      <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What equipment do you install for permanent audio systems?</h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                        We install d&b audiotechnik line arrays and point-source systems, DiGiCo and Allen & Heath mixing consoles, Shure and Sennheiser wireless microphones, distributed audio systems, and subwoofer integration. All installations include system tuning, calibration, and operator training.
+                      </p>
+                    </div>
+
+                    <div className="border-b border-white/10 pb-6">
+                      <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">Do you install LED video walls for churches and venues?</h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                        Yes. We install ROE Visual LED walls with Brompton processing for churches, event venues, corporate lobbies, nightclubs, and broadcast studios. Options include fine-pitch indoor displays, outdoor LED screens, curved walls, LED ceilings, and immersive environments.
+                      </p>
+                    </div>
+
+                    <div className="border-b border-white/10 pb-6">
+                      <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">How long does a venue AV installation take?</h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                        Installation timelines vary by project scope. A basic church audio upgrade may take 1-2 weeks, while a complete venue AV integration with LED walls, lighting, audio, and rigging typically takes 4-8 weeks. We provide detailed project schedules during the design phase.
+                      </p>
+                    </div>
+
+                    <div className="border-b border-white/10 pb-6">
+                      <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">Do you provide training after installation?</h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                        Yes. All our installations include comprehensive operator training. We train your staff or volunteers on system operation, basic troubleshooting, and maintenance. We also provide documentation and ongoing technical support.
+                      </p>
+                    </div>
+
+                    <div className="border-b border-white/10 pb-6">
+                      <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What areas do you serve for AV installation?</h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                        We provide AV installation services across Canada, including British Columbia (Vancouver, Victoria, Kelowna), Alberta (Calgary, Edmonton), and Ontario (Toronto, GTA). We also serve select US markets for larger projects.
+                      </p>
+                    </div>
+
+                    <div className="border-b border-white/10 pb-6">
+                      <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What types of venues do you install AV systems for?</h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                        We install permanent AV systems for event venues and convention centres, houses of worship and churches, nightclubs and entertainment venues, corporate boardrooms and conference centres, broadcast and virtual production studios, and performing arts theatres.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">Do you offer ongoing support after installation?</h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
+                        Yes. We provide ongoing technical support, preventive maintenance, and system upgrades. Our rental division can also supplement your installed system with additional equipment for larger events.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
               {/* CTA */}
               <section id="contact-cta" className="scroll-mt-24">
-                <div className="rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 via-white/3 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12">
-                  <h2 className="text-3xl font-semibold text-white md:text-4xl text-center">Ready to <span className="text-[#FACC15]">Upgrade Your Venue?</span> Let's Build It.</h2>
+                <div className="rounded-3xl border border-white/5 bg-gradient-to-br from-[#FACC15]/10 via-white/5 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl text-center">Ready to Upgrade Your Venue?</h2>
                   <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg text-center max-w-3xl mx-auto">
                     A permanent AV installation is an investment in your guest experience, your revenue, and your future. Showmax delivers systems that look better, sound better, and last longer—installed by a team that supports you long after opening night.
                   </p>
                   
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
-                    >
-                      ✔ Book a Consultation
+                    <Link href="/contact">
+                      <button className="w-full sm:w-auto px-8 py-4 bg-[#FACC15] text-black font-semibold rounded-lg hover:bg-[#FACC15]/90 transition-colors">
+                        Request Installation Quote
+                      </button>
                     </Link>
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
-                    >
-                      ✔ Request an AV Installation Quote
+                    <Link href="/contact">
+                      <button className="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                        Schedule Site Visit
+                      </button>
                     </Link>
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
-                    >
-                      ✔ Schedule a Site Visit
+                    <Link href="/events">
+                      <button className="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                        View Event Production
+                      </button>
                     </Link>
                   </div>
                 </div>

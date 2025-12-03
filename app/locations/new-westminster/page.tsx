@@ -6,16 +6,26 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Speaker Rental New Westminster | Audio Systems & Event Production",
-  description: "Professional speaker rental in New Westminster, BC. Audio systems, sound equipment, and event production services for corporate events, conferences, and heritage venues.",
+  title: "AV Rental New Westminster | Audio Visual & Event Production",
+  description: "Professional AV rental in New Westminster, BC. Complete audio visual services with d&b audio, LED walls, lighting for corporate events at Anvil Centre and New Westminster venues.",
+  keywords: [
+    "av rental new westminster",
+    "audio visual new westminster",
+    "event production new westminster",
+    "anvil centre av",
+    "corporate events new westminster"
+  ],
   openGraph: {
-    title: "Audio Visual Services New Westminster | AV Equipment & Production",
-    description: "Professional audio visual services in New Westminster, BC. Event production and AV equipment rental.",
+    title: "AV Rental New Westminster | Audio Visual & Event Production",
+    description: "Professional AV rental in New Westminster. d&b audio, LED walls, lighting. Anvil Centre specialists.",
     url: `${siteUrl}/locations/new-westminster`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/new-westminster`
+  }
 };
 
 export default function NewWestminsterPage() {
@@ -26,24 +36,25 @@ export default function NewWestminsterPage() {
         city="New Westminster"
         region="Metro Vancouver"
         province="BC"
-        heroTitle="Speaker Rental New Westminster | Audio Systems & Event Production"
-        description="Showmax Events provides comprehensive audio visual production services in New Westminster, BC. From heritage venues to modern conference spaces, we deliver professional AV solutions with premium equipment and experienced technical crew serving the Royal City."
+        heroTitle="AV Rental New Westminster – Audio Visual & Event Production"
+        description="Showmax Events provides complete audio visual services in New Westminster. From conferences at the Anvil Centre to corporate events at the Inn at the Quay, we deliver professional AV solutions with fast delivery from our Vancouver warehouse."
         nearbyVenues={[
-          "The Anvil Centre",
-          "Irving House",
-          "Massey Theatre",
+          "Anvil Centre",
           "Inn at the Quay",
+          "Massey Theatre",
+          "Douglas College",
           "Westminster Pier Park",
+          "River Market"
         ]}
         servicesHighlight={[
-          "Specialized AV for heritage and modern venues",
-          "Premium equipment delivery throughout New Westminster",
-          "Experienced crew with local venue expertise",
-          "Complete production management"
+          "Anvil Centre AV specialists",
+          "Complete AV for New Westminster events",
+          "Fast delivery from Vancouver",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Experienced production crews"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

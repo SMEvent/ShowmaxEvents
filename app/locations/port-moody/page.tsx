@@ -6,16 +6,25 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Presentation Equipment Port Moody | AV Rental & Event Services",
-  description: "Professional presentation equipment in Port Moody, BC. Projectors, screens, audio systems, and complete AV rental for corporate events and Tri-Cities venues.",
+  title: "AV Rental Port Moody | Audio Visual & Event Production",
+  description: "Professional AV rental in Port Moody, BC. Complete audio visual services for corporate events and venues in Port Moody and the Tri-Cities.",
+  keywords: [
+    "av rental port moody",
+    "audio visual port moody",
+    "event production port moody",
+    "tri-cities av services"
+  ],
   openGraph: {
-    title: "Audio Visual Services Port Moody BC | AV Equipment & Production",
-    description: "Professional audio visual services in Port Moody, BC. Event production and AV equipment rental.",
+    title: "AV Rental Port Moody | Audio Visual & Event Production",
+    description: "Professional AV rental in Port Moody. d&b audio, LED walls, lighting.",
     url: `${siteUrl}/locations/port-moody`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/port-moody`
+  }
 };
 
 export default function PortMoodyPage() {
@@ -26,22 +35,23 @@ export default function PortMoodyPage() {
         city="Port Moody"
         region="Tri-Cities"
         province="BC"
-        heroTitle="Presentation Equipment Port Moody | AV Rental & Event Services"
-        description="Showmax Events provides professional audio visual services in Port Moody and throughout the Tri-Cities area. From waterfront venues to community events, we deliver comprehensive AV solutions with premium equipment and experienced crew."
+        heroTitle="AV Rental Port Moody – Audio Visual & Event Production"
+        description="Showmax Events provides audio visual services in Port Moody and the Tri-Cities area. Complete AV solutions for corporate events, waterfront gatherings, and productions with fast delivery from our Vancouver warehouse."
         nearbyVenues={[
-          "Rocky Point Park",
-          "Port Moody Recreation Complex",
+          "Inlet Theatre",
+          "Port Moody Arts Centre",
           "Kyle Centre",
+          "Rocky Point Park",
+          "Brewers Row Venues"
         ]}
         servicesHighlight={[
-          "Waterfront venue expertise",
-          "Premium AV equipment from Vancouver",
-          "Professional crew with local knowledge",
-          "Complete technical support"
+          "AV services for Port Moody and Tri-Cities",
+          "Fast delivery from Vancouver",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Experienced Metro Vancouver crews"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

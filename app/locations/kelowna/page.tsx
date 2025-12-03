@@ -6,55 +6,59 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Event Production Company Kelowna | AV Services Okanagan Valley",
-  description: "Leading event production company in Kelowna and the Okanagan Valley. Complete AV services, equipment rental for corporate events, conferences, and winery venues.",
+  title: "Event Production Kelowna | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental in Kelowna, BC. Complete audio visual services with d&b audio, LED walls, lighting for corporate events, conferences & Okanagan venues.",
   keywords: [
-    "event production company kelowna",
-    "av company kelowna",
-    "kelowna av services",
-    "okanagan event production",
-    "kelowna conference av",
+    "event production kelowna",
+    "av rental kelowna",
+    "audio visual kelowna",
+    "sound system rental kelowna",
+    "led wall rental kelowna",
+    "corporate events kelowna",
+    "okanagan av services"
   ],
   openGraph: {
-    title: "Audio Visual Services Kelowna BC | AV Equipment & Event Production",
-    description: "Professional audio visual services in Kelowna, BC. Event production and AV equipment rental for the Okanagan.",
+    title: "Event Production Kelowna | AV Rental & Audio Visual",
+    description: "Professional event production in Kelowna. d&b audio, LED walls, lighting. Serving the Okanagan Valley.",
     url: `${siteUrl}/locations/kelowna`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/kelowna`
+  }
 };
 
 export default function KelownaPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-        <LocationTemplate
-          city="Kelowna"
-          region="Okanagan Valley"
-          province="BC"
-          heroTitle="Event Production Company Kelowna | Okanagan AV Services"
-          description="Showmax Events delivers professional audio visual production services in Kelowna and throughout the Okanagan Valley. From resort conferences to vineyard events and corporate functions, we provide comprehensive AV solutions with premium touring equipment and experienced technical crew serving BC's interior."
+      <LocationTemplate
+        city="Kelowna"
+        region="Okanagan Valley"
+        province="BC"
+        heroTitle="Event Production Kelowna – AV Rental & Audio Visual Services"
+        description="Showmax Events provides complete event production and audio visual services in Kelowna and the Okanagan Valley. From corporate conferences at the Kelowna Grand to winery events and outdoor festivals, we deliver professional sound systems, LED walls, lighting, and staging with premium equipment from Vancouver."
         nearbyVenues={[
-          "Kelowna Convention Centre",
+          "Kelowna Grand Hotel & Conference Centre",
+          "Delta Grand Okanagan Resort",
+          "Coast Capri Hotel",
           "Prospera Place",
           "Rotary Centre for the Arts",
-          "Delta Hotels Grand Okanagan Resort",
-          "Manteo Resort",
-          "Harvest Golf Club",
-          "Mission Hill Winery",
-          "Summerhill Pyramid Winery",
+          "Mission Hill Family Estate",
+          "UBC Okanagan",
+          "The Cove Lakeside Resort"
         ]}
         servicesHighlight={[
-          "Extensive Okanagan Valley event experience",
-          "Premium touring equipment for resort venues",
-          "Vineyard and outdoor event specialists",
-          "Full production support from Vancouver base",
-          "Expert logistics for Okanagan locations",
+          "Full event production for Okanagan events",
+          "Corporate conference and winery event specialists",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Outdoor festival and concert capabilities",
+          "Production crews deployed from Vancouver"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

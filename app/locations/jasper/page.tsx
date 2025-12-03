@@ -6,16 +6,27 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Hybrid Event Production Jasper | Virtual & In-Person AV Services",
-  description: "Professional hybrid event production in Jasper, AB. Virtual and in-person AV services for resort conferences, live streaming, and corporate retreats in Jasper National Park.",
+  title: "Event Production Jasper | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental in Jasper, Alberta. Complete audio visual services for corporate retreats, conferences & events at Fairmont Jasper Park Lodge and Canadian Rockies venues.",
+  keywords: [
+    "event production jasper",
+    "av rental jasper",
+    "audio visual jasper",
+    "fairmont jasper park lodge av",
+    "corporate events jasper",
+    "canadian rockies events"
+  ],
   openGraph: {
-    title: "Audio Visual Services Jasper AB | Resort Event Production",
-    description: "Professional audio visual services in Jasper, AB. Resort event production and AV equipment rental.",
+    title: "Event Production Jasper | AV Rental & Audio Visual",
+    description: "Professional event production in Jasper. d&b audio, LED walls, lighting. Fairmont Jasper Park Lodge.",
     url: `${siteUrl}/locations/jasper`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/jasper`
+  }
 };
 
 export default function JasperPage() {
@@ -26,25 +37,24 @@ export default function JasperPage() {
         city="Jasper"
         region="Canadian Rockies"
         province="AB"
-        heroTitle="Hybrid Event Production Jasper | Virtual & Live Event AV Services"
-        description="Showmax Events provides professional audio visual production services for Jasper resort events in the stunning Canadian Rockies. From conferences at the Fairmont Jasper Park Lodge to corporate retreats and mountain celebrations, we deliver comprehensive AV solutions with premium equipment and experienced crew for Jasper National Park venues."
+        heroTitle="Event Production Jasper – AV Rental & Audio Visual Services"
+        description="Showmax Events provides premium event production and audio visual services in Jasper National Park. From corporate retreats at the Fairmont Jasper Park Lodge to outdoor events with stunning mountain backdrops, we deliver professional sound systems, LED walls, lighting, and staging for unforgettable Rocky Mountain experiences."
         nearbyVenues={[
           "Fairmont Jasper Park Lodge",
-          "Sawridge Inn Jasper",
-          "Jasper Park Lodge Conference Centre",
+          "Sawridge Inn and Conference Centre",
           "Pyramid Lake Resort",
+          "Jasper Park Coliseum",
+          "Jasper Activity Centre"
         ]}
         servicesHighlight={[
-          "Canadian Rockies resort expertise",
-          "Premium equipment for remote mountain venues",
-          "Specialized logistics for Jasper National Park",
-          "Complete production for corporate events",
-          "Expert crew with alpine venue experience",
-          "Full technical support in wilderness settings",
+          "Premium AV for Jasper National Park events",
+          "Fairmont Jasper Park Lodge specialists",
+          "Complete corporate retreat and incentive event production",
+          "d&b audiotechnik and ROE Visual equipment from Edmonton",
+          "Outdoor event capabilities in mountain environments"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

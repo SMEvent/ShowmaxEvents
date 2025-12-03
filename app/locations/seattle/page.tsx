@@ -6,16 +6,28 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Live Streaming Services Seattle | Video Production & Webcasting",
-  description: "Professional live streaming services in Seattle, WA. Broadcast-quality video production, webcasting, and hybrid event solutions for corporate conferences and events throughout the Pacific Northwest.",
+  title: "Event Production Seattle | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental in Seattle, WA. Complete audio visual services with d&b audio, LED walls, lighting for corporate events at Washington State Convention Center, Climate Pledge Arena & Pacific Northwest venues.",
+  keywords: [
+    "event production seattle",
+    "av rental seattle",
+    "audio visual seattle",
+    "washington state convention center av",
+    "climate pledge arena production",
+    "corporate events seattle",
+    "pacific northwest av services"
+  ],
   openGraph: {
-    title: "Audio Visual Services Seattle WA | AV Equipment & Event Production",
-    description: "Professional audio visual services in Seattle, WA. Event production and AV equipment rental.",
+    title: "Event Production Seattle | AV Rental & Audio Visual",
+    description: "Professional event production in Seattle. d&b audio, LED walls, lighting. Cross-border production expertise.",
     url: `${siteUrl}/locations/seattle`,
     siteName: "Showmax Events",
     locale: "en_US",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/seattle`
+  }
 };
 
 export default function SeattlePage() {
@@ -26,27 +38,29 @@ export default function SeattlePage() {
         city="Seattle"
         region="Pacific Northwest"
         province="WA"
-        heroTitle="Live Streaming Services Seattle | Video Production & Webcasting"
-        description="Showmax Events extends professional audio visual production services to Seattle and the Pacific Northwest. From corporate conferences to large-scale productions, we provide comprehensive AV solutions with premium d&b audiotechnik sound systems, ROE Visual LED walls, and professional technical crew serving the greater Seattle area."
+        heroTitle="Event Production Seattle – AV Rental & Audio Visual Services"
+        description="Showmax Events extends professional event production and AV services to Seattle and the Pacific Northwest. From corporate conferences at the Washington State Convention Center to concerts at Climate Pledge Arena, we deliver d&b audiotechnik sound systems, ROE Visual LED walls, and professional lighting with cross-border production expertise."
         nearbyVenues={[
           "Washington State Convention Center",
-          "Lumen Field",
           "Climate Pledge Arena",
-          "The Westin Seattle",
-          "Grand Hyatt Seattle",
+          "Lumen Field",
           "Benaroya Hall",
           "McCaw Hall",
+          "The Westin Seattle",
+          "Grand Hyatt Seattle",
+          "Hyatt Regency Seattle",
+          "Paramount Theatre",
+          "Museum of Pop Culture"
         ]}
         servicesHighlight={[
-          "Cross-border production expertise",
-          "Premium touring equipment from Vancouver",
-          "Experienced with Pacific Northwest venues",
-          "Complete production management",
-          "Trusted by international brands for Seattle events",
+          "Cross-border production expertise from Vancouver",
+          "Premium touring equipment for US events",
+          "Washington State Convention Center specialists",
+          "d&b audiotechnik and ROE Visual inventory",
+          "Experienced crews for Pacific Northwest productions"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

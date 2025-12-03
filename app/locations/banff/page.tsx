@@ -6,57 +6,58 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "AV Company Banff | Audio Visual Equipment & Resort Event Production",
-  description: "Trusted AV company serving Banff and the Canadian Rockies. Complete audio visual equipment rental, event production for resort conferences, corporate retreats at Fairmont Banff Springs and mountain venues.",
+  title: "Event Production Banff | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental in Banff, Alberta. Complete audio visual services for corporate retreats, conferences & events at Fairmont Banff Springs, Banff Centre & Canadian Rockies venues.",
   keywords: [
-    "av company banff",
+    "event production banff",
+    "av rental banff",
     "audio visual banff",
-    "banff av services",
-    "banff conference av",
-    "resort event production banff",
-    "banff corporate events",
+    "fairmont banff springs av",
+    "banff centre av",
+    "corporate events banff",
+    "canadian rockies events"
   ],
   openGraph: {
-    title: "Audio Visual Services Banff AB | Resort Event Production",
-    description: "Professional audio visual services in Banff, AB. Resort event production and AV equipment rental.",
+    title: "Event Production Banff | AV Rental & Audio Visual",
+    description: "Professional event production in Banff. d&b audio, LED walls, lighting. Fairmont Banff Springs & Banff Centre.",
     url: `${siteUrl}/locations/banff`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/banff`
+  }
 };
 
 export default function BanffPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-        <LocationTemplate
-          city="Banff"
-          region="Canadian Rockies"
-          province="AB"
-          heroTitle="Leading AV Company in Banff | Canadian Rockies Event Production"
-          description="Showmax Events provides premium audio visual production services for Banff resort events in the heart of the Canadian Rockies. From conferences at the Fairmont Banff Springs to corporate retreats and mountain celebrations, we deliver comprehensive AV solutions with premium equipment and experienced crew familiar with Banff's spectacular venues."
+      <LocationTemplate
+        city="Banff"
+        region="Canadian Rockies"
+        province="AB"
+        heroTitle="Event Production Banff – AV Rental & Audio Visual Services"
+        description="Showmax Events provides premium event production and audio visual services in Banff and the Canadian Rockies. From corporate retreats at the Fairmont Banff Springs to conferences at the Banff Centre, we deliver world-class sound systems, LED walls, lighting, and staging for one of Canada's most iconic destinations."
         nearbyVenues={[
           "Fairmont Banff Springs",
-          "Rimrock Resort Hotel",
-          "Banff Park Lodge",
-          "The Juniper Hotel",
-          "Moose Hotel & Suites",
           "Banff Centre for Arts and Creativity",
-          "Banff Gondola",
-          "Cave and Basin National Historic Site",
+          "Rimrock Resort Hotel",
+          "Moose Hotel and Suites",
+          "Banff Park Lodge",
+          "Mount Royal Hotel",
+          "Elk + Avenue Hotel"
         ]}
         servicesHighlight={[
-          "Specialized Canadian Rockies resort experience",
-          "Premium equipment for luxury mountain venues",
-          "Expert logistics and Rocky Mountain transportation",
-          "Complete production for corporate conferences",
-          "Trusted for high-end incentive programs in Banff",
-          "Full technical support in alpine environment",
+          "Premium AV for iconic Canadian Rockies events",
+          "Fairmont Banff Springs and Banff Centre specialists",
+          "Complete corporate retreat and incentive event production",
+          "d&b audiotechnik and ROE Visual equipment from Calgary",
+          "Experienced crews for mountain venue logistics"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

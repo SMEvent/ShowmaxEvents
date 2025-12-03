@@ -6,16 +6,27 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Resort Event Production Lake Louise | Fairmont Chateau AV Services",
-  description: "Premium resort event production in Lake Louise, AB. Complete AV services for conferences, weddings, and corporate events at Fairmont Chateau Lake Louise and Rocky Mountain venues.",
+  title: "Event Production Lake Louise | AV Rental & Audio Visual Services",
+  description: "Professional event production and AV rental at Lake Louise, Alberta. Complete audio visual services for corporate retreats, conferences & events at Fairmont Chateau Lake Louise and Canadian Rockies venues.",
+  keywords: [
+    "event production lake louise",
+    "av rental lake louise",
+    "audio visual lake louise",
+    "fairmont chateau lake louise av",
+    "corporate events lake louise",
+    "canadian rockies events"
+  ],
   openGraph: {
-    title: "Audio Visual Services Lake Louise AB | Resort Event Production",
-    description: "Professional audio visual services in Lake Louise, AB. Resort event production and AV equipment rental.",
+    title: "Event Production Lake Louise | AV Rental & Audio Visual",
+    description: "Professional event production at Lake Louise. d&b audio, LED walls, lighting. Fairmont Chateau Lake Louise.",
     url: `${siteUrl}/locations/lake-louise`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/lake-louise`
+  }
 };
 
 export default function LakeLouisePage() {
@@ -26,25 +37,24 @@ export default function LakeLouisePage() {
         city="Lake Louise"
         region="Canadian Rockies"
         province="AB"
-        heroTitle="Resort Event Production Lake Louise | Fairmont Chateau AV Services"
-        description="Showmax Events delivers exceptional audio visual production services for Lake Louise resort events. Specializing in the iconic Fairmont Chateau Lake Louise and mountain venues, we provide comprehensive AV solutions for corporate conferences, luxury weddings, and special events with premium equipment suited for this breathtaking Rocky Mountain location."
+        heroTitle="Event Production Lake Louise – AV Rental & Audio Visual Services"
+        description="Showmax Events provides premium event production and audio visual services at Lake Louise. From corporate retreats at the iconic Fairmont Chateau Lake Louise to events with stunning glacier views, we deliver world-class sound systems, LED walls, lighting, and staging for one of Canada's most breathtaking destinations."
         nearbyVenues={[
           "Fairmont Chateau Lake Louise",
           "Lake Louise Ski Resort",
-          "Lake Louise Lakeshore",
-          "Moraine Lake",
+          "Deer Lodge",
+          "Post Hotel & Spa",
+          "Moraine Lake Lodge"
         ]}
         servicesHighlight={[
-          "Specialized luxury resort event experience",
-          "Premium equipment for iconic mountain venue",
-          "Expert Rocky Mountain logistics",
-          "Complete AV for corporate retreats and incentives",
-          "Professional support for destination events",
-          "Weather-resistant solutions for alpine conditions",
+          "Premium AV for iconic Lake Louise events",
+          "Fairmont Chateau Lake Louise specialists",
+          "Complete corporate retreat and incentive event production",
+          "d&b audiotechnik and ROE Visual equipment from Calgary",
+          "Mountain venue logistics expertise"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

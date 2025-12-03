@@ -6,16 +6,28 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "AV Equipment Rental Surrey BC | Audio Visual Services Fraser Valley",
-  description: "Professional AV equipment rental in Surrey, BC. Complete audio visual services, sound systems, lighting, and event production for corporate events and conferences throughout Fraser Valley.",
+  title: "AV Rental Surrey BC | Audio Visual & Event Production Services",
+  description: "Professional AV rental in Surrey, BC. Complete audio visual services with d&b audio, LED walls, lighting for corporate events, conferences & venues throughout Surrey and Fraser Valley.",
+  keywords: [
+    "av rental surrey",
+    "audio visual surrey bc",
+    "event production surrey",
+    "sound system rental surrey",
+    "led wall rental surrey",
+    "corporate events surrey",
+    "fraser valley av services"
+  ],
   openGraph: {
-    title: "Audio Visual Services Surrey BC | AV Equipment & Event Production",
-    description: "Professional audio visual services in Surrey, BC. Event production and AV equipment rental.",
+    title: "AV Rental Surrey BC | Audio Visual & Event Production",
+    description: "Professional AV rental in Surrey. d&b audio, LED walls, lighting. Serving Surrey and Fraser Valley.",
     url: `${siteUrl}/locations/surrey`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/surrey`
+  }
 };
 
 export default function SurreyPage() {
@@ -24,26 +36,29 @@ export default function SurreyPage() {
       <Header />
       <LocationTemplate
         city="Surrey"
-        region="Metro Vancouver"
+        region="Fraser Valley"
         province="BC"
-        heroTitle="AV Equipment Rental Surrey | Audio Visual Services & Event Production"
-        description="Professional audio visual services for Surrey, BC events. Showmax Events provides complete AV production, equipment rental, and technical support for corporate events, conferences, and venues throughout Surrey and the Fraser Valley with premium equipment and experienced crew."
+        heroTitle="AV Rental Surrey – Audio Visual & Event Production Services"
+        description="Showmax Events provides professional audio visual services for Surrey, BC and the Fraser Valley. From corporate conferences to community events, we deliver complete AV solutions including sound systems, LED walls, lighting, and staging with experienced crews and premium equipment."
         nearbyVenues={[
           "Sheraton Vancouver Guildford Hotel",
-          "Fraser Downs Racetrack & Casino",
-          "Surrey City Hall",
-          "Coast Surrey Conference Centre",
           "Civic Hotel",
+          "Surrey City Hall",
+          "Bell Performing Arts Centre",
+          "Cloverdale Fairgrounds",
+          "Northview Golf & Country Club",
+          "Morgan Creek Golf Course",
+          "Coast Surrey Conference Centre"
         ]}
         servicesHighlight={[
-          "Comprehensive AV solutions for Surrey venues",
-          "Premium equipment delivery throughout Fraser Valley",
-          "Experienced technical crew and production management",
-          "Full-service support from consultation to strike"
+          "Complete AV solutions for Surrey and Fraser Valley",
+          "Same-day equipment delivery from Vancouver",
+          "d&b audiotechnik and ROE Visual inventory",
+          "Experienced production crews and technicians",
+          "Full technical support from consultation to strike"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

@@ -6,57 +6,118 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "LED Wall Rental Toronto | Video Screens & Event Production Services",
-  description: "Professional LED wall rental in Toronto and the GTA. ROE Visual LED screens, video walls, and complete event production for corporate events, conferences, and concerts. Serving Metro Toronto Convention Centre and major venues.",
+  title: "Event Production Company Toronto | AV Rental & Audio Visual Services",
+  description: "Toronto's trusted event production company. Full AV rental with d&b audiotechnik audio, ROE Visual LED walls, lighting & staging. Serving Metro Toronto Convention Centre, Scotiabank Arena & GTA venues.",
   keywords: [
+    "event production company toronto",
+    "av company toronto",
+    "audio visual toronto",
+    "av rental toronto",
     "led wall rental toronto",
     "video wall rental toronto",
-    "led screen rental toronto",
-    "av company toronto",
-    "event production toronto",
     "sound system rental toronto",
     "lighting rental toronto",
+    "staging rental toronto",
     "metro toronto convention centre av",
+    "scotiabank arena production",
     "corporate events toronto",
-    "gta av services"
+    "concert production toronto",
+    "gta av services",
+    "hybrid events toronto"
   ],
   openGraph: {
-    title: "Audio Visual Services Toronto | AV Production & Equipment Rental",
-    description: "Professional audio visual services in Toronto, ON. Complete event production, AV equipment rental, and technical services for the GTA.",
+    title: "Event Production Company Toronto | AV Rental & Audio Visual",
+    description: "Full-service event production in Toronto & GTA. d&b audio, ROE Visual LED walls, professional lighting. Metro Toronto Convention Centre & major venues.",
     url: `${siteUrl}/locations/toronto`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Event Production Company Toronto | Showmax Events",
+    description: "Full-service event production in Toronto. d&b audio, ROE Visual LED walls, professional lighting & staging.",
+  },
+  alternates: {
+    canonical: `${siteUrl}/locations/toronto`
+  }
 };
 
 export default function TorontoPage() {
+  const faqs = [
+    {
+      question: "What AV equipment do you provide in Toronto?",
+      answer: "We provide complete AV systems including d&b audiotechnik line arrays, ROE Visual LED walls, Robe and Martin lighting, DiGiCo consoles, and professional staging. Our Toronto inventory supports events from corporate meetings to arena-scale concerts at Scotiabank Arena."
+    },
+    {
+      question: "Do you provide AV services at the Metro Toronto Convention Centre?",
+      answer: "Yes. We regularly provide event production at the Metro Toronto Convention Centre, Scotiabank Arena, Roy Thomson Hall, and other major Toronto venues. Our team is experienced with GTA venue requirements and union protocols."
+    },
+    {
+      question: "Do you have crew based in Toronto?",
+      answer: "Yes. We have experienced technicians in Toronto including A1 audio engineers, lighting designers, LED technicians, and video operators. We maintain a full-service presence in the Greater Toronto Area."
+    },
+    {
+      question: "Can you support large-scale events in the GTA?",
+      answer: "Absolutely. Our inventory and crew can scale to support arena and stadium-level productions. We've provided production for major conferences, concerts, and corporate events throughout the Greater Toronto Area."
+    },
+    {
+      question: "What areas do you serve from Toronto?",
+      answer: "We serve the entire Greater Toronto Area including Mississauga, Brampton, Markham, Vaughan, Richmond Hill, and Oakville. We also support events across Ontario including Ottawa, Hamilton, and Niagara."
+    }
+  ];
+
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Audio Visual Services Toronto",
-    "provider": {
-      "@type": "Organization",
-      "name": "Showmax Events",
-      "url": siteUrl,
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "Showmax Events Toronto",
+        "description": "Professional event production company providing AV rental, LED walls, audio systems, lighting, and staging services in Toronto and the Greater Toronto Area.",
+        "url": `${siteUrl}/locations/toronto`,
       "logo": `${siteUrl}/showmax_logo.png`,
+        "image": `${siteUrl}/showmax_logo.png`,
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Toronto",
         "addressRegion": "ON",
         "addressCountry": "CA"
-      }
     },
-    "areaServed": {
+        "areaServed": [
+          {
       "@type": "City",
-      "name": "Toronto",
-      "containedIn": {
+            "name": "Toronto"
+          },
+          {
         "@type": "State",
         "name": "Ontario"
       }
-    },
-    "serviceType": "Audio Visual Production Services",
-    "description": "Professional audio visual services including event production, equipment rental, LED walls, sound systems, lighting, and hybrid event solutions in Toronto and the Greater Toronto Area."
+        ],
+        "priceRange": "$$$$",
+        "openingHours": "Mo-Fr 08:00-18:00"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Event Production Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "Showmax Events"
+        },
+        "areaServed": "Toronto, Ontario",
+        "description": "Full-service event production including d&b audiotechnik audio systems, ROE Visual LED walls, professional lighting, staging, and rigging for corporate events, concerts, and conferences in Toronto and the GTA."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
   };
 
   return (
@@ -71,37 +132,38 @@ export default function TorontoPage() {
           city="Toronto"
           region="Greater Toronto Area"
           province="ON"
-          heroTitle="LED Wall Rental Toronto | ROE Visual Video Screens & Event Production"
-          description="Showmax Events provides comprehensive audio visual production services throughout Toronto and the GTA. From major conferences at the Metro Toronto Convention Centre to corporate galas and live concerts, we deliver broadcast-quality results with premium d&b audiotechnik sound systems, ROE Visual LED walls, and complete lighting packages. Professional technical crew and comprehensive production support for Ontario's largest events."
+          heroTitle="Event Production Company Toronto – AV Rental, LED Walls & Audio Visual Services"
+          description="Showmax Events is Toronto's trusted event production company, delivering complete AV solutions for corporate events, conferences, concerts, and galas across the Greater Toronto Area. From the Metro Toronto Convention Centre to Scotiabank Arena, we provide d&b audiotechnik sound systems, ROE Visual LED walls, professional lighting, staging, and certified rigging with experienced Ontario crews."
           nearbyVenues={[
             "Metro Toronto Convention Centre",
             "Scotiabank Arena",
-            "Four Seasons Centre",
             "Roy Thomson Hall",
-            "Princess of Wales Theatre",
-            "Royal Alexandra Theatre",
             "Massey Hall",
             "Meridian Hall",
+            "Princess of Wales Theatre",
+            "Royal Alexandra Theatre",
+            "Four Seasons Centre",
             "Budweiser Stage",
             "Fairmont Royal York",
             "Shangri-La Toronto",
-            "Arcadian Court",
             "One King West",
             "Liberty Grand",
-            "Evergreen Brick Works"
+            "Evergreen Brick Works",
+            "Arcadian Court"
           ]}
           servicesHighlight={[
-            "Full-service AV production for Toronto's largest venues",
-            "Premium touring equipment and experienced Ontario-based crew",
-            "Complete production management for conferences and corporate events",
-            "Hybrid event solutions with professional live streaming",
-            "Fast deployment across the Greater Toronto Area",
-            "Trusted by major brands and production companies in Ontario"
+            "Complete event production with d&b audiotechnik and ROE Visual LED inventory",
+            "Experienced Toronto-based crews and technicians",
+            "Full production support for Metro Toronto Convention Centre and major venues",
+            "Arena and stadium-scale production capabilities",
+            "Certified rigging and professional staging systems",
+            "Hybrid and virtual event production with broadcast-quality streaming",
+            "Fast deployment across the Greater Toronto Area"
           ]}
+          faqs={faqs}
         />
         <Footer />
       </div>
     </>
   );
 }
-

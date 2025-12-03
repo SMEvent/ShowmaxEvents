@@ -6,16 +6,28 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Corporate Event Production Burnaby | AV Services Metro Vancouver",
-  description: "Professional corporate event production in Burnaby, BC. Complete AV services, equipment rental, and technical support for conferences and events throughout Metro Vancouver.",
+  title: "AV Rental Burnaby | Audio Visual & Event Production Services",
+  description: "Professional AV rental in Burnaby, BC. Complete audio visual services with d&b audio, LED walls, lighting for corporate events at Hilton Metrotown, Grand Villa Casino & Burnaby venues. Same-day delivery.",
+  keywords: [
+    "av rental burnaby",
+    "audio visual burnaby",
+    "event production burnaby",
+    "sound system rental burnaby",
+    "led wall rental burnaby",
+    "corporate events burnaby",
+    "hilton metrotown av"
+  ],
   openGraph: {
-    title: "Audio Visual Services Burnaby BC | AV Equipment & Event Production",
-    description: "Professional audio visual services in Burnaby, BC. Event production and AV equipment rental.",
+    title: "AV Rental Burnaby BC | Audio Visual & Event Production",
+    description: "Professional AV rental in Burnaby. d&b audio, LED walls, lighting. Same-day delivery from Vancouver.",
     url: `${siteUrl}/locations/burnaby`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/burnaby`
+  }
 };
 
 export default function BurnabyPage() {
@@ -26,24 +38,27 @@ export default function BurnabyPage() {
         city="Burnaby"
         region="Metro Vancouver"
         province="BC"
-        heroTitle="Corporate Event Production Burnaby | Professional AV Services"
-        description="Showmax Events delivers comprehensive audio visual production services in Burnaby, BC. Serving corporate venues, hotels, and special events throughout Burnaby with premium AV equipment, professional lighting, sound systems, and experienced technical crew from our nearby Vancouver headquarters."
+        heroTitle="AV Rental Burnaby – Audio Visual & Event Production Services"
+        description="Showmax Events provides complete audio visual services in Burnaby and the Tri-Cities. From corporate events at the Hilton Metrotown to productions at Grand Villa Casino, we deliver professional sound systems, LED walls, lighting, and staging with same-day delivery from our Vancouver headquarters."
         nearbyVenues={[
-          "Simon Fraser University",
-          "Metropolis at Metrotown",
-          "Burnaby Village Museum",
           "Hilton Vancouver Metrotown",
-          "Executive Hotel Burnaby",
+          "Grand Villa Casino",
+          "Executive Plaza Hotel",
+          "Burnaby Mountain Golf Course",
+          "Michael J. Fox Theatre",
+          "Shadbolt Centre for the Arts",
+          "BCIT Campus",
+          "SFU Burnaby Campus"
         ]}
         servicesHighlight={[
-          "Quick response times from our Vancouver base",
-          "Full production support for corporate and academic events",
-          "Premium equipment including d&b audio and ROE LED walls",
-          "Professional crew with venue experience"
+          "Same-day delivery from Vancouver warehouse",
+          "Complete AV for Burnaby corporate events",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Experienced Metro Vancouver crews",
+          "Full technical support and production management"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

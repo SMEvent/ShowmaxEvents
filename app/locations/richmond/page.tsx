@@ -6,16 +6,29 @@ import { LocationTemplate } from "@/components/locations/LocationTemplate";
 const siteUrl = "https://showmaxevents.com";
 
 export const metadata: Metadata = {
-  title: "Conference AV Services Richmond BC | Corporate Event Production",
-  description: "Professional conference AV services in Richmond, BC. Complete audio visual solutions for corporate events, hotel conferences, and venues throughout Richmond Metro Vancouver.",
+  title: "AV Rental Richmond BC | Audio Visual & Event Production Services",
+  description: "Professional AV rental in Richmond, BC. Complete audio visual services with d&b audio, LED walls, lighting for events at River Rock Casino, Richmond Convention Centre & YVR area venues.",
+  keywords: [
+    "av rental richmond",
+    "audio visual richmond bc",
+    "event production richmond",
+    "sound system rental richmond",
+    "led wall rental richmond",
+    "river rock casino av",
+    "richmond convention centre av",
+    "corporate events richmond"
+  ],
   openGraph: {
-    title: "Audio Visual Services Richmond BC | AV Equipment & Event Production",
-    description: "Professional audio visual services in Richmond, BC. Event production and AV equipment rental.",
+    title: "AV Rental Richmond BC | Audio Visual & Event Production",
+    description: "Professional AV rental in Richmond. d&b audio, LED walls, lighting. River Rock Casino & Richmond Convention Centre.",
     url: `${siteUrl}/locations/richmond`,
     siteName: "Showmax Events",
     locale: "en_CA",
     type: "website",
   },
+  alternates: {
+    canonical: `${siteUrl}/locations/richmond`
+  }
 };
 
 export default function RichmondPage() {
@@ -26,25 +39,27 @@ export default function RichmondPage() {
         city="Richmond"
         region="Metro Vancouver"
         province="BC"
-        heroTitle="Conference AV Services Richmond | Corporate Event Production"
-        description="Showmax Events provides professional audio visual production services throughout Richmond, BC. From the River Rock Casino Resort to corporate venues and private events, we deliver comprehensive AV solutions with premium equipment and experienced technical crew serving Metro Vancouver."
+        heroTitle="AV Rental Richmond – Audio Visual & Event Production Services"
+        description="Showmax Events provides complete audio visual services in Richmond, BC. From galas at River Rock Casino to conferences at the Richmond Convention Centre, we deliver professional sound systems, LED walls, lighting, and staging with fast delivery from our Vancouver warehouse."
         nearbyVenues={[
           "River Rock Casino Resort",
-          "Vancouver Airport Marriott",
+          "Richmond Convention Centre",
           "Sheraton Vancouver Airport",
+          "Fairmont Vancouver Airport",
           "Executive Airport Plaza Hotel",
           "Richmond Olympic Oval",
-          "Aberdeen Centre",
+          "Gateway Theatre",
+          "Aberdeen Centre"
         ]}
         servicesHighlight={[
-          "Fast equipment delivery throughout Richmond and Metro Vancouver",
-          "Full technical support for hotel and casino events",
-          "Premium AV equipment from our Vancouver headquarters",
-          "Experienced crew familiar with Richmond venues"
+          "Fast delivery from Vancouver headquarters",
+          "Complete AV for Richmond conventions and galas",
+          "River Rock Casino and YVR area specialists",
+          "d&b audiotechnik and ROE Visual equipment",
+          "Experienced Metro Vancouver production crews"
         ]}
       />
       <Footer />
     </div>
   );
 }
-

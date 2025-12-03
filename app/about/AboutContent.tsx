@@ -279,28 +279,95 @@ export default function AboutContent() {
               </section>
 
               {/* Service Areas */}
-              <section className="scroll-mt-24">
-                <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
-                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Where We <span className="text-[#FACC15]">Work</span></h2>
-                  <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                    Headquartered in <span className="text-[#FACC15]">Vancouver, British Columbia</span>, with operations extending to <span className="text-[#FACC15]">Calgary, Toronto</span>, and throughout <span className="text-[#FACC15]">Canada and the USA</span>.
-                  </p>
-                  
-                  <div className="mt-6 grid gap-4 md:grid-cols-3">
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                      <h3 className="text-xl font-semibold text-[#FACC15]">Western Canada</h3>
-                      <p className="mt-2 text-gray-300">Vancouver, Calgary, Banff, Whistler, Kelowna, Victoria</p>
+              <section
+                id="service-areas"
+                className="scroll-mt-24 rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 via-white/3 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12"
+              >
+                <h2 className="text-3xl font-semibold text-white md:text-4xl">Service Areas Across <span className="text-[#FACC15]">North America</span></h2>
+                <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                  <span className="text-[#FACC15]">Event production</span> services from Vancouver to Toronto and beyond. Headquarters in Vancouver with regional crews in <span className="text-[#FACC15]">Calgary, Edmonton</span>, and the <span className="text-[#FACC15]">Greater Toronto Area</span>. Consistent quality with premium equipment and experienced technicians across all markets.
+                </p>
+                
+                <div className="mt-8 space-y-8">
+                  {/* British Columbia - Vancouver Region */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FACC15] mb-3">British Columbia - Vancouver Region</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
+                      <Link href="/locations/vancouver" className="hover:text-[#FACC15] transition-colors">Vancouver (HQ)</Link>
+                      <Link href="/locations/richmond" className="hover:text-[#FACC15] transition-colors">Richmond</Link>
+                      <Link href="/locations/burnaby" className="hover:text-[#FACC15] transition-colors">Burnaby</Link>
+                      <Link href="/locations/surrey" className="hover:text-[#FACC15] transition-colors">Surrey</Link>
+                      <Link href="/locations/north-vancouver" className="hover:text-[#FACC15] transition-colors">North Vancouver</Link>
+                      <Link href="/locations/west-vancouver" className="hover:text-[#FACC15] transition-colors">West Vancouver</Link>
+                      <Link href="/locations/coquitlam" className="hover:text-[#FACC15] transition-colors">Coquitlam</Link>
+                      <Link href="/locations/port-coquitlam" className="hover:text-[#FACC15] transition-colors">Port Coquitlam</Link>
+                      <Link href="/locations/port-moody" className="hover:text-[#FACC15] transition-colors">Port Moody</Link>
+                      <Link href="/locations/new-westminster" className="hover:text-[#FACC15] transition-colors">New Westminster</Link>
+                      <Link href="/locations/langley" className="hover:text-[#FACC15] transition-colors">Langley</Link>
+                      <Link href="/locations/abbotsford" className="hover:text-[#FACC15] transition-colors">Abbotsford</Link>
+                      <Link href="/locations/vancouver" className="hover:text-[#FACC15] transition-colors">East Vancouver</Link>
+                      <Link href="/locations/vancouver" className="hover:text-[#FACC15] transition-colors">UBC</Link>
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                      <h3 className="text-xl font-semibold text-[#FACC15]">Eastern Canada</h3>
-                      <p className="mt-2 text-gray-300">Toronto, Greater Toronto Area</p>
+                  </div>
+
+                  {/* British Columbia - Regional */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FACC15] mb-3">British Columbia - Regional Cities</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
+                      <Link href="/locations/victoria" className="hover:text-[#FACC15] transition-colors">Victoria</Link>
+                      <Link href="/locations/kelowna" className="hover:text-[#FACC15] transition-colors">Kelowna</Link>
+                      <div>Penticton</div>
+                      <div>Vernon</div>
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                      <h3 className="text-xl font-semibold text-[#FACC15]">United States</h3>
-                      <p className="mt-2 text-gray-300">Seattle, San Francisco, Los Angeles, Las Vegas, Phoenix</p>
+                  </div>
+
+                  {/* Alberta */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FACC15] mb-3">Alberta</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
+                      <Link href="/locations/calgary" className="hover:text-[#FACC15] transition-colors">Calgary</Link>
+                      <Link href="/locations/edmonton" className="hover:text-[#FACC15] transition-colors">Edmonton</Link>
+                    </div>
+                  </div>
+
+                  {/* Resort Destinations */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FACC15] mb-3">Resort Destinations</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
+                      <Link href="/locations/banff" className="hover:text-[#FACC15] transition-colors">Banff</Link>
+                      <Link href="/locations/lake-louise" className="hover:text-[#FACC15] transition-colors">Lake Louise</Link>
+                      <Link href="/locations/whistler" className="hover:text-[#FACC15] transition-colors">Whistler</Link>
+                      <Link href="/locations/jasper" className="hover:text-[#FACC15] transition-colors">Jasper</Link>
+                    </div>
+                  </div>
+
+                  {/* Ontario */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FACC15] mb-3">Ontario</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
+                      <Link href="/locations/toronto" className="hover:text-[#FACC15] transition-colors">Toronto</Link>
+                      <Link href="/locations/toronto" className="hover:text-[#FACC15] transition-colors">Greater Toronto Area</Link>
+                    </div>
+                  </div>
+
+                  {/* USA Markets */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FACC15] mb-3">United States Markets</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
+                      <Link href="/locations/seattle" className="hover:text-[#FACC15] transition-colors">Seattle</Link>
+                      <Link href="/locations/san-francisco" className="hover:text-[#FACC15] transition-colors">San Francisco</Link>
+                      <Link href="/locations/los-angeles" className="hover:text-[#FACC15] transition-colors">Los Angeles</Link>
+                      <Link href="/locations/san-diego" className="hover:text-[#FACC15] transition-colors">San Diego</Link>
+                      <Link href="/locations/palm-springs" className="hover:text-[#FACC15] transition-colors">Palm Springs</Link>
+                      <Link href="/locations/las-vegas" className="hover:text-[#FACC15] transition-colors">Las Vegas</Link>
+                      <Link href="/locations/phoenix" className="hover:text-[#FACC15] transition-colors">Phoenix</Link>
                     </div>
                   </div>
                 </div>
+
+                <p className="mt-8 text-base leading-relaxed text-gray-300 md:text-lg">
+                  Consistent, professional results with premium equipment and experienced crew across all markets.
+                </p>
               </section>
 
               {/* CTA */}
