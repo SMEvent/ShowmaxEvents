@@ -73,7 +73,6 @@ export default defineType({
           ],
         },
       ],
-      validation: (Rule) => Rule.optional() // TEMPORARY: Made optional for import,
     }),
     defineField({
       name: "specifications",
