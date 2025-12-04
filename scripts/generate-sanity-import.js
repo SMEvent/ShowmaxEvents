@@ -3,76 +3,49 @@ const slugify = require('slugify');
 const fs = require('fs');
 const path = require('path');
 
-// Category mapping from PDF categories to Sanity schema values
-const categoryMap = {
-  // Audio categories
-  'audio': 'audio',
-  'sound': 'audio',
-  'pa system': 'audio',
-  'microphone': 'audio',
-  'mixer': 'audio',
-  'speaker': 'audio',
-  
-  // Video categories
-  'video': 'video',
-  'projection': 'video',
-  'projector': 'video',
-  'screen': 'video',
-  'led screen': 'video',
-  'switching': 'video',
-  'laptop': 'video',
-  'camera': 'video',
-  'monitor': 'video',
-  'display': 'video',
-  
-  // Lighting categories
-  'lighting': 'lighting',
-  'light': 'lighting',
-  'fixture': 'lighting',
-  'led': 'lighting',
-  'lamp': 'lighting',
-  
-  // Staging categories
-  'staging': 'staging',
-  'stage': 'staging',
-  'rigging': 'staging',
-  'truss': 'staging',
-  'scaffold': 'staging',
-  'platform': 'staging',
-  
-  // Accessories (default)
-  'cable': 'accessories',
-  'connector': 'accessories',
-  'adapter': 'accessories',
-  'stand': 'accessories',
-  'case': 'accessories',
-  'rack': 'accessories',
-  'processor': 'accessories',
-  'server': 'accessories',
+// Exact category mapping from PDF headers to Sanity schema values
+// Note: The PDF uses smart quotes (\u2019) not regular apostrophes (')
+const pdfCategoryHeaders = {
+  'LED Screen': 'led-screen',
+  'Switching + Laptops': 'switching-laptops',
+  'Video Projection + Screens': 'video-projection-screens',
+  'LED TV Monitors': 'led-tv-monitors',
+  'Cameras/Tripods/PTZ\u2019s/Recorders': 'cameras-tripods-ptzs-recorders', // Using Unicode smart quote
+  'AV Accessories': 'av-accessories',
+  'Audio': 'audio',
+  'Wireless Mics + Clear Com': 'wireless-mics-clear-com',
+  'DJ Equipment': 'dj-equipment',
+  'Lighting Fixtures': 'lighting-fixtures',
+  'Consoles': 'lighting-consoles',
+  'Rigging': 'rigging',
+  'Power Distro': 'power-distro',
+  'Staging': 'staging',
+  'Drapery': 'drapery',
 };
 
 /**
  * Map a category string to Sanity schema category value
  */
 function mapCategory(categoryText) {
-  if (!categoryText) return 'accessories';
+  if (!categoryText) return 'av-accessories';
   
-  const lower = categoryText.toLowerCase().trim();
+  const trimmed = categoryText.trim();
   
-  // Direct match
-  if (categoryMap[lower]) {
-    return categoryMap[lower];
+  // Check exact match first
+  if (pdfCategoryHeaders[trimmed]) {
+    return pdfCategoryHeaders[trimmed];
   }
   
-  // Partial match
-  for (const [key, value] of Object.entries(categoryMap)) {
-    if (lower.includes(key) || key.includes(lower)) {
+  // Check case-insensitive match
+  const lower = trimmed.toLowerCase();
+  for (const [key, value] of Object.entries(pdfCategoryHeaders)) {
+    if (key.toLowerCase() === lower) {
       return value;
     }
   }
   
-  // Default to accessories
-  return 'accessories';
+  // Default to av-accessories
+  return 'av-accessories';
 }
 
 /**
@@ -93,22 +66,30 @@ function extractEquipment(text) {
       continue;
     }
     
-    // Detect category headers (usually all caps or title case, no numbers/quantities)
-    // Category headers are typically short and don't contain dashes with numbers
-    const isLikelyCategory = !line.match(/^\d+\s*[-–—]/) && 
-                             (line.length < 50) &&
-                             !line.includes('(') &&
-                             !line.includes(')') &&
-                             (line === line.toUpperCase() || 
-                              (line.split(' ').length <= 4 && 
-                               !line.match(/^\d/)));
+    // Check if this line matches any known category header (exact match)
+    if (pdfCategoryHeaders[line]) {
+      currentCategory = line;
+      console.log(`Found category: ${line}`);
+      continue;
+    }
     
-    if (isLikelyCategory && !line.match(/^\d/)) {
-      // Check if next line starts with a number (equipment item)
-      if (i + 1 < lines.length && lines[i + 1].match(/^\d+\s*[-–—]/)) {
-        currentCategory = line;
-        continue;
+    // Also check for similar category names (case-insensitive and handling special characters)
+    let matchedCategory = null;
+    for (const categoryHeader of Object.keys(pdfCategoryHeaders)) {
+      // Normalize both strings for comparison
+      const normalizedLine = line.replace(/['']/g, "'"); // Normalize quotes
+      const normalizedHeader = categoryHeader.replace(/['']/g, "'");
+      
+      if (normalizedLine === normalizedHeader) {
+        matchedCategory = categoryHeader;
+        break;
       }
+    }
+    
+    if (matchedCategory) {
+      currentCategory = matchedCategory;
+      console.log(`Found category (normalized): ${matchedCategory}`);
+      continue;
     }
     
     // Detect equipment items (start with number followed by dash)
@@ -127,7 +108,7 @@ function extractEquipment(text) {
       }
       
       // Determine category
-      const category = currentCategory ? mapCategory(currentCategory) : mapCategory(cleanName);
+      const category = currentCategory ? mapCategory(currentCategory) : 'av-accessories';
       
       equipment.push({
         name: cleanName,
@@ -215,7 +196,7 @@ async function main() {
     });
     
     console.log('\nEquipment by category:');
-    Object.entries(byCategory).forEach(([cat, count]) => {
+    Object.entries(byCategory).sort().forEach(([cat, count]) => {
       console.log(`  ${cat}: ${count} items`);
     });
     
@@ -232,7 +213,7 @@ async function main() {
     console.log(`\n✅ Successfully generated ${sanityDocs.length} equipment documents`);
     console.log(`📄 Output file: ${outputPath}`);
     console.log('\nTo import into Sanity, run:');
-    console.log(`  sanity dataset import ${outputPath} production`);
+    console.log(`  npx sanity dataset import ${outputPath} production --replace`);
     
     // Show first few items as sample
     console.log('\n--- Sample items (first 5) ---');
@@ -247,4 +228,3 @@ async function main() {
 }
 
 main();
-

@@ -87,11 +87,21 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
 
   const categories = [
     { value: "all", label: "All Equipment", count: equipment.length },
+    { value: "led-screen", label: "LED Screen", count: equipmentByCategory['led-screen']?.length || 0 },
+    { value: "switching-laptops", label: "Switching + Laptops", count: equipmentByCategory['switching-laptops']?.length || 0 },
+    { value: "video-projection-screens", label: "Video Projection + Screens", count: equipmentByCategory['video-projection-screens']?.length || 0 },
+    { value: "led-tv-monitors", label: "LED TV Monitors", count: equipmentByCategory['led-tv-monitors']?.length || 0 },
+    { value: "cameras-tripods-ptzs-recorders", label: "Cameras/Tripods/PTZ's", count: equipmentByCategory['cameras-tripods-ptzs-recorders']?.length || 0 },
+    { value: "av-accessories", label: "AV Accessories", count: equipmentByCategory['av-accessories']?.length || 0 },
     { value: "audio", label: "Audio", count: equipmentByCategory.audio?.length || 0 },
-    { value: "video", label: "Video", count: equipmentByCategory.video?.length || 0 },
-    { value: "lighting", label: "Lighting", count: equipmentByCategory.lighting?.length || 0 },
+    { value: "wireless-mics-clear-com", label: "Wireless Mics + Clear Com", count: equipmentByCategory['wireless-mics-clear-com']?.length || 0 },
+    { value: "dj-equipment", label: "DJ Equipment", count: equipmentByCategory['dj-equipment']?.length || 0 },
+    { value: "lighting-fixtures", label: "Lighting Fixtures", count: equipmentByCategory['lighting-fixtures']?.length || 0 },
+    { value: "lighting-consoles", label: "Lighting Consoles", count: equipmentByCategory['lighting-consoles']?.length || 0 },
+    { value: "rigging", label: "Rigging", count: equipmentByCategory.rigging?.length || 0 },
+    { value: "power-distro", label: "Power Distro", count: equipmentByCategory['power-distro']?.length || 0 },
     { value: "staging", label: "Staging", count: equipmentByCategory.staging?.length || 0 },
-    { value: "accessories", label: "Accessories", count: equipmentByCategory.accessories?.length || 0 },
+    { value: "drapery", label: "Drapery", count: equipmentByCategory.drapery?.length || 0 },
   ];
 
   return (
@@ -106,7 +116,8 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
               placeholder="Search equipment by name, category, or description..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 sm:pl-10 h-10 sm:h-11 text-sm sm:text-base bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary focus:ring-primary"
+              className="pl-9 sm:pl-10 h-10 sm:h-11 text-base bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary focus:ring-primary"
+              style={{ fontSize: '16px' }}
             />
           </div>
           <div className="flex gap-1 border border-white/10 rounded-md bg-white/5 p-1">
@@ -225,7 +236,7 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
 
       {/* Category Tabs */}
       <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 mb-6 sm:mb-8 h-auto gap-1 p-1">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 mb-6 sm:mb-8 h-auto gap-1 p-1">
           {categories.map((cat) => (
             <TabsTrigger 
               key={cat.value} 
@@ -259,12 +270,12 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
                           
                           {/* Equipment Name - Flexible */}
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2">
-                              <h3 className="font-medium text-sm sm:text-base line-clamp-1 group-hover:text-primary transition-colors">
+                            <div className="flex items-start gap-2">
+                              <h3 className="font-medium text-sm sm:text-base line-clamp-2 sm:line-clamp-1 group-hover:text-primary transition-colors leading-tight">
                                 {item.name}
                               </h3>
                               {item.featured && (
-                                <Badge className="bg-primary text-black text-[9px] px-1.5 py-0 h-4 shrink-0">New</Badge>
+                                <Badge className="bg-primary text-black text-[9px] px-1.5 py-0 h-4 shrink-0 mt-0.5">New</Badge>
                               )}
                             </div>
                             {/* Desktop: Show description on hover */}
@@ -346,7 +357,7 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
                             <Badge className="bg-primary text-black text-[10px]">New</Badge>
                           )}
                         </div>
-                        <CardTitle className="text-sm sm:text-base leading-snug line-clamp-2 group-hover:text-primary transition-colors">
+                        <CardTitle className="text-sm sm:text-base leading-tight line-clamp-3 sm:line-clamp-2 group-hover:text-primary transition-colors min-h-[2.5rem] sm:min-h-0">
                           {item.name}
                         </CardTitle>
                       </CardHeader>
