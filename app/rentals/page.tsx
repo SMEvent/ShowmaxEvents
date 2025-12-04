@@ -18,18 +18,24 @@ export const revalidate = 60;
 
 // Fetch equipment from Sanity
 async function getEquipment() {
-  const query = `*[_type == "equipment"] | order(category asc, name asc) {
-    _id,
-    name,
-    slug,
-    category,
-    description,
-    day_rate,
-    quantity,
-    featured
-  }`;
-  
-  return sanityFetch<any[]>({ query, tags: ["equipment"] });
+  try {
+    const query = `*[_type == "equipment"] | order(category asc, name asc) {
+      _id,
+      name,
+      slug,
+      category,
+      description,
+      day_rate,
+      quantity,
+      featured
+    }`;
+    
+    return sanityFetch<any[]>({ query, tags: ["equipment"] });
+  } catch (error) {
+    console.error("Failed to fetch equipment from Sanity:", error);
+    // Return empty array if Sanity is not configured or fails
+    return [];
+  }
 }
 
 export default async function RentalsPage() {
