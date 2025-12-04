@@ -3,12 +3,26 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Mic2, Lightbulb, MonitorPlay, Triangle, Building2, Sparkles, Users, Award, CheckCircle } from "lucide-react";
+import { LogoBanner } from "./LogoBanner";
 
 // Client logos data
 const clients = [
-  "Amazon", "MGM", "NFL", "Lululemon", "TD Bank", "Boeing", 
-  "Pattison", "TED Talks", "Siemens", "Coastal Church", 
-  "Netflix", "BMW", "Porter Airlines", "Sunlife", "Vancity"
+  { name: "Amazon", logo: "/logos/amazon.svg" },
+  { name: "MGM", logo: "/logos/mgm.svg" },
+  { name: "NFL", logo: "/logos/nfl.svg" },
+  { name: "Lululemon", logo: "/logos/lululemon.svg" },
+  { name: "TD Bank", logo: "/logos/td-bank.svg" },
+  { name: "Boeing", logo: "/logos/boeing.svg" },
+  { name: "Pattison", logo: "/logos/pattison.svg" },
+  { name: "TED Talks", logo: "/logos/ted-talks.svg" },
+  { name: "Siemens", logo: "/logos/siemens.svg" },
+  { name: "Coastal Church", logo: "/logos/coastal-church.png" },
+  { name: "Netflix", logo: "/logos/netflix.svg" },
+  { name: "Disney", logo: "/logos/disney.svg" },
+  { name: "BMW", logo: "/logos/bmw.svg" },
+  { name: "Porter Airlines", logo: "/logos/Porter.svg" },
+  { name: "Sunlife", logo: "/logos/sun-life.svg" },
+  { name: "Vancity", logo: "/logos/vancity.svg" }
 ];
 
 // Service cards data for Corporate Events section
@@ -161,17 +175,7 @@ export function HomePageContent() {
             <p className="text-center text-xs uppercase tracking-[0.25em] text-white/50 mb-6">
               Trusted by Leading Brands
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 md:gap-x-12">
-              {clients.map((client, index) => (
-                <div
-                  key={client}
-                  className="px-4 py-2 text-sm md:text-base font-medium text-white/60 hover:text-primary transition-colors duration-300 cursor-default"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  {client}
-                </div>
-              ))}
-            </div>
+            <LogoBanner brands={clients} />
           </AnimatedSection>
         </div>
       </section>
