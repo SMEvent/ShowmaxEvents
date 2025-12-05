@@ -52,3 +52,4 @@ export function LogoBanner({ brands }: LogoBannerProps) {
     </div>
   );
 }
+
