@@ -187,3 +187,4 @@ if (!confirm) {
 }
 
 findAndRemoveDuplicates(!confirm);
+
