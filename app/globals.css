@@ -640,8 +640,8 @@
     }
   }
 
-  /* Logo banner infinite scroll animation */
-  @keyframes logo-scroll {
+  /* Scrolling banner animation */
+  @keyframes scroll {
     0% {
       transform: translateX(0);
     }
@@ -650,14 +650,16 @@
     }
   }
 
-  .animate-logo-scroll {
-    animation: logo-scroll 30s linear infinite;
-    will-change: transform;
+  .scroll-banner {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .animate-logo-scroll {
-      animation: none;
-    }
+  .scroll-banner-content {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    will-change: transform;
   }
 }

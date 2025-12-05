@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Mic2, Lightbulb, MonitorPlay, Triangle, Building2, Sparkles, Users, Award, CheckCircle } from "lucide-react";
-import { LogoBanner } from "./LogoBanner";
 
 // Client logos data
 const clients = [
@@ -21,8 +21,10 @@ const clients = [
   { name: "Disney", logo: "/logos/disney.svg" },
   { name: "BMW", logo: "/logos/bmw.svg" },
   { name: "Porter Airlines", logo: "/logos/Porter.svg" },
-  { name: "Sunlife", logo: "/logos/sun-life.svg" },
-  { name: "Vancity", logo: "/logos/vancity.svg" }
+  { name: "Sun Life", logo: "/logos/sun-life.svg" },
+  { name: "Vancity", logo: "/logos/vancity.svg" },
+  { name: "Kia", logo: "/logos/kia.svg" },
+  { name: "Rivian", logo: "/logos/rivian.svg" }
 ];
 
 // Service cards data for Corporate Events section
@@ -169,13 +171,62 @@ export function HomePageContent() {
       </section>
 
       {/* Client Logo Bar */}
-      <section className="py-8 md:py-12 border-y border-white/10">
+      <section className="py-8 md:py-12 border-y border-white/10 overflow-hidden">
         <div className="container mx-auto px-4">
           <AnimatedSection delay={100}>
             <p className="text-center text-xs uppercase tracking-[0.25em] text-white/50 mb-6">
               Trusted by Leading Brands
             </p>
-            <LogoBanner brands={clients} />
+            <div className="scroll-banner">
+              <div className="scroll-banner-content">
+                {/* First set of clients */}
+                {clients.map((client) => (
+                  <div
+                    key={`${client.name}-1`}
+                    className="flex items-center justify-center px-6 md:px-8 h-20 md:h-24 flex-shrink-0"
+                  >
+                    {client.logo ? (
+                      <div className="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center">
+                        <Image
+                          src={client.logo}
+                          alt={client.name}
+                          width={160}
+                          height={80}
+                          className="max-h-full max-w-full w-auto h-auto object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-sm md:text-base font-medium text-white/80">
+                        {client.name}
+                      </span>
+                    )}
+                  </div>
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {clients.map((client) => (
+                  <div
+                    key={`${client.name}-2`}
+                    className="flex items-center justify-center px-6 md:px-8 h-20 md:h-24 flex-shrink-0"
+                  >
+                    {client.logo ? (
+                      <div className="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center">
+                        <Image
+                          src={client.logo}
+                          alt={client.name}
+                          width={160}
+                          height={80}
+                          className="max-h-full max-w-full w-auto h-auto object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-sm md:text-base font-medium text-white/80">
+                        {client.name}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -339,9 +390,6 @@ export function HomePageContent() {
                   {location.name}
                 </Link>
               ))}
-              <span className="px-4 py-2 md:px-6 md:py-3 text-white/50 text-sm md:text-base">
-                + Resort Destinations
-              </span>
             </div>
           </AnimatedSection>
 
@@ -408,16 +456,6 @@ export function HomePageContent() {
               </AnimatedSection>
             ))}
           </div>
-
-          {/* Trusted Brands */}
-          <AnimatedSection delay={400} className="mt-12 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
-              Trusted by the World&apos;s Leading Brands
-            </p>
-            <p className="text-white/70 text-sm md:text-base">
-              Amazon • TED • Lululemon • BMW • Porter Airlines • NFL • MGM • Coastal Church
-            </p>
-          </AnimatedSection>
         </div>
       </section>
 
