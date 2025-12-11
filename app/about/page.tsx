@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://showmaxevents.com";
 
 export const metadata: Metadata = {
   title: "About Showmax Events | Professional Event Production & AV Integration Company",
-  description: "Showmax Events is a full-service production company delivering world-class live events, AV installations, and technical solutions across Canada and USA. Trusted by TED, Amazon, Lululemon, Netflix, and more.",
+  description: "Supporting event producers as their production partner by designing and delivering the total show experience. After 10,000 events, Showmax provides superior equipment technologies, expert staff and service standards across Canada and USA.",
   keywords: [
     "event production company",
     "AV integration company",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "About Showmax Events | Professional Event Production & AV Integration Company",
-    description: "Full-service production company delivering world-class live events, AV installations, and technical solutions. Trusted by Fortune 500 companies and global brands.",
+    description: "Supporting event producers as their production partner by designing and delivering the total show experience. After 10,000 events across North America.",
     url: `${siteUrl}/about`,
     siteName: "Showmax Events",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About Showmax Events | Professional Event Production & AV Integration",
-    description: "Full-service production company delivering world-class events and AV solutions. Trusted by TED, Amazon, Netflix, and more.",
+    description: "Supporting event producers by designing and delivering the total show experience. After 10,000 events across North America.",
     images: [`${siteUrl}/showmax_logo.png`]
   },
   alternates: {

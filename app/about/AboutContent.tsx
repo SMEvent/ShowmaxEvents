@@ -13,25 +13,35 @@ export default function AboutContent() {
   const services = [
     {
       title: "Event Production",
-      description: "Complete technical production for live events, concerts, conferences, and festivals across Canada and USA."
+      description: "Complete technical production for live events, concerts, conferences, and festivals across Canada and USA.",
+      link: "/production"
     },
     {
       title: "AV Installations",
-      description: "Permanent AV integration for venues, churches, nightclubs, and corporate spaces that perform every day."
+      description: "Permanent AV integration for venues, churches, nightclubs, and corporate spaces that perform every day.",
+      link: "/installs"
     },
     {
       title: "Equipment Rentals",
-      description: "Access to the largest inventory of ROE Visual LED walls and d&b audiotechnik systems in Western Canada."
+      description: "Access to the largest inventory of ROE Visual LED walls and d&b audiotechnik systems in Western Canada.",
+      link: "/rentals"
     },
     {
       title: "Virtual Production",
-      description: "LED volume integration, camera tracking, and Unreal Engine pipelines for film and broadcast studios."
+      description: "LED volume integration, camera tracking, and Unreal Engine pipelines for film and broadcast studios.",
+      link: "/film-tv"
+    },
+    {
+      title: "Turnkey Venue Spaces",
+      description: "Access to three fully-equipped event venues with pre-installed world-class AV systems ready for your next event.",
+      link: "/venues"
     }
   ];
 
   const clients = [
     "TED", "Amazon", "Lululemon", "Netflix", "MGM", "NFL",
-    "BMW", "Porter Airlines", "Coastal Church", "Rocky Mountaineer"
+    "BMW", "Porter Airlines", "Coastal Church", "Boeing",
+    "Pattison Group", "Siemens", "TD Bank", "Sunlife Financial", "KIA", "Vancity"
   ];
 
   return (
@@ -55,19 +65,19 @@ export default function AboutContent() {
             </section>
 
             <div className="mt-20 space-y-16 md:space-y-20">
-              {/* Who We Are */}
+              {/* Our Story */}
               <section className="scroll-mt-24">
                 <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
-                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Who We Are</h2>
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Our Story</h2>
                   <div className="mt-6 space-y-4 text-base leading-relaxed text-gray-300 md:text-lg">
                     <p>
-                      Based in <span className="text-[#FACC15]">Vancouver</span> with operations in <span className="text-[#FACC15]">Calgary</span> and <span className="text-[#FACC15]">Toronto</span>, Showmax Events has been producing and supporting world-class events for over two decades.
+                      30 years ago, a high school student taught himself how to DJ and started playing school dances. One day, after going to three different companies to rent sound, lighting and video, the idea was formed to create a company that could deliver the total show experience—and <span className="text-[#FACC15]">Showmax was born</span>.
                     </p>
                     <p>
-                      We're the team behind some of the most memorable concerts, conferences, church services, festivals, and brand activations across North America. From intimate corporate gatherings to stadium-scale productions, we bring the same dedication to excellence every time.
+                      After <span className="text-[#FACC15]">10,000 events</span>, we have a reputation for providing North America with superior equipment technologies, expert staff and service standards. Our goal is to provide great outcomes and experiences.
                     </p>
                     <p>
-                      What started as an AV rental company has evolved into a complete production partner—offering event production services, permanent AV installations, equipment rentals, and virtual production integration for clients who demand the best.
+                      Based in <span className="text-[#FACC15]">Vancouver</span> with operations in <span className="text-[#FACC15]">Calgary</span> and <span className="text-[#FACC15]">Toronto</span>, we're the team behind some of the most memorable concerts, conferences, church services, festivals, and brand activations across North America.
                     </p>
                   </div>
                 </div>
@@ -112,6 +122,36 @@ export default function AboutContent() {
                 </div>
               </section>
 
+              {/* Mission, Vision & Values */}
+              <section className="scroll-mt-24">
+                <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
+                  <h2 className="text-3xl font-semibold text-white md:text-4xl">Mission, Vision & <span className="text-[#FACC15]">Values</span></h2>
+                  
+                  <div className="mt-8 space-y-8">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-[#FACC15] md:text-3xl">Mission Statement</h3>
+                      <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                        Supporting event producers as their production partner by designing and delivering the total show experience.
+                      </p>
+                    </div>
+
+                    <div className="border-t border-white/10 pt-8">
+                      <h3 className="text-2xl font-semibold text-[#FACC15] md:text-3xl">Vision Statement</h3>
+                      <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                        Inspiring and impacting lives through engaging events in North America.
+                      </p>
+                    </div>
+
+                    <div className="border-t border-white/10 pt-8">
+                      <h3 className="text-2xl font-semibold text-[#FACC15] md:text-3xl">Value Proposition</h3>
+                      <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
+                        We deliver the total show experience by designing and providing the highest quality, service and technology solutions for events.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
               {/* By The Numbers */}
               <section id="stats" className="scroll-mt-24">
                 <div className="rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 via-white/3 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12">
@@ -135,34 +175,17 @@ export default function AboutContent() {
                   
                   <div className="mt-8 grid gap-6 md:grid-cols-2">
                     {services.map((service, index) => (
-                      <div key={index} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                      <Link 
+                        key={index} 
+                        href={service.link}
+                        className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-all hover:border-primary/30 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(250,204,21,0.2)]"
+                      >
                         <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">{service.title}</h3>
                         <p className="mt-3 text-base leading-relaxed text-gray-300">
                           {service.description}
                         </p>
-                      </div>
+                      </Link>
                     ))}
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap gap-4 justify-center">
-                    <Link
-                      href="/production"
-                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
-                    >
-                      View Production Services
-                    </Link>
-                    <Link
-                      href="/installs"
-                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
-                    >
-                      View Installation Services
-                    </Link>
-                    <Link
-                      href="/rentals"
-                      className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#fff1b2] transition hover:bg-primary/30"
-                    >
-                      View Equipment Rentals
-                    </Link>
                   </div>
                 </div>
               </section>

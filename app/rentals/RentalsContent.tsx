@@ -7,7 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Search, FileText, ExternalLink, Grid3x3, List, X, Download, Maximize2 } from "lucide-react";
+import { Search, FileText, ExternalLink, Grid3x3, List, X, Download, Maximize2, ShoppingCart, Plus } from "lucide-react";
+import { useQuoteStore } from "@/lib/store/quoteStore";
+import { QuoteCart } from "@/components/equipment/QuoteCart";
+import { toast } from "sonner";
 
 interface Equipment {
   _id: string;
@@ -31,6 +34,8 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
   const [userSelectedView, setUserSelectedView] = useState(false);
   const [showPdfViewer, setShowPdfViewer] = useState(false);
+  
+  const { addItem, openCart, getTotalItems } = useQuoteStore();
 
   // Set default view mode based on screen size
   useEffect(() => {
@@ -55,6 +60,26 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
   const handleViewModeChange = (mode: 'grid' | 'compact') => {
     setViewMode(mode);
     setUserSelectedView(true);
+  };
+
+  const handleAddToQuote = (item: Equipment, e: React.MouseEvent) => {
+    e.stopPropagation();
+    addItem({
+      _id: item._id,
+      slug: item.slug.current,
+      name: item.name,
+      category: item.category,
+      quantity: 1,
+      dayRate: item.day_rate,
+      description: item.description,
+    });
+    toast.success("Added to quote!", {
+      description: `${item.name} has been added to your quote cart.`,
+      action: {
+        label: "View Cart",
+        onClick: () => openCart(),
+      },
+    });
   };
 
   // Group equipment by category
@@ -105,6 +130,23 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
   ];
 
   return (
+    <>
+      <QuoteCart />
+      
+      {/* Floating Cart Button */}
+      {getTotalItems() > 0 && (
+        <button
+          onClick={openCart}
+          className="fixed bottom-6 right-6 z-40 bg-primary text-black rounded-full p-4 shadow-2xl hover:bg-primary/90 transition-all hover:scale-110 group"
+          aria-label="View quote cart"
+        >
+          <ShoppingCart className="h-6 w-6" />
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center animate-pulse">
+            {getTotalItems()}
+          </span>
+        </button>
+      )}
+
     <div className="mt-8 sm:mt-12">
       {/* Search Bar & View Toggle */}
       <div className="mb-6 sm:mb-8 max-w-2xl mx-auto px-2 sm:px-0">
@@ -307,6 +349,16 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
                               <span className="text-white/50 text-[10px] sm:text-xs">/day</span>
                             </div>
                           )}
+                          
+                          {/* Add to Quote Button */}
+                          <Button
+                            size="sm"
+                            onClick={(e) => handleAddToQuote(item, e)}
+                            className="shrink-0 bg-primary text-black hover:bg-primary/90 h-8 px-3 text-xs"
+                          >
+                            <Plus className="h-3.5 w-3.5 mr-1" />
+                            <span className="hidden sm:inline">Add</span>
+                          </Button>
                         </div>
 
                         {/* Expandable Details - Mobile (tap to expand) */}
@@ -345,7 +397,7 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
                   {filteredEquipment.map((item) => (
                     <Card 
                       key={item._id} 
-                      className="text-white/85 hover:border-primary/50 transition-all group cursor-pointer relative"
+                      className="text-white/85 hover:border-primary/50 transition-all group cursor-pointer relative flex flex-col"
                       onClick={() => setExpandedItem(expandedItem === item._id ? null : item._id)}
                     >
                       <CardHeader className="pb-2 p-3 sm:p-4">
@@ -361,7 +413,7 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
                           {item.name}
                         </CardTitle>
                       </CardHeader>
-                      <CardContent className="p-3 sm:p-4 pt-0">
+                      <CardContent className="p-3 sm:p-4 pt-0 flex flex-col flex-1">
                         {item.description && (
                           <>
                             {/* Default truncated view */}
@@ -376,7 +428,7 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
                             )}
                           </>
                         )}
-                        <div className="flex items-center justify-between gap-2 text-xs">
+                        <div className="flex items-center justify-between gap-2 text-xs mb-3">
                           {item.quantity !== null && item.quantity !== undefined && (
                             <div>
                               <span className="text-white/50">Qty: </span>
@@ -394,6 +446,16 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
                             </div>
                           )}
                         </div>
+                        
+                        {/* Add to Quote Button */}
+                        <Button
+                          size="sm"
+                          onClick={(e) => handleAddToQuote(item, e)}
+                          className="w-full bg-primary text-black hover:bg-primary/90 mt-auto"
+                        >
+                          <Plus className="h-4 w-4 mr-2" />
+                          Add to Quote
+                        </Button>
                       </CardContent>
 
                       {/* Visual Indicator for Mobile - Grid View */}
@@ -431,6 +493,7 @@ export function RentalsContent({ equipment }: RentalsContentProps) {
         </TabsContent>
       </Tabs>
     </div>
+    </>
   );
 }
 

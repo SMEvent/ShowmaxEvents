@@ -76,10 +76,10 @@ export default function ContactPage() {
                       <div>
                         <div className="font-medium">Phone</div>
                         <div className="text-sm text-white/70">
-                          (604) 555-0123
+                          1.604.639.4629
                         </div>
                         <div className="text-xs text-white/50">
-                          Mon-Fri: 9am-6pm PST
+                          Mon-Fri: 8am-4pm PST
                         </div>
                       </div>
                     </div>
@@ -112,8 +112,9 @@ export default function ContactPage() {
                       <div>
                         <div className="font-medium text-primary">Canada (HQ)</div>
                         <div className="text-sm text-white/70">
-                          Vancouver, BC<br />
-                          Canada
+                          8388 Prince Edward Street<br />
+                          Vancouver, British Columbia<br />
+                          Canada V5X3R9
                         </div>
                         <div className="text-xs text-white/50">
                           Serving BC, Alberta, Ontario
@@ -126,11 +127,12 @@ export default function ContactPage() {
                       <div>
                         <div className="font-medium text-primary">United States</div>
                         <div className="text-sm text-white/70">
-                          Seattle, WA<br />
+                          5815 West Ford Avenue<br />
+                          Las Vegas, Nevada 89139<br />
                           United States
                         </div>
                         <div className="text-xs text-white/50">
-                          Serving West Coast & National
+                          By appointment only | Serving West Coast & National
                         </div>
                       </div>
                     </div>
@@ -144,18 +146,14 @@ export default function ContactPage() {
                   <CardContent className="space-y-2 text-sm text-white/70">
                     <div className="flex justify-between uppercase tracking-wide text-xs text-white/60">
                       <span>Monday - Friday</span>
-                      <span className="text-white">9:00 AM - 6:00 PM</span>
+                      <span className="text-white">8:00 AM - 4:00 PM</span>
                     </div>
                     <div className="flex justify-between uppercase tracking-wide text-xs text-white/60">
-                      <span>Saturday</span>
-                      <span className="text-white">10:00 AM - 4:00 PM</span>
-                    </div>
-                    <div className="flex justify-between uppercase tracking-wide text-xs text-white/60">
-                      <span>Sunday</span>
+                      <span>Saturday - Sunday</span>
                       <span className="text-white">Closed</span>
                     </div>
                     <div className="pt-2 text-xs text-white/50 border-t border-white/10">
-                      * 24/7 emergency support available for active rentals
+                      * 24/7 emergency support available for active events
                     </div>
                   </CardContent>
                 </Card>
