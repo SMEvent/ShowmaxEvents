@@ -1,6 +1,18 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization to avoid build-time errors
+let resendInstance: Resend | null = null;
+
+function getResendClient(): Resend {
+  if (!resendInstance) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error("RESEND_API_KEY is not configured");
+    }
+    resendInstance = new Resend(apiKey);
+  }
+  return resendInstance;
+}
 
 interface InquiryEmailData {
   clientName: string;
@@ -14,6 +26,7 @@ interface InquiryEmailData {
 
 export async function sendInquiryConfirmation(data: InquiryEmailData) {
   try {
+    const resend = getResendClient();
     const { data: result, error } = await resend.emails.send({
       from: "ShowMax Events <noreply@showmaxevents.com>",
       to: [data.clientEmail],
@@ -71,6 +84,7 @@ export async function sendInquiryNotificationToAdmin(data: InquiryEmailData) {
   }
 
   try {
+    const resend = getResendClient();
     const { data: result, error } = await resend.emails.send({
       from: "ShowMax Events <noreply@showmaxevents.com>",
       to: [adminEmail],
@@ -120,6 +134,7 @@ export async function sendQuoteSavedNotification(
   quoteName: string
 ) {
   try {
+    const resend = getResendClient();
     const { data: result, error } = await resend.emails.send({
       from: "ShowMax Events <noreply@showmaxevents.com>",
       to: [clientEmail],
@@ -199,6 +214,7 @@ export async function sendQuoteRequestToClient(data: QuoteRequestData) {
       )
       .join("");
 
+    const resend = getResendClient();
     const { data: result, error } = await resend.emails.send({
       from: "ShowMax Events <noreply@showmaxevents.com>",
       to: [data.clientEmail],
@@ -337,6 +353,7 @@ export async function sendQuoteRequestToAdmin(data: QuoteRequestData) {
       )
       .join("");
 
+    const resend = getResendClient();
     const { data: result, error } = await resend.emails.send({
       from: "ShowMax Events <noreply@showmaxevents.com>",
       to: [adminEmail],
