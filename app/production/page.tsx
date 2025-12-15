@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://showmaxevents.com";
 
 export const metadata: Metadata = {
   title: "Event Production Services Vancouver, Calgary, Toronto | Live, Hybrid & Virtual Events | Showmax Events",
-  description: "World-class live event production, hybrid events, and virtual event services across Canada and USA. Professional audio (d&b audiotechnik), LED walls (ROE Visual), lighting, and rigging for concerts, conferences, and corporate events in Vancouver, Calgary, Banff, Toronto.",
+  description: "World-class live event production, hybrid events, and virtual event services across North America. Professional audio (d&b audiotechnik), LED walls (ROE Visual), lighting, and rigging for concerts, conferences, and corporate events in Las Vegas, Seattle, Vancouver, Calgary, Banff, Toronto.",
   keywords: [
     "event production Vancouver",
     "live event production Calgary",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Event Production Services Vancouver, Calgary, Toronto | Showmax Events",
-    description: "Professional live, hybrid & virtual event production across Canada. Premium audio, lighting, LED walls, and rigging for concerts, conferences, and corporate events.",
+    description: "Professional live, hybrid & virtual event production across North America. Premium audio, lighting, LED walls, and rigging for concerts, conferences, and corporate events.",
     url: `${siteUrl}/production`,
     siteName: "Showmax Events",
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Event Production Services Vancouver, Calgary, Toronto | Showmax Events",
-    description: "Professional live, hybrid & virtual event production across Canada. Premium audio, lighting, LED walls, and rigging for concerts and corporate events.",
+    description: "Professional live, hybrid & virtual event production across North America. Premium audio, lighting, LED walls, and rigging for concerts and corporate events.",
     images: [`${siteUrl}/production/opengraph-image`]
   },
   alternates: {
@@ -89,7 +89,7 @@ export default function ProductionPage() {
         "name": "Showmax Events",
         "url": siteUrl,
         "logo": `${siteUrl}/showmax_logo.png`,
-        "description": "Professional event production company providing live, hybrid, and virtual event services across Canada and USA",
+        "description": "Professional event production company providing live, hybrid, and virtual event services across North America",
         "address": [
           {
             "@type": "PostalAddress",

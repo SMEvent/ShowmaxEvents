@@ -83,7 +83,7 @@ export default function SalesContent() {
                 Equipment Sales - <span className="text-[#FACC15]">New & Pre-Owned</span>
               </h1>
               <p className="mt-6 text-lg text-gray-200 md:text-xl">
-                Purchase professional <span className="text-[#FACC15]">AV equipment</span> from Showmax Events. We sell new and carefully maintained pre-owned audio, lighting, video, and production equipment across Canada.
+                Purchase professional <span className="text-[#FACC15]">AV equipment</span> from Showmax Events. We sell new and carefully maintained pre-owned audio, lighting, video, and production equipment across North America.
               </p>
             </section>
 
@@ -151,9 +151,9 @@ export default function SalesContent() {
                       </p>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-primary mb-3">Canadian Service</h3>
+                      <h3 className="text-xl font-semibold text-primary mb-3">North American Service</h3>
                       <p className="text-base text-gray-300">
-                        Local sales and support across British Columbia, Alberta, and Ontario.
+                        Sales and support across North America with major operations in Las Vegas, Seattle, Vancouver, Calgary, and Toronto.
                       </p>
                     </div>
                   </div>

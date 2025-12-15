@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://showmaxevents.com";
 
 export const metadata: Metadata = {
   title: "AV Installation Company | LED Walls, Audio & Lighting Systems | Showmax",
-  description: "Permanent AV installation for venues, churches, nightclubs & corporate spaces. d&b audiotechnik audio, ROE Visual LED walls, professional lighting. Design, install & support across Canada.",
+  description: "Permanent AV installation for venues, churches, nightclubs & corporate spaces. d&b audiotechnik audio, ROE Visual LED walls, professional lighting. Design, install & support across North America.",
   keywords: [
     // PRIMARY
     "av installation",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "AV Installation Company | Permanent LED, Audio & Lighting Systems",
-    description: "Professional AV installation for venues, churches, nightclubs & corporate spaces. d&b audio, ROE Visual LED, and expert integration across Canada.",
+    description: "Professional AV installation for venues, churches, nightclubs & corporate spaces. d&b audio, ROE Visual LED, and expert integration across North America.",
     url: `${siteUrl}/installs`,
     siteName: "Showmax Events",
     images: [
@@ -101,7 +101,7 @@ export default function InstallsPage() {
         "name": "Showmax Events",
         "url": siteUrl,
         "logo": `${siteUrl}/showmax_logo.png`,
-        "description": "Professional AV installation company providing permanent audio, video, lighting, and LED wall systems for venues, churches, nightclubs, and corporate spaces across Canada.",
+        "description": "Professional AV installation company providing permanent audio, video, lighting, and LED wall systems for venues, churches, nightclubs, and corporate spaces across North America.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Vancouver",
@@ -236,7 +236,7 @@ export default function InstallsPage() {
             "name": "What areas do you serve for AV installation?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We provide AV installation services across Canada, including British Columbia (Vancouver, Victoria, Kelowna), Alberta (Calgary, Edmonton), and Ontario (Toronto, GTA). We also serve select US markets for larger projects."
+              "text": "We provide AV installation services across North America, including major US markets (Las Vegas, Seattle) and Canadian markets including British Columbia (Vancouver, Victoria, Kelowna), Alberta (Calgary, Edmonton), and Ontario (Toronto, GTA)."
             }
           },
           {

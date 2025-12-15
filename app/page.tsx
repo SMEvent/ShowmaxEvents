@@ -5,8 +5,8 @@ import { HeroCarousel } from "@/components/layout/HeroCarousel";
 import { HomePageContent } from "@/components/common/HomePageContent";
 
 export const metadata: Metadata = {
-  title: "Showmax Events | Full-Service Event Production & AV Rentals Across Canada",
-  description: "Showmax Events is a leading event production company based in Vancouver, delivering full-service audio, lighting, video, LED, staging, rigging, virtual production, and venue installations across Canada and the USA. Trusted for corporate events, conferences, concerts, festivals, and large-scale productions.",
+  title: "Showmax Events | Full-Service Event Production & AV Rentals Across North America",
+  description: "Showmax Events is a leading event production company based in Vancouver with major operations in Las Vegas and Seattle, delivering full-service audio, lighting, video, LED, staging, rigging, virtual production, and venue installations across North America. Trusted for corporate events, conferences, concerts, festivals, and large-scale productions.",
   keywords: [
     "event production Vancouver",
     "event production Calgary",

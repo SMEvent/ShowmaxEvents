@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://showmaxevents.com";
 
 export const metadata: Metadata = {
   title: "Equipment Sales - New & Pre-Owned AV Equipment | Showmax Events",
-  description: "Purchase new and pre-owned professional AV equipment. Audio systems, lighting, LED walls, and production gear for sale across Canada.",
+  description: "Purchase new and pre-owned professional AV equipment. Audio systems, lighting, LED walls, and production gear for sale across North America.",
   keywords: [
     "AV equipment sales",
     "used audio equipment",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Equipment Sales - New & Pre-Owned AV Equipment | Showmax Events",
-    description: "Purchase new and pre-owned professional AV equipment across Canada.",
+    description: "Purchase new and pre-owned professional AV equipment across North America.",
     url: `${siteUrl}/sales`,
     siteName: "Showmax Events",
     locale: "en_US",

@@ -84,11 +84,11 @@ export default function ProductionContent() {
       title: "Live Streaming & Broadcast Production",
       summary: (
         <>
-          Professional <span className="text-[#FACC15]">live streaming services</span> and <span className="text-[#FACC15]">broadcast production</span> for <span className="text-[#FACC15]">hybrid events</span> across Canada. Our streaming infrastructure delivers broadcast-quality video with secure, redundant connectivity for conferences and corporate events in <span className="text-[#FACC15]">Vancouver, Calgary, and Toronto</span>.
+          Professional <span className="text-[#FACC15]">live streaming services</span> and <span className="text-[#FACC15]">broadcast production</span> for <span className="text-[#FACC15]">hybrid events</span> across North America. Our streaming infrastructure delivers broadcast-quality video with secure, redundant connectivity for conferences and corporate events in <span className="text-[#FACC15]">Las Vegas, Seattle, Vancouver, Calgary, and Toronto</span>.
         </>
       ),
       details: {
-        closing: "From local hybrid events to global virtual conferences, our streaming team ensures flawless delivery with professional encoding, CDN distribution, and real-time monitoring across Canada and worldwide.",
+        closing: "From local hybrid events to global virtual conferences, our streaming team ensures flawless delivery with professional encoding, CDN distribution, and real-time monitoring across North America and worldwide.",
         equipment: [
           "Encoding: Teradek Prism, Makito X4, Haivision",
           "Streaming Platforms: Vimeo Enterprise, YouTube Live, custom RTMP",
@@ -102,7 +102,7 @@ export default function ProductionContent() {
       title: "Multi-Camera Video Production",
       summary: (
         <>
-          <span className="text-[#FACC15]">Multi-camera video production</span> for <span className="text-[#FACC15]">hybrid conferences</span> and <span className="text-[#FACC15]">virtual events</span>. Our video production team delivers cinema-quality capture with professional switching, graphics, and replay capabilities for events across Canada.
+          <span className="text-[#FACC15]">Multi-camera video production</span> for <span className="text-[#FACC15]">hybrid conferences</span> and <span className="text-[#FACC15]">virtual events</span>. Our video production team delivers cinema-quality capture with professional switching, graphics, and replay capabilities for events across North America.
         </>
       ),
       details: {
@@ -138,7 +138,7 @@ export default function ProductionContent() {
       title: "Remote Speaker & Presenter Management",
       summary: (
         <>
-          Professional <span className="text-[#FACC15]">remote speaker management</span> and technical support for <span className="text-[#FACC15]">hybrid conferences</span>. We coordinate remote presenters, manage video feeds, and ensure seamless integration between in-person and virtual participants for events across Canada.
+          Professional <span className="text-[#FACC15]">remote speaker management</span> and technical support for <span className="text-[#FACC15]">hybrid conferences</span>. We coordinate remote presenters, manage video feeds, and ensure seamless integration between in-person and virtual participants for events across North America.
         </>
       ),
       details: {
@@ -159,11 +159,11 @@ export default function ProductionContent() {
       title: "Professional Audio Systems & Sound Reinforcement",
       summary: (
         <>
-          Premium <span className="text-[#FACC15]">d&b audiotechnik audio systems rental</span> for concerts, corporate events, and conferences in <span className="text-[#FACC15]">Vancouver, Calgary, and Toronto</span>. Our professional audio production services deliver <span className="text-[#FACC15]">concert-quality sound reinforcement</span> with crystal-clear clarity, depth, and impact for any venue size.
+          Premium <span className="text-[#FACC15]">d&b audiotechnik audio systems rental</span> for concerts, corporate events, and conferences across North America including <span className="text-[#FACC15]">Las Vegas, Seattle, Vancouver, Calgary, and Toronto</span>. Our professional audio production services deliver <span className="text-[#FACC15]">concert-quality sound reinforcement</span> with crystal-clear clarity, depth, and impact for any venue size.
         </>
       ),
       details: {
-        closing: "From intimate corporate venues to stadium-scale concert production across Canada, our experienced audio engineers and technicians ensure your message and music are delivered with precision and professional-grade sound quality.",
+        closing: "From intimate corporate venues to stadium-scale concert production across North America, our experienced audio engineers and technicians ensure your message and music are delivered with precision and professional-grade sound quality.",
         equipment: [
           "Systems: d&b audiotechnik J, Y, Q, and B-Series line arrays",
           "Mixing Consoles: Digico SD7 / SD10, Avid S6L, Allen & Heath Avantis",
@@ -177,7 +177,7 @@ export default function ProductionContent() {
       title: "Event Lighting Design & Production",
       summary: (
         <>
-          Professional <span className="text-[#FACC15]">concert and event lighting rental services</span> across Canada featuring <span className="text-[#FACC15]">Robe and Martin fixtures</span>. Our lighting designers create custom lighting production from ambient corporate lighting to full-scale <span className="text-[#FACC15]">concert lighting spectacles</span> for events in <span className="text-[#FACC15]">Vancouver, Calgary, Banff, and Toronto</span>.
+          Professional <span className="text-[#FACC15]">concert and event lighting rental services</span> across North America featuring <span className="text-[#FACC15]">Robe and Martin fixtures</span>. Our lighting designers create custom lighting production from ambient corporate lighting to full-scale <span className="text-[#FACC15]">concert lighting spectacles</span> for events in <span className="text-[#FACC15]">Las Vegas, Seattle, Vancouver, Calgary, Banff, and Toronto</span>.
         </>
       ),
       details: {
@@ -195,11 +195,11 @@ export default function ProductionContent() {
       title: "LED Wall Rental & Video Production Services",
       summary: (
         <>
-          <span className="text-[#FACC15]">ROE Visual LED wall rental</span> and video production for conferences, concerts, and corporate events. Our <span className="text-[#FACC15]">LED video wall systems</span> deliver stunning <span className="text-[#FACC15]">4K visuals</span> with advanced video production capabilities including multi-camera setups, live switching, and broadcast-quality content for events across <span className="text-[#FACC15]">Vancouver, Calgary, and Toronto</span>.
+          <span className="text-[#FACC15]">ROE Visual LED wall rental</span> and video production for conferences, concerts, and corporate events. Our <span className="text-[#FACC15]">LED video wall systems</span> deliver stunning <span className="text-[#FACC15]">4K visuals</span> with advanced video production capabilities including multi-camera setups, live switching, and broadcast-quality content for events across <span className="text-[#FACC15]">Las Vegas, Seattle, Vancouver, Calgary, and Toronto</span>.
         </>
       ),
       details: {
-        closing: "We provide complete LED wall rental packages including ROE Visual panels, video processing, multi-camera production, and live video switching to create immersive visual experiences that captivate audiences at conferences, concerts, and corporate events throughout Canada.",
+        closing: "We provide complete LED wall rental packages including ROE Visual panels, video processing, multi-camera production, and live video switching to create immersive visual experiences that captivate audiences at conferences, concerts, and corporate events throughout North America.",
         equipment: [
           "ROE Visual BP2.8mm & Graphite 2.6mm panels",
           "Brompton SX40 / XD processing",
@@ -214,11 +214,11 @@ export default function ProductionContent() {
       title: "Certified Rigging & Truss Services Canada",
       summary: (
         <>
-          Professional <span className="text-[#FACC15]">rigging and truss services</span> for concerts, corporate events, and festivals across <span className="text-[#FACC15]">Canada and USA</span>. Our <span className="text-[#FACC15]">certified riggers</span> provide safe, reliable rigging solutions using <span className="text-[#FACC15]">Eurotruss and Tyler truss systems</span> for events in <span className="text-[#FACC15]">Vancouver, Calgary, Banff, Jasper, and Toronto</span>, ensuring flawless execution and complete structural safety.
+          Professional <span className="text-[#FACC15]">rigging and truss services</span> for concerts, corporate events, and festivals across <span className="text-[#FACC15]">North America</span>. Our <span className="text-[#FACC15]">certified riggers</span> provide safe, reliable rigging solutions using <span className="text-[#FACC15]">Eurotruss and Tyler truss systems</span> for events in <span className="text-[#FACC15]">Las Vegas, Seattle, Vancouver, Calgary, Banff, Jasper, and Toronto</span>, ensuring flawless execution and complete structural safety.
         </>
       ),
       details: {
-        closing: "Our team of certified rigging professionals and structural engineers delivers secure, code-compliant rigging installations that support the largest concert productions, corporate events, and festival stages across Canada and the United States with complete safety and efficiency.",
+        closing: "Our team of certified rigging professionals and structural engineers delivers secure, code-compliant rigging installations that support the largest concert productions, corporate events, and festival stages across North America with complete safety and efficiency.",
         equipment: [
           "Eurotruss HD44 & FD34",
           "Tyler GT Plus PRT Truss",
@@ -242,17 +242,17 @@ export default function ProductionContent() {
           <article>
             <section id="production" className="mx-auto max-w-3xl scroll-mt-24 text-center">
               <h1 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
-                Professional <span className="text-[#FACC15]">Event Production Services</span> in <span className="text-[#FACC15]">Vancouver, Calgary & Toronto</span>
+                Professional <span className="text-[#FACC15]">Event Production Services</span> Across <span className="text-[#FACC15]">North America</span>
               </h1>
               <p className="mt-6 text-lg text-gray-200 md:text-xl">
-                Leading event production company serving <span className="text-[#FACC15]">Vancouver, Calgary, Banff, Toronto</span>, and across Canada. Showmax Events delivers complete <span className="text-[#FACC15]">live event production</span>, <span className="text-[#FACC15]">hybrid event solutions</span>, and <span className="text-[#FACC15]">virtual event services</span> with premium <span className="text-[#FACC15]">d&amp;b audiotechnik audio systems</span>, <span className="text-[#FACC15]">ROE Visual LED wall rentals</span>, professional lighting design, and certified rigging for concerts, corporate conferences, festivals, and brand activations.
+                Leading event production company serving <span className="text-[#FACC15]">Las Vegas</span>, <span className="text-[#FACC15]">Seattle</span>, <span className="text-[#FACC15]">Vancouver</span>, <span className="text-[#FACC15]">Calgary</span>, <span className="text-[#FACC15]">Banff</span>, <span className="text-[#FACC15]">Toronto</span>, and across North America. Showmax Events delivers complete <span className="text-[#FACC15]">live event production</span>, <span className="text-[#FACC15]">hybrid event solutions</span>, and <span className="text-[#FACC15]">virtual event services</span> with premium <span className="text-[#FACC15]">d&amp;b audiotechnik audio systems</span>, <span className="text-[#FACC15]">ROE Visual LED wall rentals</span>, professional lighting design, and certified rigging for concerts, corporate conferences, festivals, and brand activations.
               </p>
             </section>
 
           <div className="mt-20 space-y-16 md:space-y-20">
             <section id="live-events" className="scroll-mt-24">
               <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12 text-center">
-                <h2 className="text-3xl font-semibold text-white md:text-4xl">Live Event Production Services in <span className="text-[#FACC15]">Canada</span></h2>
+                <h2 className="text-3xl font-semibold text-white md:text-4xl">Live Event Production Services Across <span className="text-[#FACC15]">North America</span></h2>
                 <div className="mt-6 rounded-lg overflow-hidden">
                   <Image
                     src="/Live concert.jpg?v=2"
@@ -264,10 +264,10 @@ export default function ProductionContent() {
                   />
                 </div>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                  Showmax Events is a premier event production company delivering comprehensive <span className="text-[#FACC15]">live event production services</span> across <span className="text-[#FACC15]">Vancouver, Calgary, Banff, Jasper, Toronto</span>, and throughout Canada. Specializing in <span className="text-[#FACC15]">concert production</span>, <span className="text-[#FACC15]">music festivals</span>, <span className="text-[#FACC15]">corporate conferences</span>, trade shows, and brand activations, we provide complete technical production including professional audio systems, stage lighting, LED video walls, and certified rigging services.
+                  Showmax Events is a premier event production company delivering comprehensive <span className="text-[#FACC15]">live event production services</span> across North America including <span className="text-[#FACC15]">Las Vegas</span>, <span className="text-[#FACC15]">Seattle</span>, <span className="text-[#FACC15]">Vancouver</span>, <span className="text-[#FACC15]">Calgary</span>, <span className="text-[#FACC15]">Banff</span>, <span className="text-[#FACC15]">Jasper</span>, and <span className="text-[#FACC15]">Toronto</span>. Specializing in <span className="text-[#FACC15]">concert production</span>, <span className="text-[#FACC15]">music festivals</span>, <span className="text-[#FACC15]">corporate conferences</span>, trade shows, and brand activations, we provide complete technical production including professional audio systems, stage lighting, LED video walls, and certified rigging services.
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                  Our live event production team uses only touring-grade equipment from industry-leading manufacturers including <span className="text-[#FACC15]">d&amp;b audiotechnik line array systems</span>, <span className="text-[#FACC15]">ROE Visual LED wall panels</span>, and professional lighting fixtures. From intimate corporate events in <span className="text-[#FACC15]">Vancouver</span> to large-scale concert production in <span className="text-[#FACC15]">Calgary</span> and <span className="text-[#FACC15]">Toronto</span>, we deliver broadcast-quality AV production that exceeds professional standards.
+                  Our live event production team uses only touring-grade equipment from industry-leading manufacturers including <span className="text-[#FACC15]">d&amp;b audiotechnik line array systems</span>, <span className="text-[#FACC15]">ROE Visual LED wall panels</span>, and professional lighting fixtures. From intimate corporate events in <span className="text-[#FACC15]">Vancouver</span> to large-scale concert production in <span className="text-[#FACC15]">Las Vegas</span>, <span className="text-[#FACC15]">Seattle</span>, <span className="text-[#FACC15]">Calgary</span>, and <span className="text-[#FACC15]">Toronto</span>, we deliver broadcast-quality AV production that exceeds professional standards.
                 </p>
 
                 <div className="mt-12 space-y-12 text-left">
@@ -312,7 +312,7 @@ export default function ProductionContent() {
                   <h3 className="text-2xl font-semibold text-white md:text-3xl">Why Producers Choose Showmax</h3>
                   <ul className="mt-4 space-y-2 text-base text-gray-100 md:text-lg">
                     <li>End-to-end production management</li>
-                    <li>Largest ROE Visual &amp; d&amp;b inventory in Western Canada</li>
+                    <li>Major ROE Visual &amp; d&amp;b inventory across North America</li>
                     <li>Experienced technicians and show operators</li>
                     <li>Scalable solutions for any venue or event type</li>
                     <li>Trusted by Lululemon, TED, Netflix, and the NFL</li>
@@ -325,7 +325,7 @@ export default function ProductionContent() {
               <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
                 <h2 className="text-3xl font-semibold text-white md:text-4xl">Hybrid Event Production & Virtual Events Services</h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                  Showmax Events specializes in comprehensive <span className="text-[#FACC15]">hybrid event production</span> and <span className="text-[#FACC15]">virtual event services</span> across <span className="text-[#FACC15]">Vancouver, Calgary, Toronto</span>, and throughout Canada. Our <span className="text-[#FACC15]">hybrid conference production</span> team combines in-person event expertise with professional <span className="text-[#FACC15]">live streaming</span>, multi-camera video production, and virtual platform integration to create seamless experiences for both live and remote audiences.
+                  Showmax Events specializes in comprehensive <span className="text-[#FACC15]">hybrid event production</span> and <span className="text-[#FACC15]">virtual event services</span> across North America including <span className="text-[#FACC15]">Las Vegas</span>, <span className="text-[#FACC15]">Seattle</span>, <span className="text-[#FACC15]">Vancouver</span>, <span className="text-[#FACC15]">Calgary</span>, and <span className="text-[#FACC15]">Toronto</span>. Our <span className="text-[#FACC15]">hybrid conference production</span> team combines in-person event expertise with professional <span className="text-[#FACC15]">live streaming</span>, multi-camera video production, and virtual platform integration to create seamless experiences for both live and remote audiences.
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
                   From <span className="text-[#FACC15]">corporate hybrid conferences</span> to fully virtual events, we provide broadcast-quality production with redundant streaming infrastructure, professional video switching, real-time graphics, and interactive audience engagement tools. Our technical production team ensures flawless execution whether streaming to 50 or 50,000 participants worldwide.
@@ -373,7 +373,7 @@ export default function ProductionContent() {
                   <h3 className="text-2xl font-semibold text-white md:text-3xl">Why Choose Showmax for Hybrid Events</h3>
                   <ul className="mt-4 space-y-2 text-base text-gray-100 md:text-lg">
                     <li>End-to-end hybrid event production management</li>
-                    <li>Broadcast-quality streaming infrastructure across Canada</li>
+                    <li>Broadcast-quality streaming infrastructure across North America</li>
                     <li>Experienced virtual event producers and technical directors</li>
                     <li>Redundant systems and backup connectivity for reliability</li>
                     <li>Trusted by Fortune 500 companies for hybrid conferences</li>
@@ -386,12 +386,26 @@ export default function ProductionContent() {
               id="service-areas"
               className="scroll-mt-24 rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 via-white/3 to-white/5 p-8 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.48)] md:p-12"
             >
-              <h2 className="text-3xl font-semibold text-white md:text-4xl">Event Production Services Across <span className="text-[#FACC15]">Canada & USA</span></h2>
+              <h2 className="text-3xl font-semibold text-white md:text-4xl">Event Production Services Across <span className="text-[#FACC15]">North America</span></h2>
               <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                Showmax Events provides professional <span className="text-[#FACC15]">event production services</span> across major markets in <span className="text-[#FACC15]">Canada</span> and the <span className="text-[#FACC15]">United States</span>. Our team travels with touring-grade equipment to deliver world-class live events, hybrid conferences, and virtual event production wherever you need us.
+                Showmax Events provides professional <span className="text-[#FACC15]">event production services</span> across major markets in North America with major operations in <span className="text-[#FACC15]">Las Vegas</span> and <span className="text-[#FACC15]">Seattle</span>, plus Canadian markets. Our team travels with touring-grade equipment to deliver world-class live events, hybrid conferences, and virtual event production wherever you need us.
               </p>
               
               <div className="mt-8 space-y-8">
+                {/* United States Markets */}
+                <div>
+                  <h3 className="text-xl font-semibold text-[#FACC15] mb-3">United States Markets</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
+                    <div>Las Vegas</div>
+                    <div>Seattle</div>
+                    <div>San Francisco</div>
+                    <div>Los Angeles</div>
+                    <div>San Diego</div>
+                    <div>Palm Springs</div>
+                    <div>Phoenix</div>
+                  </div>
+                </div>
+
                 {/* British Columbia - Vancouver Region */}
                 <div>
                   <h3 className="text-xl font-semibold text-[#FACC15] mb-3">British Columbia - Vancouver Region</h3>
@@ -452,24 +466,10 @@ export default function ProductionContent() {
                     <div>Greater Toronto Area</div>
                   </div>
                 </div>
-
-                {/* USA Markets */}
-                <div>
-                  <h3 className="text-xl font-semibold text-[#FACC15] mb-3">United States Markets</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
-                    <div>Seattle</div>
-                    <div>San Francisco</div>
-                    <div>Los Angeles</div>
-                    <div>San Diego</div>
-                    <div>Palm Springs</div>
-                    <div>Las Vegas</div>
-                    <div>Phoenix</div>
-                  </div>
-                </div>
               </div>
 
               <p className="mt-8 text-base leading-relaxed text-gray-300 md:text-lg">
-                From <span className="text-[#FACC15]">concert production in Vancouver</span> to <span className="text-[#FACC15]">corporate events in Calgary</span>, <span className="text-[#FACC15]">resort conferences in Banff</span>, and <span className="text-[#FACC15]">trade shows across the USA</span>, our mobile production teams deliver consistent, professional results with the same premium equipment and experienced crew at every location.
+                From <span className="text-[#FACC15]">trade shows in Las Vegas</span> and <span className="text-[#FACC15]">corporate events in Seattle</span> to <span className="text-[#FACC15]">concert production in Vancouver</span>, <span className="text-[#FACC15]">corporate events in Calgary</span>, and <span className="text-[#FACC15]">resort conferences in Banff</span>, our mobile production teams deliver consistent, professional results with the same premium equipment and experienced crew at every location.
               </p>
             </section>
 
@@ -479,7 +479,7 @@ export default function ProductionContent() {
             >
               <h2 className="text-3xl font-semibold text-white md:text-4xl">Venues with Installed <span className="text-[#FACC15]">AV Equipment</span></h2>
               <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                We've partnered with select venues across <span className="text-[#FACC15]">Canada</span> where Showmax gear is already installed and ready to rent. These spaces are fully equipped with our <span className="text-[#FACC15]">professional audio systems</span>, <span className="text-[#FACC15]">event lighting</span>, and <span className="text-[#FACC15]">LED wall technology</span> — reducing setup time and costs for <span className="text-[#FACC15]">conference production</span> and <span className="text-[#FACC15]">corporate events</span>.
+                We've partnered with select venues across <span className="text-[#FACC15]">North America</span> where Showmax gear is already installed and ready to rent. These spaces are fully equipped with our <span className="text-[#FACC15]">professional audio systems</span>, <span className="text-[#FACC15]">event lighting</span>, and <span className="text-[#FACC15]">LED wall technology</span> — reducing setup time and costs for <span className="text-[#FACC15]">conference production</span> and <span className="text-[#FACC15]">corporate events</span>.
               </p>
               <Link
                 href="/venues"

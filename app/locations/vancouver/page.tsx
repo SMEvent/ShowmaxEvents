@@ -157,7 +157,7 @@ export default function VancouverPage() {
             "Rio Theatre"
           ]}
           servicesHighlight={[
-            "Vancouver headquarters with largest equipment inventory in Western Canada",
+            "Vancouver headquarters with major equipment inventory across North America",
             "Same-day delivery across Metro Vancouver",
             "Vancouver Convention Centre specialists",
             "d&b audiotechnik J, Y, Q, and B-Series line arrays",

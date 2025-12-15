@@ -54,7 +54,7 @@ export default function FilmTVContent() {
                 Film & Television Production Services in <span className="text-[#FACC15]">Vancouver, Calgary & Toronto</span>
               </h1>
               <p className="mt-6 text-lg text-gray-200 md:text-xl">
-                Professional <span className="text-[#FACC15]">film</span> and <span className="text-[#FACC15]">television production services</span> across Canada. Showmax Events provides camera packages, lighting equipment, grip gear, and experienced crew for commercials, documentaries, and TV productions.
+                Professional <span className="text-[#FACC15]">film</span> and <span className="text-[#FACC15]">television production services</span> across North America. Showmax Events provides camera packages, lighting equipment, grip gear, and experienced crew for commercials, documentaries, and TV productions.
               </p>
             </section>
 
@@ -117,7 +117,7 @@ export default function FilmTVContent() {
                 <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
                   <h2 className="text-3xl font-semibold text-white md:text-4xl">Grip Equipment & <span className="text-[#FACC15]">Set Support</span></h2>
                   <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                    Complete <span className="text-[#FACC15]">grip packages</span> for film and television production. Stands, flags, diffusion, and rigging equipment for professional productions across Canada.
+                    Complete <span className="text-[#FACC15]">grip packages</span> for film and television production. Stands, flags, diffusion, and rigging equipment for professional productions across North America.
                   </p>
                   <ul className="mt-6 space-y-3 text-base text-gray-100 md:text-lg">
                     <li className="flex items-start gap-3">
@@ -144,7 +144,7 @@ export default function FilmTVContent() {
                 <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
                   <h2 className="text-3xl font-semibold text-white md:text-4xl">Experienced <span className="text-[#FACC15]">Production Crew</span></h2>
                   <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                    Professional crew services for film and television production. Experienced <span className="text-[#FACC15]">camera operators</span>, <span className="text-[#FACC15]">gaffers</span>, <span className="text-[#FACC15]">grips</span>, and <span className="text-[#FACC15]">technical directors</span> across Canada.
+                    Professional crew services for film and television production. Experienced <span className="text-[#FACC15]">camera operators</span>, <span className="text-[#FACC15]">gaffers</span>, <span className="text-[#FACC15]">grips</span>, and <span className="text-[#FACC15]">technical directors</span> across North America.
                   </p>
                   <ul className="mt-6 space-y-3 text-base text-gray-100 md:text-lg">
                     <li className="flex items-start gap-3">

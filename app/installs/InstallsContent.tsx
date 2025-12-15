@@ -164,7 +164,7 @@ export default function InstallsContent() {
                 AV Installation Company – <span className="text-[#FACC15]">Permanent LED, Audio & Lighting Systems</span>
               </h1>
               <p className="mt-6 text-lg text-gray-200 md:text-xl">
-                Showmax designs and installs permanent <span className="text-[#FACC15]">AV systems</span> for venues, churches, nightclubs, corporate spaces, and entertainment facilities across Canada. From <span className="text-[#FACC15]">LED video walls</span> and <span className="text-[#FACC15]">d&b audiotechnik sound systems</span> to professional lighting and rigging infrastructure—engineered by a team that produces 10,000+ events annually.
+                Showmax designs and installs permanent <span className="text-[#FACC15]">AV systems</span> for venues, churches, nightclubs, corporate spaces, and entertainment facilities across North America. From <span className="text-[#FACC15]">LED video walls</span> and <span className="text-[#FACC15]">d&b audiotechnik sound systems</span> to professional lighting and rigging infrastructure—engineered by a team that produces 10,000+ events annually.
               </p>
               <p className="mt-4 text-lg text-gray-200 md:text-xl">
                 Complete <span className="text-[#FACC15]">AV integration</span> with design, installation, programming, training, and ongoing support. Built to perform every day, for every event.
@@ -395,7 +395,7 @@ export default function InstallsContent() {
                     <div className="border-b border-white/10 pb-6">
                       <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What areas do you serve for AV installation?</h3>
                       <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
-                        We provide AV installation services across Canada, including British Columbia (Vancouver, Victoria, Kelowna), Alberta (Calgary, Edmonton), and Ontario (Toronto, GTA). We also serve select US markets for larger projects.
+                        We provide AV installation services across North America, including major US markets (Las Vegas, Seattle) and Canadian markets including British Columbia (Vancouver, Victoria, Kelowna), Alberta (Calgary, Edmonton), and Ontario (Toronto, GTA).
                       </p>
                     </div>
 

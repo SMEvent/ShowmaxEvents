@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "av company calgary"
   ],
   openGraph: {
-    title: "Event Production Company | Live & Virtual Events Across Canada",
+    title: "Event Production Company | Live & Virtual Events Across North America",
     description: "Professional event production with premium AV equipment. d&b audio, ROE Visual LED, and expert crews for concerts, conferences & corporate events.",
     url: `${siteUrl}/events`,
     siteName: "Showmax Events",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Event Production Company | Showmax Events",
-    description: "Full-service event production across Canada. d&b audio, ROE Visual LED walls, professional lighting. Vancouver, Calgary, Edmonton, Toronto.",
+    description: "Full-service event production across North America. d&b audio, ROE Visual LED walls, professional lighting. Las Vegas, Seattle, Vancouver, Calgary, Edmonton, Toronto.",
     images: [`${siteUrl}/events/opengraph-image`]
   },
   alternates: {
@@ -211,7 +211,7 @@ export default function EventsPage() {
             "name": "Do you provide LED walls for events in Vancouver and Calgary?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. We have one of the largest ROE Visual LED wall inventories in Western Canada. We provide indoor and outdoor panels in pixel pitches from 1.5mm to 5mm, with Brompton processing and Barco switching. Available for events in Vancouver, Calgary, Edmonton, Toronto, and across North America."
+              "text": "Yes. We have one of the largest ROE Visual LED wall inventories across North America. We provide indoor and outdoor panels in pixel pitches from 1.5mm to 5mm, with Brompton processing and Barco switching. Available for events in Las Vegas, Seattle, Vancouver, Calgary, Edmonton, Toronto, and across North America."
             }
           },
           {
@@ -235,7 +235,7 @@ export default function EventsPage() {
             "name": "What areas do you serve outside Vancouver?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We provide event production services across North America. Our primary markets include Vancouver (headquarters), Calgary, Edmonton, Toronto, and the Greater Toronto Area. We also serve US markets including Seattle, Los Angeles, San Francisco, Las Vegas, and Phoenix."
+              "text": "We provide event production services across North America. Our primary markets include Las Vegas, Seattle, Vancouver (headquarters), Calgary, Edmonton, Toronto, and the Greater Toronto Area. We also serve additional US markets including Los Angeles, San Francisco, San Diego, Palm Springs, and Phoenix."
             }
           },
           {
@@ -251,7 +251,7 @@ export default function EventsPage() {
             "name": "Can you handle large-scale concerts and festivals?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Absolutely. Our inventory scales from 50-person corporate meetings to 50,000+ concert audiences. We've provided production for major festivals, arena concerts, and stadium events across Canada using d&b audiotechnik, ROE Visual, and Robe systems."
+              "text": "Absolutely. Our inventory scales from 50-person corporate meetings to 50,000+ concert audiences. We've provided production for major festivals, arena concerts, and stadium events across North America using d&b audiotechnik, ROE Visual, and Robe systems."
             }
           }
         ]

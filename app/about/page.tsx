@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://showmaxevents.com";
 
 export const metadata: Metadata = {
   title: "About Showmax Events | Professional Event Production & AV Integration Company",
-  description: "Supporting event producers as their production partner by designing and delivering the total show experience. After 10,000 events, Showmax provides superior equipment technologies, expert staff and service standards across Canada and USA.",
+  description: "Supporting event producers as their production partner by designing and delivering the total show experience. After 10,000 events, Showmax provides superior equipment technologies, expert staff and service standards across North America.",
   keywords: [
     "event production company",
     "AV integration company",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "About Showmax Events | Professional Event Production & AV Integration Company",
-    description: "Supporting event producers as their production partner by designing and delivering the total show experience. After 10,000 events across North America.",
+    description: "Supporting event producers as their production partner by designing and delivering the total show experience. After 10,000 events across North America with major operations in Las Vegas and Seattle.",
     url: `${siteUrl}/about`,
     siteName: "Showmax Events",
     images: [
@@ -86,7 +86,7 @@ export default function AboutPage() {
         "name": "Showmax Events",
         "url": siteUrl,
         "logo": `${siteUrl}/showmax_logo.png`,
-        "description": "Professional event production and AV integration company providing complete technical production services, permanent AV installations, equipment rentals, and virtual production solutions across Canada and USA",
+        "description": "Professional event production and AV integration company providing complete technical production services, permanent AV installations, equipment rentals, and virtual production solutions across North America",
         "foundingDate": "2003",
         "address": [
           {
@@ -146,7 +146,7 @@ export default function AboutPage() {
       {
         "@type": "ProfessionalService",
         "name": "Showmax Events",
-        "description": "Full-service event production and AV integration company serving Canada and USA",
+        "description": "Full-service event production and AV integration company serving North America",
         "provider": {
           "@type": "Organization",
           "name": "Showmax Events"

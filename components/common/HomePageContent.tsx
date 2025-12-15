@@ -68,8 +68,8 @@ const equipmentCards = [
     icon: Triangle
   },
   {
-    title: "Canada's Largest ROE Visual LED Inventory",
-    description: "Thousands of ROE Visual panels, Brompton processing and full ground-support systems.",
+    title: "Major ROE Visual LED Inventory",
+    description: "Thousands of ROE Visual panels, Brompton processing and full ground-support systems across North America.",
     icon: MonitorPlay
   },
   {
@@ -81,6 +81,8 @@ const equipmentCards = [
 
 // Locations data
 const locations = [
+  { name: "Las Vegas", href: "/locations/las-vegas" },
+  { name: "Seattle", href: "/locations/seattle" },
   { name: "Vancouver", href: "/locations/vancouver" },
   { name: "Calgary", href: "/locations/calgary" },
   { name: "Edmonton", href: "/locations/edmonton" },
@@ -164,7 +166,7 @@ export function HomePageContent() {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection>
             <p className="text-center text-lg md:text-xl lg:text-2xl text-white/90 font-light tracking-wide max-w-4xl mx-auto">
-              Professional <span className="seo-highlight">Event Production</span>, LED, Audio, Lighting & Broadcast Services — <span className="text-primary">Nationwide</span>.
+              Professional <span className="seo-highlight">Event Production</span>, LED, Audio, Lighting & Broadcast Services — <span className="text-primary">North America</span>.
             </p>
           </AnimatedSection>
         </div>
@@ -244,13 +246,13 @@ export function HomePageContent() {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="max-w-4xl mx-auto text-center mb-12">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Full-Service <span className="seo-highlight">Event Production</span> & AV Solutions Across Canada
+              Full-Service <span className="seo-highlight">Event Production</span> & AV Solutions Across North America
             </h1>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed">
               Showmax Events delivers high-end audio, lighting, video, LED, staging, rigging and production support for{" "}
               <Link href="/events" className="text-primary hover:underline">corporate events</Link>, conferences,{" "}
               <Link href="/events" className="text-primary hover:underline">concerts</Link>, festivals, hybrid broadcasts and{" "}
-              <Link href="/film-tv" className="text-primary hover:underline">film/TV</Link>. With headquarters in Vancouver and operations across Canada and the USA, we support medium to large-scale productions with industry-leading technology and experienced crews.
+              <Link href="/film-tv" className="text-primary hover:underline">film/TV</Link>. With headquarters in Vancouver and operations across North America including major US markets in Las Vegas and Seattle, we support medium to large-scale productions with industry-leading technology and experienced crews.
             </p>
           </AnimatedSection>
         </div>
@@ -374,7 +376,7 @@ export function HomePageContent() {
               Where We Work
             </h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              We support events across Canada and operate in major US markets through our Las Vegas office.
+              We support events across North America with major operations in Las Vegas and Seattle, alongside our Canadian markets.
             </p>
           </AnimatedSection>
 
@@ -395,7 +397,7 @@ export function HomePageContent() {
 
           <AnimatedSection delay={300} className="text-center mt-8">
             <p className="text-white/60 text-sm">
-              Vancouver • Calgary • Edmonton • Toronto • Whistler • Banff • Kelowna • Las Vegas
+              Las Vegas • Seattle • Vancouver • Calgary • Edmonton • Toronto • Whistler • Banff • Kelowna
             </p>
           </AnimatedSection>
         </div>

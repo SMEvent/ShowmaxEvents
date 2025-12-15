@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://showmaxevents.com";
 
 export const metadata: Metadata = {
   title: "Film & Television Production Services Vancouver, Calgary, Toronto | Showmax Events",
-  description: "Professional film and television production services across Canada. Camera packages, lighting, grip equipment, and crew for commercials, documentaries, and TV productions in Vancouver, Calgary, Toronto.",
+  description: "Professional film and television production services across North America. Camera packages, lighting, grip equipment, and crew for commercials, documentaries, and TV productions in Las Vegas, Seattle, Vancouver, Calgary, Toronto.",
   keywords: [
     "film production Vancouver",
     "television production Calgary",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Film & Television Production Services | Showmax Events",
-    description: "Professional film and television production services across Canada. Camera packages, lighting, grip equipment, and crew.",
+    description: "Professional film and television production services across North America. Camera packages, lighting, grip equipment, and crew.",
     url: `${siteUrl}/film-tv`,
     siteName: "Showmax Events",
     locale: "en_US",

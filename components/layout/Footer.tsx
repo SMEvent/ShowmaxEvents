@@ -11,7 +11,7 @@ export function Footer() {
     "name": "ShowMax Events",
     "url": "https://www.showmaxevents.com",
     "logo": "https://www.showmaxevents.com/showmax_logo.png",
-    "description": "Professional event production and AV rental company specializing in audio, lighting, LED walls, video, staging, and rigging for corporate events, concerts, festivals, and film/TV productions across Canada and USA.",
+    "description": "Professional event production and AV rental company specializing in audio, lighting, LED walls, video, staging, and rigging for corporate events, concerts, festivals, and film/TV productions across North America.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Vancouver",
@@ -88,7 +88,7 @@ export function Footer() {
             <div className="space-y-4 lg:col-span-2">
               <h3 className="text-lg font-bold text-primary uppercase tracking-wide">ShowMax Events</h3>
               <p className="text-sm text-white/70 leading-relaxed">
-                30+ years delivering professional event production and AV rental services. Specializing in audio, lighting, LED walls, video, staging, and rigging for corporate events, concerts, festivals, and film/TV across Canada and USA.
+                30+ years delivering professional event production and AV rental services. Specializing in audio, lighting, LED walls, video, staging, and rigging for corporate events, concerts, festivals, and film/TV across North America.
               </p>
             </div>
 
@@ -200,6 +200,16 @@ export function Footer() {
               <nav aria-label="Service locations navigation">
                 <ul className="space-y-2 text-sm text-white/70">
                   <li>
+                    <Link href="/locations/las-vegas" className="hover:text-primary transition-colors">
+                      Las Vegas, NV
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/locations/seattle" className="hover:text-primary transition-colors">
+                      Seattle, WA
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/locations/vancouver" className="hover:text-primary transition-colors">
                       Vancouver, BC
                     </Link>
@@ -291,7 +301,7 @@ export function Footer() {
           <div className="section-divider" />
 
           <div className="mt-10 text-center text-sm text-white/60">
-            <p>&copy; {currentYear} ShowMax Events. All rights reserved. Professional AV rental and event production services across Canada.</p>
+            <p>&copy; {currentYear} ShowMax Events. All rights reserved. Professional AV rental and event production services across North America.</p>
           </div>
         </div>
       </footer>

@@ -214,7 +214,7 @@ export default function EventsContent() {
       title: "Certified Rigging & Truss Services",
       summary: (
         <>
-          <span className="text-[#FACC15]">Certified rigging</span> for safe, compliant event structures. Heavy-duty truss systems for concerts, corporate events, and festivals across Canada.
+          <span className="text-[#FACC15]">Certified rigging</span> for safe, compliant event structures. Heavy-duty truss systems for concerts, corporate events, and festivals across North America.
         </>
       ),
       details: {
@@ -270,7 +270,7 @@ export default function EventsContent() {
               <p className="mt-6 text-lg text-gray-200 md:text-xl">
               Showmax Events is a Vancouver-based live event production company providing audio, lighting, LED walls, staging, rigging and crew 
               <br />
-              for concerts, conferences, galas and festivals across Canada and the US.
+              for concerts, conferences, galas and festivals across North America.
               <br />
               </p>
               <p className="mt-4 text-lg text-gray-200 md:text-xl">
@@ -278,7 +278,7 @@ export default function EventsContent() {
                 <br />
                 Trusted by Fortune 500 companies, major festivals, and leading production partners, we handle every technical aspect so you can focus on your audience.
                 <br />
-                Headquartered in Vancouver with crews in Calgary, Edmonton, and Toronto, we provide complete event production services across North America.
+                Headquartered in Vancouver with major operations in Las Vegas and Seattle, plus crews in Calgary, Edmonton, and Toronto, we provide complete event production services across North America.
                 <br />
               </p>
             </section>
@@ -288,7 +288,7 @@ export default function EventsContent() {
               <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12 text-center">
                 <h2 className="text-3xl font-semibold text-white md:text-4xl">Live Event Production Services</h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                  Complete technical production for concerts, conferences, galas, and brand activations. We provide <span className="text-[#FACC15]">audio, video, lighting, staging, rigging</span>, and scenic elements with full crew support across <span className="text-[#FACC15]">Vancouver, Calgary, Edmonton, Toronto</span>, and throughout North America.
+                  Complete technical production for concerts, conferences, galas, and brand activations. We provide <span className="text-[#FACC15]">audio, video, lighting, staging, rigging</span>, and scenic elements with full crew support across <span className="text-[#FACC15]">Las Vegas, Seattle, Vancouver, Calgary, Edmonton, Toronto</span>, and throughout North America.
                 </p>
                 <div className="mt-6 rounded-lg overflow-hidden">
                   <Image
@@ -352,7 +352,7 @@ export default function EventsContent() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
-                      <span><strong className="text-white">North American Coverage</strong> – Headquarters in Vancouver with crews in Calgary, Edmonton, and Toronto, plus US markets</span>
+                      <span><strong className="text-white">North American Coverage</strong> – Headquarters in Vancouver with major operations in Las Vegas and Seattle, plus crews in Calgary, Edmonton, and Toronto</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
@@ -475,7 +475,7 @@ export default function EventsContent() {
                   <div className="border-b border-white/10 pb-6">
                     <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">Do you provide LED walls for events in Vancouver and Calgary?</h3>
                     <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
-                      Yes. We have one of the largest ROE Visual LED wall inventories in Western Canada. We provide indoor and outdoor panels in pixel pitches from 1.5mm to 5mm, with Brompton processing and Barco switching. Available for events in Vancouver, Calgary, Edmonton, Toronto, and across North America.
+                      Yes. We have one of the largest ROE Visual LED wall inventories across North America. We provide indoor and outdoor panels in pixel pitches from 1.5mm to 5mm, with Brompton processing and Barco switching. Available for events in Las Vegas, Seattle, Vancouver, Calgary, Edmonton, Toronto, and across North America.
                     </p>
                   </div>
 
@@ -496,7 +496,7 @@ export default function EventsContent() {
                   <div className="border-b border-white/10 pb-6">
                     <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">What areas do you serve outside Vancouver?</h3>
                     <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
-                      We provide event production services across North America. Our primary markets include Vancouver (headquarters), Calgary, Edmonton, Toronto, and the Greater Toronto Area. We also serve US markets including Seattle, Los Angeles, San Francisco, Las Vegas, and Phoenix.
+                      We provide event production services across North America. Our primary markets include Las Vegas, Seattle, Vancouver (headquarters), Calgary, Edmonton, Toronto, and the Greater Toronto Area. We also serve additional US markets including Los Angeles, San Francisco, San Diego, Palm Springs, and Phoenix.
                     </p>
                   </div>
 
@@ -510,7 +510,7 @@ export default function EventsContent() {
                   <div>
                     <h3 className="text-xl font-semibold text-[#FACC15] md:text-2xl">Can you handle large-scale concerts and festivals?</h3>
                     <p className="mt-3 text-base leading-relaxed text-gray-300 md:text-lg">
-                      Absolutely. Our inventory scales from 50-person corporate meetings to 50,000+ concert audiences. We&apos;ve provided production for major festivals, arena concerts, and stadium events across Canada using d&b audiotechnik, ROE Visual, and Robe systems.
+                      Absolutely. Our inventory scales from 50-person corporate meetings to 50,000+ concert audiences. We&apos;ve provided production for major festivals, arena concerts, and stadium events across North America using d&b audiotechnik, ROE Visual, and Robe systems.
                     </p>
                   </div>
                 </div>
