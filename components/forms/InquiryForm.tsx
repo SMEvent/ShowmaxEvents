@@ -138,19 +138,22 @@ export function InquiryForm({ onSuccess }: InquiryFormProps) {
   const onSimpleSubmit = async (data: SimpleInquiryData) => {
     setLoading(true);
     try {
-      const response = await fetch("/api/inquiries", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, type: "simple" }),
       });
 
-      if (!response.ok) throw new Error("Failed to submit inquiry");
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to submit inquiry");
+      }
       
       toast.success("Inquiry submitted successfully!");
       simpleForm.reset();
       onSuccess?.();
     } catch (error) {
-      toast.error("Failed to submit inquiry. Please try again.");
+      toast.error(error instanceof Error ? error.message : "Failed to submit inquiry. Please try again.");
       console.error(error);
     } finally {
       setLoading(false);
@@ -160,19 +163,22 @@ export function InquiryForm({ onSuccess }: InquiryFormProps) {
   const onEventSubmit = async (data: EventBookingData) => {
     setLoading(true);
     try {
-      const response = await fetch("/api/inquiries", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, type: "event-booking" }),
       });
 
-      if (!response.ok) throw new Error("Failed to submit inquiry");
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to submit event booking");
+      }
       
       toast.success("Event booking request submitted successfully!");
       eventForm.reset();
       onSuccess?.();
     } catch (error) {
-      toast.error("Failed to submit request. Please try again.");
+      toast.error(error instanceof Error ? error.message : "Failed to submit request. Please try again.");
       console.error(error);
     } finally {
       setLoading(false);

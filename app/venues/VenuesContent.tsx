@@ -1,11 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Mail, ExternalLink, Users, Maximize, FileText } from "lucide-react";
 
 export default function VenuesContent() {
   const venues = [
     {
+      id: "aurum-event-centre",
+      name: "Aurum Event Centre",
+      capacity: "1,000 people",
+      size: "10,000 sq ft, 40' ceilings",
+      location: "750 Pacific Blvd South, Vancouver, BC",
+      floorplan: "https://aurumeventcentre.weebly.com/sales-deck.html", // Update with actual floorplan URL
+      description: "State of the art nightclub with giant LED screen, lighting, audio and performance stage in the heart of the city.",
+      contact: "yvonne@klar-av.com",
+      website: "https://aurumeventcentre.weebly.com/sales-deck.html",
+      advantages: [
+        "Customizable",
+        "Private",
+        "Installed AV system",
+        "Professionally managed"
+      ]
+    },
+    {
+      id: "rocky-mountaineer-station",
       name: "Rocky Mountaineer Station",
       capacity: "1,255 people",
       size: "12,500 sq ft, 25'-40' ceilings",
@@ -24,22 +43,7 @@ export default function VenuesContent() {
       ]
     },
     {
-      name: "Aurum Event Centre",
-      capacity: "1,000 people",
-      size: "10,000 sq ft, 40' ceilings",
-      location: "750 Pacific Blvd South, Vancouver, BC",
-      floorplan: "https://aurumeventcentre.weebly.com/sales-deck.html", // Update with actual floorplan URL
-      description: "State of the art nightclub with giant LED screen, lighting, audio and performance stage in the heart of the city.",
-      contact: "yvonne@klar-av.com",
-      website: "https://aurumeventcentre.weebly.com/sales-deck.html",
-      advantages: [
-        "Customizable",
-        "Private",
-        "Installed AV system",
-        "Professionally managed"
-      ]
-    },
-    {
+      id: "plaza-of-nations",
       name: "Plaza of Nations",
       capacity: "8,000 people",
       size: "25,000 sq ft outdoor",
@@ -86,9 +90,23 @@ export default function VenuesContent() {
             <div className="mt-20 space-y-16 md:space-y-20">
               {/* Venue Cards */}
               {venues.map((venue, index) => (
-                <section key={index} className="scroll-mt-24">
+                <section key={index} id={venue.id} className="scroll-mt-24">
                   <div className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-12">
                     <h2 className="text-3xl font-semibold text-[#FACC15] md:text-4xl">{venue.name}</h2>
+                    
+                    {/* Venue Image */}
+                    {venue.id === "rocky-mountaineer-station" && (
+                      <div className="mt-6 rounded-lg overflow-hidden">
+                        <Image
+                          src="/Venues/Showmax-AV-Rocky-Mountaineer-Station.jpg"
+                          alt="Rocky Mountaineer Station venue"
+                          width={1200}
+                          height={675}
+                          className="w-full h-auto object-cover"
+                          unoptimized
+                        />
+                      </div>
+                    )}
                     
                     {/* Specs Grid */}
                     <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

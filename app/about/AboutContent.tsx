@@ -13,7 +13,7 @@ export default function AboutContent() {
   const services = [
     {
       title: "Event Production",
-      description: "Complete technical production for live events, concerts, conferences, and festivals across North America.",
+      description: "Complete technical production for live events, concerts, conferences, and festivals across Canada and USA.",
       link: "/production"
     },
     {
@@ -23,7 +23,7 @@ export default function AboutContent() {
     },
     {
       title: "Equipment Rentals",
-      description: "Access to one of the largest inventories of ROE Visual LED walls and d&b audiotechnik systems across North America.",
+      description: "Access to the largest inventory of ROE Visual LED walls and d&b audiotechnik systems in Western Canada.",
       link: "/rentals"
     },
     {
@@ -60,7 +60,7 @@ export default function AboutContent() {
                 Production Experts. <span className="text-[#FACC15]">Technical Partners.</span> Event Innovators.
               </h1>
               <p className="mt-6 text-lg text-gray-200 md:text-xl">
-                Showmax Events is a full-service production company delivering world-class live events, permanent AV installations, and technical solutions across North America.
+                Showmax Events is a full-service production company delivering world-class live events, permanent AV installations, and technical solutions across Canada and the USA.
               </p>
             </section>
 
@@ -77,7 +77,7 @@ export default function AboutContent() {
                       After <span className="text-[#FACC15]">10,000 events</span>, we have a reputation for providing North America with superior equipment technologies, expert staff and service standards. Our goal is to provide great outcomes and experiences.
                     </p>
                     <p>
-                      Based in <span className="text-[#FACC15]">Vancouver</span> with operations in <span className="text-[#FACC15]">Las Vegas</span>, <span className="text-[#FACC15]">Seattle</span>, <span className="text-[#FACC15]">Calgary</span>, and <span className="text-[#FACC15]">Toronto</span>, we're the team behind some of the most memorable concerts, conferences, church services, festivals, and brand activations across North America.
+                      Based in <span className="text-[#FACC15]">Vancouver</span> with operations in <span className="text-[#FACC15]">Calgary</span> and <span className="text-[#FACC15]">Toronto</span>, we're the team behind some of the most memorable concerts, conferences, church services, festivals, and brand activations across North America.
                     </p>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ export default function AboutContent() {
                     <div>
                       <h3 className="text-2xl font-semibold text-white md:text-3xl">We Own the Best Gear in the Industry</h3>
                       <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                        No substitutions. No compromises. We maintain one of the largest inventories of <span className="text-[#FACC15]">ROE Visual LED walls</span> and <span className="text-[#FACC15]">d&b audiotechnik line arrays</span> across North America—the same equipment trusted on global tours and Fortune 500 events.
+                        No substitutions. No compromises. We maintain one of the largest inventory of <span className="text-[#FACC15]">ROE Visual LED walls</span> and <span className="text-[#FACC15]">d&b audiotechnik line arrays</span> in Western Canada—the same equipment trusted on global tours and Fortune 500 events.
                       </p>
                       <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
                         When you work with Showmax, you get rider-approved, tour-proven technology: <span className="text-[#FACC15]">Robe, Chauvet and Martin lighting, MA Consoles</span>, <span className="text-[#FACC15]">Brompton video processing</span>, <span className="text-[#FACC15]">Digico and Avid consoles</span>, <span className="text-[#FACC15]">Shure Axient wireless</span>, and more.
@@ -308,24 +308,10 @@ export default function AboutContent() {
               >
                 <h2 className="text-3xl font-semibold text-white md:text-4xl">Service Areas Across <span className="text-[#FACC15]">North America</span></h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-300 md:text-lg">
-                  <span className="text-[#FACC15]">Event production</span> services across North America. Headquarters in Vancouver with major US operations in <span className="text-[#FACC15]">Las Vegas</span> and <span className="text-[#FACC15]">Seattle</span>, plus regional crews in <span className="text-[#FACC15]">Calgary, Edmonton</span>, and the <span className="text-[#FACC15]">Greater Toronto Area</span>. Consistent quality with premium equipment and experienced technicians across all markets.
+                  <span className="text-[#FACC15]">Event production</span> services from Vancouver to Toronto and beyond. Headquarters in Vancouver with regional crews in <span className="text-[#FACC15]">Calgary, Edmonton</span>, and the <span className="text-[#FACC15]">Greater Toronto Area</span>. Consistent quality with premium equipment and experienced technicians across all markets.
                 </p>
                 
                 <div className="mt-8 space-y-8">
-                  {/* United States Markets */}
-                  <div>
-                    <h3 className="text-xl font-semibold text-[#FACC15] mb-3">United States Markets</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
-                      <Link href="/locations/las-vegas" className="hover:text-[#FACC15] transition-colors">Las Vegas</Link>
-                      <Link href="/locations/seattle" className="hover:text-[#FACC15] transition-colors">Seattle</Link>
-                      <Link href="/locations/san-francisco" className="hover:text-[#FACC15] transition-colors">San Francisco</Link>
-                      <Link href="/locations/los-angeles" className="hover:text-[#FACC15] transition-colors">Los Angeles</Link>
-                      <Link href="/locations/san-diego" className="hover:text-[#FACC15] transition-colors">San Diego</Link>
-                      <Link href="/locations/palm-springs" className="hover:text-[#FACC15] transition-colors">Palm Springs</Link>
-                      <Link href="/locations/phoenix" className="hover:text-[#FACC15] transition-colors">Phoenix</Link>
-                    </div>
-                  </div>
-
                   {/* British Columbia - Vancouver Region */}
                   <div>
                     <h3 className="text-xl font-semibold text-[#FACC15] mb-3">British Columbia - Vancouver Region</h3>
@@ -384,6 +370,20 @@ export default function AboutContent() {
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
                       <Link href="/locations/toronto" className="hover:text-[#FACC15] transition-colors">Toronto</Link>
                       <Link href="/locations/toronto" className="hover:text-[#FACC15] transition-colors">Greater Toronto Area</Link>
+                    </div>
+                  </div>
+
+                  {/* USA Markets */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FACC15] mb-3">United States Markets</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-gray-300">
+                      <Link href="/locations/seattle" className="hover:text-[#FACC15] transition-colors">Seattle</Link>
+                      <Link href="/locations/san-francisco" className="hover:text-[#FACC15] transition-colors">San Francisco</Link>
+                      <Link href="/locations/los-angeles" className="hover:text-[#FACC15] transition-colors">Los Angeles</Link>
+                      <Link href="/locations/san-diego" className="hover:text-[#FACC15] transition-colors">San Diego</Link>
+                      <Link href="/locations/palm-springs" className="hover:text-[#FACC15] transition-colors">Palm Springs</Link>
+                      <Link href="/locations/las-vegas" className="hover:text-[#FACC15] transition-colors">Las Vegas</Link>
+                      <Link href="/locations/phoenix" className="hover:text-[#FACC15] transition-colors">Phoenix</Link>
                     </div>
                   </div>
                 </div>

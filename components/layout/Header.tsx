@@ -14,7 +14,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,6 +22,8 @@ export function Header() {
   const [activeSectionId, setActiveSectionId] = useState<string>("");
   const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const [openMobileDropdowns, setOpenMobileDropdowns] = useState<Set<string>>(new Set());
+  const [openMobileSubmenus, setOpenMobileSubmenus] = useState<Set<string>>(new Set());
 
   // Define navigation structure (moved before useEffect to be accessible)
   const leftNavigation = [
@@ -77,7 +79,16 @@ export function Header() {
   const rightNavigation = [
     { name: "Rentals", href: "/rentals", hasDropdown: false },
     { name: "Sales", href: "/sales", hasDropdown: false },
-    { name: "Venues", href: "/venues", hasDropdown: false },
+    { 
+      name: "Venues", 
+      href: "/venues", 
+      hasDropdown: true,
+      items: [
+        { name: "Aurum Event Centre", href: "/venues#aurum-event-centre" },
+        { name: "Rocky Mountaineer Station", href: "/venues#rocky-mountaineer-station" },
+        { name: "Plaza of Nations", href: "/venues#plaza-of-nations" },
+      ]
+    },
     { name: "About", href: "/about", hasDropdown: false },
     { name: "Contact", href: "/contact", hasDropdown: false },
   ];
@@ -213,12 +224,15 @@ export function Header() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  // Prevent body scroll when sidebar is open
+  // Prevent body scroll when sidebar is open and reset dropdowns when closed
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      // Close all dropdowns when mobile menu closes
+      setOpenMobileDropdowns(new Set());
+      setOpenMobileSubmenus(new Set());
     }
     return () => {
       document.body.style.overflow = "";
@@ -252,6 +266,42 @@ export function Header() {
     // If href has no hash, only match if we're on that page without a specific section
     // This prevents parent items from being highlighted when on a subsection
     return activeSectionId === "";
+  };
+
+  // Helper functions for mobile dropdown toggles
+  const toggleMobileDropdown = (itemName: string) => {
+    setOpenMobileDropdowns((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(itemName)) {
+        newSet.delete(itemName);
+        // Also close any open submenus for this dropdown
+        setOpenMobileSubmenus((subPrev) => {
+          const newSubSet = new Set(subPrev);
+          // Remove submenus that belong to this dropdown
+          Array.from(subPrev).forEach((subName) => {
+            if (subName.startsWith(itemName)) {
+              newSubSet.delete(subName);
+            }
+          });
+          return newSubSet;
+        });
+      } else {
+        newSet.add(itemName);
+      }
+      return newSet;
+    });
+  };
+
+  const toggleMobileSubmenu = (subItemName: string) => {
+    setOpenMobileSubmenus((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(subItemName)) {
+        newSet.delete(subItemName);
+      } else {
+        newSet.add(subItemName);
+      }
+      return newSet;
+    });
   };
 
   return (
@@ -495,6 +545,50 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-1.5 xl:gap-2 flex-1 justify-start max-w-[40%] pl-8 xl:pl-16">
           {rightNavigation.map((item) => {
             const active = isActive(item.href);
+            if (item.hasDropdown && item.items) {
+              return (
+                <div key={item.name} className="flex items-center gap-1">
+                  <Link
+                    href={item.href}
+                    className={`relative font-semibold text-xs xl:text-sm whitespace-nowrap px-1.5 xl:px-2.5 py-2 rounded-full transition-all ${
+                      active
+                        ? "bg-primary text-primary-foreground shadow-[0_0_30px_rgba(250,204,21,0.55)]"
+                        : "text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_22px_rgba(250,204,21,0.35)]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        aria-label={`More ${item.name} options`}
+                        className={`flex h-8 w-8 items-center justify-center rounded-full transition-all ${
+                          active
+                            ? "bg-primary text-primary-foreground shadow-[0_0_22px_rgba(250,204,21,0.4)]"
+                            : "text-white/80 hover:text-primary hover:bg-[rgba(250,204,21,0.16)] hover:shadow-[0_0_16px_rgba(250,204,21,0.3)]"
+                        }`}
+                      >
+                        <ChevronDown className="h-3 w-3" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="start"
+                      className="rounded-xl border border-primary/20 p-2 min-w-[220px] !overflow-visible bg-black/95 backdrop-blur-sm"
+                    >
+                      {item.items.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="flex items-center w-full px-3 py-2 text-sm text-white rounded-lg hover:bg-[rgba(250,204,21,0.18)] hover:text-primary-foreground transition-colors no-underline mb-1"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              );
+            }
             return (
               <Link
                 key={item.name}
@@ -703,65 +797,112 @@ export function Header() {
             </div>
 
             {/* Sidebar Content */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-2">
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
               {/* Left Navigation Mobile */}
               {leftNavigation.map((item) => {
                 const active = isActive(item.href);
+                const isDropdownOpen = openMobileDropdowns.has(item.name);
+                
                 if (item.hasDropdown && item.items) {
                   return (
                     <div key={item.name} className="space-y-1">
-                      <Link
-                        href={item.href}
-                        className={`block py-2 px-3 rounded-full font-semibold text-sm transition-all ${
-                          active
-                            ? "bg-primary text-primary-foreground shadow-[0_0_30px_rgba(250,204,21,0.55)]"
-                            : "text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_22px_rgba(250,204,21,0.35)]"
-                        }`}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                      <div className="pl-4 space-y-1">
-                        {item.items.map((subItem) => {
-                          const subActive = isActive(subItem.href);
-                          return (
-                            <div key={subItem.name}>
-                              <Link
-                                href={subItem.href}
-                                className={`block py-2 px-3 rounded-full text-sm transition-all ${
-                                  subActive
-                                    ? "bg-primary text-primary-foreground shadow-[0_0_28px_rgba(250,204,21,0.4)]"
-                                    : "text-gray-200 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_20px_rgba(250,204,21,0.3)]"
-                                }`}
-                                onClick={() => setMobileMenuOpen(false)}
-                              >
-                                {subItem.name}
-                              </Link>
-                              {'hasSubmenu' in subItem && subItem.hasSubmenu && subItem.subItems && (
-                                <div className="pl-4 space-y-1 mt-1">
-                                  {subItem.subItems.map((subSubItem) => {
-                                    const subSubActive = isActive(subSubItem.href);
-                                    return (
-                                      <Link
-                                        key={subSubItem.name}
-                                        href={subSubItem.href}
-                                        className={`block py-1.5 px-3 rounded-full text-xs transition-all ${
-                                          subSubActive
-                                            ? "bg-primary/80 text-primary-foreground shadow-[0_0_24px_rgba(250,204,21,0.35)]"
-                                            : "text-gray-300 hover:text-primary hover:bg-[rgba(250,204,21,0.12)] hover:shadow-[0_0_18px_rgba(250,204,21,0.25)]"
-                                        }`}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                      >
-                                        {subSubItem.name}
-                                      </Link>
-                                    );
-                                  })}
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
+                      <div className="flex items-center justify-between">
+                        <Link
+                          href={item.href}
+                          className={`flex-1 py-2 px-3 rounded-full font-semibold text-sm transition-all ${
+                            active
+                              ? "bg-primary text-primary-foreground shadow-[0_0_30px_rgba(250,204,21,0.55)]"
+                              : "text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_22px_rgba(250,204,21,0.35)]"
+                          }`}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                        <button
+                          onClick={() => toggleMobileDropdown(item.name)}
+                          className={`ml-2 p-2 rounded-full transition-all ${
+                            isDropdownOpen
+                              ? "text-primary bg-[rgba(250,204,21,0.14)]"
+                              : "text-white/70 hover:text-primary hover:bg-[rgba(250,204,21,0.1)]"
+                          }`}
+                          aria-label={`Toggle ${item.name} menu`}
+                        >
+                          <ChevronDown 
+                            className={`h-4 w-4 transition-transform duration-200 ${
+                              isDropdownOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
                       </div>
+                      {isDropdownOpen && (
+                        <div className="pl-4 space-y-1 mt-1 animate-in slide-in-from-top-2 duration-200">
+                          {item.items.map((subItem) => {
+                            const subActive = isActive(subItem.href);
+                            const hasSubmenu = 'hasSubmenu' in subItem && subItem.hasSubmenu && subItem.subItems;
+                            const isSubmenuOpen = openMobileSubmenus.has(subItem.name);
+                            
+                            return (
+                              <div key={subItem.name} className="space-y-1">
+                                <div className="flex items-center justify-between">
+                                  <Link
+                                    href={subItem.href}
+                                    className={`flex-1 py-1.5 px-3 rounded-full text-sm transition-all ${
+                                      subActive
+                                        ? "bg-primary text-primary-foreground shadow-[0_0_28px_rgba(250,204,21,0.4)]"
+                                        : "text-gray-200 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_20px_rgba(250,204,21,0.3)]"
+                                    }`}
+                                    onClick={() => {
+                                      if (!hasSubmenu) {
+                                        setMobileMenuOpen(false);
+                                      }
+                                    }}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                  {hasSubmenu && (
+                                    <button
+                                      onClick={() => toggleMobileSubmenu(subItem.name)}
+                                      className={`ml-2 p-1.5 rounded-full transition-all ${
+                                        isSubmenuOpen
+                                          ? "text-primary bg-[rgba(250,204,21,0.14)]"
+                                          : "text-white/60 hover:text-primary hover:bg-[rgba(250,204,21,0.1)]"
+                                      }`}
+                                      aria-label={`Toggle ${subItem.name} submenu`}
+                                    >
+                                      <ChevronRight 
+                                        className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                                          isSubmenuOpen ? "rotate-90" : ""
+                                        }`}
+                                      />
+                                    </button>
+                                  )}
+                                </div>
+                                {hasSubmenu && isSubmenuOpen && subItem.subItems && (
+                                  <div className="pl-4 space-y-0.5 mt-0.5 animate-in slide-in-from-left-2 duration-200">
+                                    {subItem.subItems.map((subSubItem) => {
+                                      const subSubActive = isActive(subSubItem.href);
+                                      return (
+                                        <Link
+                                          key={subSubItem.name}
+                                          href={subSubItem.href}
+                                          className={`block py-1.5 px-3 rounded-full text-xs transition-all ${
+                                            subSubActive
+                                              ? "bg-primary/80 text-primary-foreground shadow-[0_0_24px_rgba(250,204,21,0.35)]"
+                                              : "text-gray-300 hover:text-primary hover:bg-[rgba(250,204,21,0.12)] hover:shadow-[0_0_18px_rgba(250,204,21,0.25)]"
+                                          }`}
+                                          onClick={() => setMobileMenuOpen(false)}
+                                        >
+                                          {subSubItem.name}
+                                        </Link>
+                                      );
+                                    })}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   );
                 }
@@ -781,9 +922,69 @@ export function Header() {
                 );
               })}
 
+              {/* Divider */}
+              <div className="h-px bg-white/10 my-3" />
+
               {/* Right Navigation Mobile */}
               {rightNavigation.map((item) => {
                 const active = isActive(item.href);
+                const isDropdownOpen = openMobileDropdowns.has(item.name);
+                
+                if (item.hasDropdown && item.items) {
+                  return (
+                    <div key={item.name} className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <Link
+                          href={item.href}
+                          className={`flex-1 py-2 px-3 rounded-full font-semibold text-sm transition-all ${
+                            active
+                              ? "bg-primary text-primary-foreground shadow-[0_0_30px_rgba(250,204,21,0.55)]"
+                              : "text-white/90 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_22px_rgba(250,204,21,0.35)]"
+                          }`}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                        <button
+                          onClick={() => toggleMobileDropdown(item.name)}
+                          className={`ml-2 p-2 rounded-full transition-all ${
+                            isDropdownOpen
+                              ? "text-primary bg-[rgba(250,204,21,0.14)]"
+                              : "text-white/70 hover:text-primary hover:bg-[rgba(250,204,21,0.1)]"
+                          }`}
+                          aria-label={`Toggle ${item.name} menu`}
+                        >
+                          <ChevronDown 
+                            className={`h-4 w-4 transition-transform duration-200 ${
+                              isDropdownOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                      </div>
+                      {isDropdownOpen && (
+                        <div className="pl-4 space-y-1 mt-1 animate-in slide-in-from-top-2 duration-200">
+                          {item.items.map((subItem) => {
+                            const subActive = isActive(subItem.href);
+                            return (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className={`block py-1.5 px-3 rounded-full text-sm transition-all ${
+                                  subActive
+                                    ? "bg-primary text-primary-foreground shadow-[0_0_28px_rgba(250,204,21,0.4)]"
+                                    : "text-gray-200 hover:text-primary hover:bg-[rgba(250,204,21,0.14)] hover:shadow-[0_0_20px_rgba(250,204,21,0.3)]"
+                                }`}
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
                 return (
                   <Link
                     key={item.name}

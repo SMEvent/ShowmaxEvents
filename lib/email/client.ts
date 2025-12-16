@@ -487,3 +487,508 @@ export async function sendQuoteRequestToAdmin(data: QuoteRequestData) {
   }
 }
 
+// Simple Inquiry Email Interfaces
+interface SimpleInquiryData {
+  clientName: string;
+  clientEmail: string;
+  clientPhone: string;
+  company?: string;
+  message: string;
+}
+
+export async function sendSimpleInquiryEmail(data: SimpleInquiryData) {
+  const adminEmail = process.env.ADMIN_EMAIL || "info@showmaxevents.com";
+
+  try {
+    const resend = getResendClient();
+
+    // Send confirmation to client
+    const clientEmailResult = await resend.emails.send({
+      from: "ShowMax Events <noreply@showmaxevents.com>",
+      to: [data.clientEmail],
+      subject: "Inquiry Received - ShowMax Events",
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #fff;">
+          <div style="background: linear-gradient(135deg, #000 0%, #1a1a1a 100%); padding: 30px; text-align: center;">
+            <h1 style="color: #facc15; margin: 0; font-size: 28px;">ShowMax Events</h1>
+            <p style="color: #fff; margin: 10px 0 0 0; font-size: 14px;">Professional AV Equipment Rental</p>
+          </div>
+          
+          <div style="padding: 30px;">
+            <h2 style="color: #333; margin-top: 0;">Thank You for Your Inquiry!</h2>
+            <p style="color: #666; line-height: 1.6;">Hi ${data.clientName},</p>
+            <p style="color: #666; line-height: 1.6;">
+              We've received your inquiry and our team will review it shortly. We'll get back to you within 24 hours with a response.
+            </p>
+            
+            <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #facc15;">
+              <h3 style="margin-top: 0; color: #333;">Your Message</h3>
+              <p style="color: #666; line-height: 1.6; white-space: pre-wrap; margin: 0;">
+                ${data.message}
+              </p>
+            </div>
+            
+            <p style="color: #666; line-height: 1.6;">
+              If you have any questions in the meantime, feel free to reach out:
+            </p>
+            <p style="color: #666; margin: 5px 0;">
+              📧 <a href="mailto:contact@showmaxevents.com" style="color: #facc15;">contact@showmaxevents.com</a><br>
+              📞 <a href="tel:+16046394629" style="color: #facc15;">1.604.639.4629</a>
+            </p>
+            
+            <p style="color: #666; line-height: 1.6; margin-top: 30px;">
+              Best regards,<br>
+              <strong>The ShowMax Events Team</strong>
+            </p>
+          </div>
+          
+          <div style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #ddd;">
+            <p style="font-size: 12px; color: #999; margin: 5px 0;">
+              ShowMax Events - Professional AV Rental & Event Production<br>
+              Vancouver, BC | <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://showmaxevents.com'}" style="color: #facc15;">www.showmaxevents.com</a>
+            </p>
+          </div>
+        </div>
+      `,
+    });
+
+    if (clientEmailResult.error) {
+      console.error("Failed to send client confirmation:", clientEmailResult.error);
+    }
+
+    // Send notification to admin
+    const adminEmailResult = await resend.emails.send({
+      from: "ShowMax Events <noreply@showmaxevents.com>",
+      to: [adminEmail],
+      replyTo: data.clientEmail,
+      subject: `📧 New Inquiry from ${data.clientName}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; background-color: #fff;">
+          <div style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); padding: 30px; text-align: center;">
+            <h1 style="color: #fff; margin: 0; font-size: 28px;">📧 New Inquiry</h1>
+            <p style="color: #fef2f2; margin: 10px 0 0 0; font-size: 14px;">Action Required - Client Awaiting Response</p>
+          </div>
+          
+          <div style="padding: 30px;">
+            <div style="background-color: #fef2f2; border-left: 4px solid #dc2626; padding: 15px; margin-bottom: 25px; border-radius: 4px;">
+              <p style="margin: 0; color: #991b1b; font-weight: bold;">
+                ⏰ Response Time: Within 24 hours
+              </p>
+            </div>
+            
+            <h2 style="color: #333; margin-top: 0; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Contact Information
+            </h2>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+              <tr>
+                <td style="padding: 8px 0; color: #666; width: 150px;"><strong>Name:</strong></td>
+                <td style="padding: 8px 0; color: #333; font-size: 16px;">${data.clientName}</td>
+              </tr>
+              ${data.company ? `
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Company:</strong></td>
+                <td style="padding: 8px 0; color: #333;">${data.company}</td>
+              </tr>
+              ` : ''}
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Email:</strong></td>
+                <td style="padding: 8px 0;">
+                  <a href="mailto:${data.clientEmail}" style="color: #facc15; text-decoration: none; font-weight: bold;">
+                    ${data.clientEmail}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Phone:</strong></td>
+                <td style="padding: 8px 0;">
+                  <a href="tel:${data.clientPhone}" style="color: #facc15; text-decoration: none;">
+                    ${data.clientPhone}
+                  </a>
+                </td>
+              </tr>
+            </table>
+            
+            <h2 style="color: #333; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Message
+            </h2>
+            <div style="background-color: #fffbeb; border-left: 4px solid #facc15; padding: 15px; margin: 15px 0; border-radius: 4px;">
+              <p style="color: #333; line-height: 1.6; margin: 0; white-space: pre-wrap;">
+                ${data.message}
+              </p>
+            </div>
+            
+            <div style="background-color: #f0fdf4; border: 2px solid #22c55e; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center;">
+              <h3 style="color: #166534; margin-top: 0;">⚡ Quick Actions</h3>
+              <div style="margin: 15px 0;">
+                <a href="mailto:${data.clientEmail}?subject=Re: Your Inquiry" 
+                   style="display: inline-block; background-color: #22c55e; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 5px;">
+                  📧 Reply to Client
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div style="background-color: #1a1a1a; padding: 20px; text-align: center;">
+            <p style="font-size: 12px; color: #999; margin: 5px 0;">
+              ShowMax Events - Admin Notification System<br>
+              This email was sent to ${adminEmail}
+            </p>
+          </div>
+        </div>
+      `,
+    });
+
+    if (adminEmailResult.error) {
+      console.error("Failed to send admin notification:", adminEmailResult.error);
+      return { success: false, error: adminEmailResult.error };
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to send simple inquiry emails:", error);
+    return { success: false, error };
+  }
+}
+
+// Event Booking Email Interface
+interface EventBookingData {
+  clientName: string;
+  clientEmail: string;
+  clientPhone: string;
+  company?: string;
+  eventDate: string;
+  venueName: string;
+  setupDateTime?: string;
+  rehearsalDateTime?: string;
+  showDateTime?: string;
+  strikeDateTime?: string;
+  hasFloorPlan: "yes" | "no" | "not-sure";
+  floorPlanDescription?: string;
+  themeCreativeElements?: string;
+  specialFeatures?: string;
+  audioNeeds?: string;
+  lightingNeeds?: string;
+  videoNeeds?: string;
+  ledWallNeeds?: string;
+  camerasNeeds?: string;
+  stagingNeeds?: string;
+  draperyNeeds?: string;
+  powerNeeds?: string;
+  riggingNeeds?: string;
+  additionalItems?: string;
+  budgetRange?: string;
+  budgetNotes?: string;
+  needVenueReferral?: boolean;
+  needDecorReferral?: boolean;
+  needFurnitureReferral?: boolean;
+  needCateringReferral?: boolean;
+  needEventManagementReferral?: boolean;
+  needSecurityReferral?: boolean;
+}
+
+export async function sendEventBookingEmail(data: EventBookingData) {
+  const adminEmail = process.env.ADMIN_EMAIL || "info@showmaxevents.com";
+
+  try {
+    const resend = getResendClient();
+
+    // Format event date
+    const formattedEventDate = new Date(data.eventDate).toLocaleDateString('en-US', { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+
+    // Build referrals list
+    const referrals = [];
+    if (data.needVenueReferral) referrals.push("Venues");
+    if (data.needDecorReferral) referrals.push("Decor");
+    if (data.needFurnitureReferral) referrals.push("Furniture");
+    if (data.needCateringReferral) referrals.push("Catering");
+    if (data.needEventManagementReferral) referrals.push("Event Management");
+    if (data.needSecurityReferral) referrals.push("Security");
+
+    // Send confirmation to client
+    const clientEmailResult = await resend.emails.send({
+      from: "ShowMax Events <noreply@showmaxevents.com>",
+      to: [data.clientEmail],
+      subject: "Event Booking Request Received - ShowMax Events",
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; background-color: #fff;">
+          <div style="background: linear-gradient(135deg, #000 0%, #1a1a1a 100%); padding: 30px; text-align: center;">
+            <h1 style="color: #facc15; margin: 0; font-size: 28px;">ShowMax Events</h1>
+            <p style="color: #fff; margin: 10px 0 0 0; font-size: 14px;">Professional AV Equipment Rental</p>
+          </div>
+          
+          <div style="padding: 30px;">
+            <h2 style="color: #333; margin-top: 0;">Thank You for Your Event Booking Request!</h2>
+            <p style="color: #666; line-height: 1.6;">Hi ${data.clientName},</p>
+            <p style="color: #666; line-height: 1.6;">
+              We've received your detailed event booking request and our team is reviewing it now. 
+              We'll get back to you within 24 hours with detailed pricing and availability information.
+            </p>
+            
+            <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #facc15;">
+              <h3 style="margin-top: 0; color: #333;">Event Summary</h3>
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 8px 0; color: #666;"><strong>Event Date:</strong></td>
+                  <td style="padding: 8px 0; color: #333;">${formattedEventDate}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666;"><strong>Venue:</strong></td>
+                  <td style="padding: 8px 0; color: #333;">${data.venueName}</td>
+                </tr>
+              </table>
+            </div>
+            
+            <h3 style="color: #333;">What Happens Next?</h3>
+            <ol style="color: #666; line-height: 1.8;">
+              <li>Our team will review your event requirements</li>
+              <li>We'll confirm availability for your event date</li>
+              <li>You'll receive a detailed quote within 24 hours</li>
+              <li>Once approved, we'll coordinate delivery and setup</li>
+            </ol>
+            
+            <div style="text-align: center; margin: 30px 0;">
+              <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://showmaxevents.com'}/contact" 
+                 style="display: inline-block; background-color: #facc15; color: #000; padding: 14px 28px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                Contact Us
+              </a>
+            </div>
+            
+            <p style="color: #666; line-height: 1.6;">
+              If you have any questions in the meantime, feel free to reach out:
+            </p>
+            <p style="color: #666; margin: 5px 0;">
+              📧 <a href="mailto:contact@showmaxevents.com" style="color: #facc15;">contact@showmaxevents.com</a><br>
+              📞 <a href="tel:+16046394629" style="color: #facc15;">1.604.639.4629</a>
+            </p>
+            
+            <p style="color: #666; line-height: 1.6; margin-top: 30px;">
+              Best regards,<br>
+              <strong>The ShowMax Events Team</strong>
+            </p>
+          </div>
+          
+          <div style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #ddd;">
+            <p style="font-size: 12px; color: #999; margin: 5px 0;">
+              ShowMax Events - Professional AV Rental & Event Production<br>
+              Vancouver, BC | <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://showmaxevents.com'}" style="color: #facc15;">www.showmaxevents.com</a>
+            </p>
+          </div>
+        </div>
+      `,
+    });
+
+    if (clientEmailResult.error) {
+      console.error("Failed to send client confirmation:", clientEmailResult.error);
+    }
+
+    // Build technical requirements section
+    const technicalRequirements = [];
+    if (data.audioNeeds) technicalRequirements.push({ label: "Audio", value: data.audioNeeds });
+    if (data.lightingNeeds) technicalRequirements.push({ label: "Lighting", value: data.lightingNeeds });
+    if (data.videoNeeds) technicalRequirements.push({ label: "Video", value: data.videoNeeds });
+    if (data.ledWallNeeds) technicalRequirements.push({ label: "LED Wall", value: data.ledWallNeeds });
+    if (data.camerasNeeds) technicalRequirements.push({ label: "Cameras", value: data.camerasNeeds });
+    if (data.stagingNeeds) technicalRequirements.push({ label: "Staging", value: data.stagingNeeds });
+    if (data.draperyNeeds) technicalRequirements.push({ label: "Drapery", value: data.draperyNeeds });
+    if (data.powerNeeds) technicalRequirements.push({ label: "Power", value: data.powerNeeds });
+    if (data.riggingNeeds) technicalRequirements.push({ label: "Rigging", value: data.riggingNeeds });
+    if (data.additionalItems) technicalRequirements.push({ label: "Additional Items", value: data.additionalItems });
+
+    // Send detailed notification to admin
+    const adminEmailResult = await resend.emails.send({
+      from: "ShowMax Events <noreply@showmaxevents.com>",
+      to: [adminEmail],
+      replyTo: data.clientEmail,
+      subject: `🎯 New Event Booking Request: ${data.venueName} - ${data.clientName}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; background-color: #fff;">
+          <div style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); padding: 30px; text-align: center;">
+            <h1 style="color: #fff; margin: 0; font-size: 28px;">🎯 New Event Booking Request</h1>
+            <p style="color: #fef2f2; margin: 10px 0 0 0; font-size: 14px;">Action Required - Client Awaiting Response</p>
+          </div>
+          
+          <div style="padding: 30px;">
+            <div style="background-color: #fef2f2; border-left: 4px solid #dc2626; padding: 15px; margin-bottom: 25px; border-radius: 4px;">
+              <p style="margin: 0; color: #991b1b; font-weight: bold;">
+                ⏰ Response Time: Within 24 hours
+              </p>
+            </div>
+            
+            <h2 style="color: #333; margin-top: 0; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Contact Information
+            </h2>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+              <tr>
+                <td style="padding: 8px 0; color: #666; width: 150px;"><strong>Name:</strong></td>
+                <td style="padding: 8px 0; color: #333; font-size: 16px;">${data.clientName}</td>
+              </tr>
+              ${data.company ? `
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Company:</strong></td>
+                <td style="padding: 8px 0; color: #333;">${data.company}</td>
+              </tr>
+              ` : ''}
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Email:</strong></td>
+                <td style="padding: 8px 0;">
+                  <a href="mailto:${data.clientEmail}" style="color: #facc15; text-decoration: none; font-weight: bold;">
+                    ${data.clientEmail}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Phone:</strong></td>
+                <td style="padding: 8px 0;">
+                  <a href="tel:${data.clientPhone}" style="color: #facc15; text-decoration: none;">
+                    ${data.clientPhone}
+                  </a>
+                </td>
+              </tr>
+            </table>
+            
+            <h2 style="color: #333; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Event Details
+            </h2>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; background-color: #f9f9f9; padding: 15px; border-radius: 5px;">
+              <tr>
+                <td style="padding: 8px 0; color: #666; width: 150px;"><strong>Event Date:</strong></td>
+                <td style="padding: 8px 0; color: #dc2626; font-weight: bold; font-size: 16px;">${formattedEventDate}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Venue:</strong></td>
+                <td style="padding: 8px 0; color: #333; font-weight: bold;">${data.venueName}</td>
+              </tr>
+              ${data.setupDateTime ? `
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Setup:</strong></td>
+                <td style="padding: 8px 0; color: #333;">${data.setupDateTime}</td>
+              </tr>
+              ` : ''}
+              ${data.rehearsalDateTime ? `
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Rehearsal:</strong></td>
+                <td style="padding: 8px 0; color: #333;">${data.rehearsalDateTime}</td>
+              </tr>
+              ` : ''}
+              ${data.showDateTime ? `
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Show:</strong></td>
+                <td style="padding: 8px 0; color: #333;">${data.showDateTime}</td>
+              </tr>
+              ` : ''}
+              ${data.strikeDateTime ? `
+              <tr>
+                <td style="padding: 8px 0; color: #666;"><strong>Strike:</strong></td>
+                <td style="padding: 8px 0; color: #333;">${data.strikeDateTime}</td>
+              </tr>
+              ` : ''}
+            </table>
+            
+            ${data.hasFloorPlan !== "not-sure" || data.floorPlanDescription ? `
+            <h2 style="color: #333; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Floor Plan
+            </h2>
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 25px;">
+              <p style="margin: 0; color: #666;"><strong>Has Floor Plan:</strong> ${data.hasFloorPlan === "yes" ? "Yes" : data.hasFloorPlan === "no" ? "No" : "Not Sure"}</p>
+              ${data.floorPlanDescription ? `
+              <p style="margin: 10px 0 0 0; color: #333; white-space: pre-wrap;">${data.floorPlanDescription}</p>
+              ` : ''}
+            </div>
+            ` : ''}
+            
+            ${data.themeCreativeElements || data.specialFeatures ? `
+            <h2 style="color: #333; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Show Design
+            </h2>
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 25px;">
+              ${data.themeCreativeElements ? `
+              <p style="margin: 0 0 10px 0; color: #666;"><strong>Theme / Creative Elements:</strong></p>
+              <p style="margin: 0 0 15px 0; color: #333; white-space: pre-wrap;">${data.themeCreativeElements}</p>
+              ` : ''}
+              ${data.specialFeatures ? `
+              <p style="margin: 0 0 10px 0; color: #666;"><strong>Special Features:</strong></p>
+              <p style="margin: 0; color: #333; white-space: pre-wrap;">${data.specialFeatures}</p>
+              ` : ''}
+            </div>
+            ` : ''}
+            
+            ${technicalRequirements.length > 0 ? `
+            <h2 style="color: #333; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Technical Requirements
+            </h2>
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 25px;">
+              ${technicalRequirements.map(req => `
+              <p style="margin: 0 0 10px 0; color: #666;"><strong>${req.label}:</strong></p>
+              <p style="margin: 0 0 15px 0; color: #333; white-space: pre-wrap;">${req.value}</p>
+              `).join('')}
+            </div>
+            ` : ''}
+            
+            ${data.budgetRange || data.budgetNotes ? `
+            <h2 style="color: #333; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Budget
+            </h2>
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 25px;">
+              ${data.budgetRange ? `
+              <p style="margin: 0 0 10px 0; color: #666;"><strong>Budget Range:</strong> ${data.budgetRange}</p>
+              ` : ''}
+              ${data.budgetNotes ? `
+              <p style="margin: 10px 0 0 0; color: #666;"><strong>Budget Notes:</strong></p>
+              <p style="margin: 0; color: #333; white-space: pre-wrap;">${data.budgetNotes}</p>
+              ` : ''}
+            </div>
+            ` : ''}
+            
+            ${referrals.length > 0 ? `
+            <h2 style="color: #333; border-bottom: 2px solid #facc15; padding-bottom: 10px;">
+              Referrals Needed
+            </h2>
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 25px;">
+              <p style="margin: 0; color: #333;">${referrals.join(", ")}</p>
+            </div>
+            ` : ''}
+            
+            <div style="background-color: #f0fdf4; border: 2px solid #22c55e; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center;">
+              <h3 style="color: #166534; margin-top: 0;">⚡ Quick Actions</h3>
+              <div style="margin: 15px 0;">
+                <a href="mailto:${data.clientEmail}?subject=Re: Event Booking Request - ${data.venueName}" 
+                   style="display: inline-block; background-color: #22c55e; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 5px;">
+                  📧 Reply to Client
+                </a>
+              </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">
+              <p style="color: #666; font-size: 12px; margin: 5px 0;">
+                <strong>Submitted:</strong> ${new Date().toLocaleString()}
+              </p>
+            </div>
+          </div>
+          
+          <div style="background-color: #1a1a1a; padding: 20px; text-align: center;">
+            <p style="font-size: 12px; color: #999; margin: 5px 0;">
+              ShowMax Events - Admin Notification System<br>
+              This email was sent to ${adminEmail}
+            </p>
+          </div>
+        </div>
+      `,
+    });
+
+    if (adminEmailResult.error) {
+      console.error("Failed to send admin notification:", adminEmailResult.error);
+      return { success: false, error: adminEmailResult.error };
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to send event booking emails:", error);
+    return { success: false, error };
+  }
+}
+

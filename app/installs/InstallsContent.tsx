@@ -140,12 +140,59 @@ export default function InstallsContent() {
   ];
 
   const installations = [
-    "Stanley Theatre – Audio",
-    "Coastal Church (Downtown & Commercial Dr.) – Audio, LED, Lighting",
-    "Aurum Event Centre – Audio, Lighting, Rigging, Power",
-    "Midtown Church – Audio, Lighting, Video",
-    "Rocky Mountaineer Station – Full Venue AV Integration",
-    "Harbour Event Centre & Harbour Convention Centre – Full Venue AV Systems"
+    {
+      name: "Stanley Theatre",
+      description: "Audio",
+      links: [
+        { url: "https://artsclub.com/shows/", label: "Stanley Theatre" }
+      ]
+    },
+    {
+      name: "Coastal Church Downtown",
+      description: "Audio, LED wall, lighting",
+      links: [
+        { url: "https://coastalchurch.org/downtown/", label: "Coastal Church Downtown" }
+      ]
+    },
+    {
+      name: "Coastal Church Commercial Drive",
+      description: "Audio, LED wall, lighting",
+      links: [
+        { url: "https://coastalchurch.org/commercial/", label: "Coastal Church Commercial Drive" }
+      ]
+    },
+    {
+      name: "Aurum Event Centre",
+      description: "Audio, lighting, rigging, power",
+      note: "formerly Enso",
+      links: [
+        { url: "https://aurumeventcentre.weebly.com/sales-deck.html", label: "Aurum Event Centre" }
+      ]
+    },
+    {
+      name: "Midtown Church",
+      description: "Audio, lighting, video",
+      links: [
+        { url: "https://midtownchurch.com/", label: "Midtown Church" }
+      ]
+    },
+    {
+      name: "Rocky Mountaineer Station",
+      description: "Audio, lighting, video, LED wall, rigging, power",
+      links: [
+        { url: "https://bceventmanagement.com/rocky-mountaineer-vancouver-station/", label: "Rocky Mountaineer Vancouver Station" }
+      ]
+    },
+    {
+      name: "Harbour Event Centre",
+      description: "Audio, lighting, video, LED wall, rigging, power",
+      links: []
+    },
+    {
+      name: "Harbour Convention Centre",
+      description: "Audio, lighting, video, LED wall, rigging, power",
+      links: []
+    }
   ];
 
   return (
@@ -333,11 +380,47 @@ export default function InstallsContent() {
                     A selection of recent installations:
                   </p>
                   
-                  <ul className="mt-6 space-y-3 text-base text-gray-100 md:text-lg">
-                    {installations.map((installation) => (
-                      <li key={installation} className="flex items-start gap-3">
-                        <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15]" aria-hidden />
-                        <span>{installation}</span>
+                  <ul className="mt-6 space-y-4 text-base text-gray-100 md:text-lg">
+                    {installations.map((installation, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-[#FACC15] flex-shrink-0" aria-hidden />
+                        <div className="flex-1">
+                          <div className="flex flex-wrap items-baseline gap-2">
+                            {installation.links.length === 1 ? (
+                              <Link
+                                href={installation.links[0].url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-semibold text-[#FACC15] hover:text-[#FACC15]/80 underline decoration-[#FACC15]/50 hover:decoration-[#FACC15] transition-colors duration-200"
+                              >
+                                {installation.name}
+                              </Link>
+                            ) : installation.links.length === 0 ? (
+                              <span className="font-semibold text-white">{installation.name}</span>
+                            ) : (
+                              <span className="font-semibold text-white">{installation.name}</span>
+                            )}
+                            {installation.note && (
+                              <span className="text-gray-400 text-sm italic">({installation.note})</span>
+                            )}
+                            <span className="text-gray-300">– {installation.description}</span>
+                          </div>
+                          {installation.links.length > 1 && (
+                            <div className="mt-2 flex flex-wrap gap-3">
+                              {installation.links.map((link, linkIndex) => (
+                                <Link
+                                  key={linkIndex}
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-sm text-[#FACC15] hover:text-[#FACC15]/80 underline decoration-[#FACC15]/50 hover:decoration-[#FACC15] transition-colors duration-200"
+                                >
+                                  {link.label}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </li>
                     ))}
                   </ul>
